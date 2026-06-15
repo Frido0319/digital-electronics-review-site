@@ -22,6 +22,7 @@ class KnowledgePoint:
     summary: str
     must_know: str
     intuition: str
+    prerequisites: list[str]
     formulas: list[str]
     source_pages: list[SourcePage]
     related_questions: list[str]

@@ -39,6 +39,7 @@ def _source_pages_html(source_pages: list[dict]) -> str:
 
 def _knowledge_card(point: dict) -> str:
     formulas = "".join(f"<li>{_esc(item)}</li>" for item in point["formulas"]) or "<li>本知识点无固定公式。</li>"
+    prerequisites = "".join(f"<li>{_esc(item)}</li>" for item in point.get("prerequisites", [])) or "<li>无额外前置知识。</li>"
     pitfalls = "".join(f"<li>{_esc(item)}</li>" for item in point["pitfalls"])
     related = " ".join(f'<a href="#question-{_esc(qid)}">{_esc(qid)}</a>' for qid in point["related_questions"])
     return f"""
@@ -51,6 +52,7 @@ def _knowledge_card(point: dict) -> str:
       <div class="card-grid">
         <section><h4>必须掌握</h4><p>{_esc(point["must_know"])}</p></section>
         <section><h4>从零理解</h4><p>{_esc(point["intuition"])}</p></section>
+        <section><h4>前置知识</h4><ul>{prerequisites}</ul></section>
         <section><h4>公式/规则</h4><ul class="formula-list">{formulas}</ul></section>
         <section><h4>关联作业</h4><p class="link-row">{related}</p></section>
       </div>

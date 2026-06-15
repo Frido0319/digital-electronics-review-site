@@ -12,6 +12,8 @@ def test_render_site_creates_password_gate_and_indexes():
     assert 'id="course-app"' in html
     assert "章节知识主线" in html
     assert "作业题号索引" in html
+    assert "前置知识" in html
+    assert "正弦交流电有效值与峰值" in html
     assert "5.1.8" in html
     assert "单相桥式整流" in html
     assert "三相桥式整流" not in html

@@ -42,6 +42,7 @@ def test_knowledge_point_serializes_related_questions():
         summary="把交流电变成脉动直流。",
         must_know="会计算输出平均电压、电流和二极管反向峰值。",
         intuition="桥式电路让负半周也以同一方向流过负载。",
+        prerequisites=["二极管单向导电性", "正弦交流电有效值与峰值"],
         formulas=["UO = 0.9U2", "IO = UO / RL"],
         source_pages=[SourcePage(file="第5章-直流稳压电源.pdf", page=9, image_path="assets/course_pages/ch5_p009.png")],
         related_questions=["5.1.8"],
@@ -51,4 +52,5 @@ def test_knowledge_point_serializes_related_questions():
     data = to_jsonable(point)
 
     assert data["id"] == "rectifier_bridge"
+    assert data["prerequisites"] == ["二极管单向导电性", "正弦交流电有效值与峰值"]
     assert data["related_questions"] == ["5.1.8"]
