@@ -57,3 +57,17 @@ def test_seed_data_excludes_blackboard_sections_from_knowledge_titles():
     assert "三相桥式整流" not in titles
     assert "场效应晶体管放大电路" not in titles
     assert "频率特性" not in titles
+
+
+def test_validator_reports_missing_placeholder_assets():
+    from src.render_html import render_site
+    from src.seed_content import seed_content
+    from src.validate_site import validate_site
+
+    seed_content()
+    render_site()
+    report = validate_site(strict_assets=False)
+
+    assert report["question_count"] >= 5
+    assert report["knowledge_count"] >= 8
+    assert report["missing_assets"]
