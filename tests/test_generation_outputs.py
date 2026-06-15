@@ -46,6 +46,17 @@ def test_seed_data_contains_chapter_first_structure():
     assert {"5.1.8", "7.5.14"} <= question_ids
 
 
+def test_seed_data_includes_homework_ids_visible_only_in_extracted_images():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    questions = json.loads(config.QUESTION_BANK_JSON.read_text(encoding="utf-8"))
+    question_ids = {question["id"] for question in questions["questions"]}
+
+    assert {"2.2.5", "2.3.4", "2.3.5", "3.2.21"} <= question_ids
+
+
 def test_seed_data_excludes_blackboard_sections_from_knowledge_titles():
     import json
     from src.seed_content import seed_content

@@ -165,6 +165,109 @@
       "answer_source": "待核对"
     },
     {
+      "id": "2.2.5",
+      "chapter": "2",
+      "title": "固定偏置共射放大电路静态分析",
+      "prompt": "图 2.01 固定偏置晶体管放大电路中，已知 UCC、RC、RB 和 β，估算静态值；再结合输出特性曲线用图解法求静态工作点，并求静态时 C1、C2 上的电压和极性。",
+      "image_paths": [
+        "assets/homework_images/2,基本放大电路作业_image1.png"
+      ],
+      "knowledge_ids": [
+        "bjt_static_operating_point"
+      ],
+      "source_pages": [
+        {
+          "file": "第2章 基本放大电路/第2章-基本放大电路5.pdf",
+          "page": 23,
+          "image_path": "assets/course_pages/ch2_p023.png"
+        }
+      ],
+      "subquestions": [
+        {
+          "id": "2.2.5",
+          "prompt": "完成本题。",
+          "answer": "待接入官方答案或进一步推导。",
+          "solution_steps": [
+            "先画直流通路，耦合电容视为开路。",
+            "由 RB 和 UCC 估算 IB，再用 βIB 估算 IC。",
+            "用 UCE=UCC-ICRC 求管压降。",
+            "在输出特性曲线上叠加载直线校核静态工作点。",
+            "静态时电容两端电压由两侧直流电位差决定。"
+          ]
+        }
+      ],
+      "answer_source": "待核对"
+    },
+    {
+      "id": "2.3.4",
+      "chapter": "2",
+      "title": "固定偏置放大电路电压放大倍数",
+      "prompt": "利用微变等效电路计算题 2.2.5 放大电路的电压放大倍数 Au，分别讨论输出端开路和接入 RL=6kΩ、rbe=0.8kΩ 时的情况。",
+      "image_paths": [
+        "assets/homework_images/2,基本放大电路作业_image1.png",
+        "assets/homework_images/2,基本放大电路作业_image2.png"
+      ],
+      "knowledge_ids": [
+        "bjt_small_signal_model"
+      ],
+      "source_pages": [
+        {
+          "file": "第2章 基本放大电路/第2章-基本放大电路6.pdf",
+          "page": 4,
+          "image_path": "assets/course_pages/ch2_p004.png"
+        }
+      ],
+      "subquestions": [
+        {
+          "id": "2.3.4",
+          "prompt": "完成本题。",
+          "answer": "待接入官方答案或进一步推导。",
+          "solution_steps": [
+            "把三极管替换为 rbe 与 βib 微变模型。",
+            "输出端开路时负载为 RC。",
+            "接入 RL 后使用 RC // RL。",
+            "共射极电路输出反相，注意 Au 的符号。"
+          ]
+        }
+      ],
+      "answer_source": "待核对"
+    },
+    {
+      "id": "2.3.5",
+      "chapter": "2",
+      "title": "共射放大电路输入输出电压与负载影响",
+      "prompt": "图 2.01(a) 电路中已知 UCC、RC、rbe 和 β；根据测得静态值判断管子工作状态，计算输出端开路时的电压放大倍数，并在 ui 有效值为 1mV 时求空载和 RL=6kΩ 时的输出电压。",
+      "image_paths": [
+        "assets/homework_images/2,基本放大电路作业_image1.png",
+        "assets/homework_images/2,基本放大电路作业_image2.png"
+      ],
+      "knowledge_ids": [
+        "bjt_static_operating_point",
+        "bjt_small_signal_model"
+      ],
+      "source_pages": [
+        {
+          "file": "第2章 基本放大电路/第2章-基本放大电路6.pdf",
+          "page": 4,
+          "image_path": "assets/course_pages/ch2_p004.png"
+        }
+      ],
+      "subquestions": [
+        {
+          "id": "2.3.5",
+          "prompt": "完成本题。",
+          "answer": "待接入官方答案或进一步推导。",
+          "solution_steps": [
+            "先由 UCE 和输出特性判断是否位于放大区。",
+            "空载时用 RC 计算电压放大倍数。",
+            "有负载时把 RC 换为 RC // RL。",
+            "输出电压有效值等于输入有效值乘以放大倍数的绝对值。"
+          ]
+        }
+      ],
+      "answer_source": "待核对"
+    },
+    {
       "id": "2.4.5",
       "chapter": "2",
       "title": "分压式偏置放大电路综合计算",
@@ -530,6 +633,39 @@
             "识别两级运放结构。",
             "用虚短虚断分别求两级输出。",
             "把差模输入代入最终表达式。"
+          ]
+        }
+      ],
+      "answer_source": "待核对"
+    },
+    {
+      "id": "3.2.21",
+      "chapter": "3",
+      "title": "积分运算电路输出关系",
+      "prompt": "图 3.19 积分运算电路中，试求 uo 与 uI1、uI2 的关系式。",
+      "image_paths": [
+        "assets/homework_images/3, 运算放大电路作业_image7.png"
+      ],
+      "knowledge_ids": [
+        "ideal_op_amp_rules"
+      ],
+      "source_pages": [
+        {
+          "file": "第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf",
+          "page": 7,
+          "image_path": "assets/course_pages/ch3_p007.png"
+        }
+      ],
+      "subquestions": [
+        {
+          "id": "3.2.21",
+          "prompt": "完成本题。",
+          "answer": "待接入官方答案或进一步推导。",
+          "solution_steps": [
+            "使用虚短虚断确定输入端电位。",
+            "对求和节点列 KCL。",
+            "电容支路电流与输出电压导数相关。",
+            "整理得到输出对输入信号积分的表达式。"
           ]
         }
       ],
