@@ -71,9 +71,49 @@ def test_render_site_includes_expanded_lecture_gallery():
     assert "原讲义 PDF 截图库" in html
     assert 'id="lecture-gallery"' in html
     assert 'class="lecture-page"' in html
-    assert html.count('class="lecture-page"') >= 70
+    assert html.count('class="lecture-page"') >= 550
     assert "第2章-基本放大电路7.pdf" in html
     assert "第7章 门电路和组合逻辑电路4.pdf" in html
+
+
+def test_render_site_marks_key_gallery_pages_with_red_border_and_modal():
+    seed_content()
+    render_site()
+    html = config.INDEX_HTML.read_text(encoding="utf-8")
+
+    assert 'class="lecture-page is-key-page"' in html
+    assert "题目重点页" in html
+    assert ".lecture-page.is-key-page button" in html
+    assert "#dc2626" in html
+    gallery_html = html.split('id="lecture-gallery"', 1)[1].split('id="answer-status"', 1)[0]
+    assert gallery_html.count('<figure class="lecture-page') == gallery_html.count("data-modal-src=")
+
+
+def test_render_site_uses_safe_modal_button_attributes():
+    from html.parser import HTMLParser
+
+    class ButtonParser(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.modal_buttons = []
+
+        def handle_starttag(self, tag, attrs):
+            if tag != "button":
+                return
+            attrs_dict = dict(attrs)
+            onclick = attrs_dict.get("onclick", "")
+            if "openImageModal" in onclick:
+                self.modal_buttons.append(attrs_dict)
+
+    seed_content()
+    render_site()
+    parser = ButtonParser()
+    parser.feed(config.INDEX_HTML.read_text(encoding="utf-8"))
+
+    assert parser.modal_buttons
+    assert all(button["onclick"] == "openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" for button in parser.modal_buttons)
+    assert all(button.get("data-modal-src", "").startswith("assets/") for button in parser.modal_buttons)
+    assert all(button.get("data-modal-caption") for button in parser.modal_buttons)
 
 
 def test_render_site_writes_shareable_outline():

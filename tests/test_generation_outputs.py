@@ -117,26 +117,90 @@ def test_source_page_manifest_includes_expanded_lecture_gallery():
     assert all(path.startswith("assets/course_pages/") for path in gallery_paths)
 
 
-def test_lecture_gallery_omits_blackboard_excluded_topics():
+def _source_key(path):
+    return str(path.relative_to(config.SOURCE_ROOT)).replace("\\", "/")
+
+
+def _expected_gallery_excluded_pages():
+    excluded = {}
+    for files in config.SOURCE_FILES.values():
+        for path in files:
+            if path.suffix.lower() != ".pdf":
+                continue
+            key = _source_key(path)
+            excluded[key] = set()
+            if key.endswith("第2章-基本放大电路9.pdf"):
+                excluded[key].update(range(1, 25))
+            if key.endswith("第2章-基本放大电路10.pdf"):
+                excluded[key].update(range(21, 26))
+            if key == "第5章-直流稳压电源.pdf":
+                excluded[key].update(range(18, 23))
+                excluded[key].update(range(33, 35))
+                excluded[key].update(range(59, 63))
+            if key.endswith("第7章 门电路和组合逻辑电路5.pdf"):
+                excluded[key].update(range(61, 68))
+    return excluded
+
+
+def test_lecture_gallery_covers_every_non_excluded_pdf_page():
     import fitz
     import json
     from src.seed_content import seed_content
 
     seed_content()
     manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
-    text_chunks = []
+    excluded = _expected_gallery_excluded_pages()
+    gallery_pages = {
+        source["file"]: {page["page"] for page in source["pages"]}
+        for source in manifest["lecture_gallery"]
+    }
+    expected_total = 0
     for source in manifest["lecture_gallery"]:
-        source_path = config.SOURCE_ROOT / source["file"]
-        doc = fitz.open(str(source_path))
-        for page in source["pages"]:
-            text_chunks.append(doc[page["page"] - 1].get_text("text"))
-        doc.close()
-    gallery_text = "\n".join(text_chunks)
+        assert not (gallery_pages[source["file"]] & excluded[source["file"]])
 
-    assert "场效应晶体管放大电路" not in gallery_text
-    assert "频率特性" not in gallery_text
-    assert "三相桥式整流" not in gallery_text
-    assert "电感电容滤波器" not in gallery_text
+    for files in config.SOURCE_FILES.values():
+        for path in files:
+            if path.suffix.lower() != ".pdf":
+                continue
+            key = _source_key(path)
+            doc = fitz.open(str(path))
+            expected_pages = set(range(1, doc.page_count + 1)) - excluded[key]
+            doc.close()
+            expected_total += len(expected_pages)
+            assert gallery_pages.get(key, set()) == expected_pages
+
+    actual_total = sum(len(source["pages"]) for source in manifest["lecture_gallery"])
+    assert actual_total == expected_total
+    assert actual_total >= 550
+
+
+def test_lecture_gallery_marks_homework_and_knowledge_source_pages_as_key_pages():
+    import json
+    from src.seed_content import build_knowledge_points, build_questions, seed_content
+
+    seed_content()
+    manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
+    excluded = _expected_gallery_excluded_pages()
+    gallery_lookup = {
+        (source["file"], page["page"]): page
+        for source in manifest["lecture_gallery"]
+        for page in source["pages"]
+    }
+    expected_key_pages = {
+        (page.file, page.page)
+        for point in build_knowledge_points()
+        for page in point.source_pages
+        if page.file in excluded and page.page not in excluded[page.file]
+    } | {
+        (page.file, page.page)
+        for question in build_questions()
+        for page in question.source_pages
+        if page.file in excluded and page.page not in excluded[page.file]
+    }
+
+    assert expected_key_pages
+    assert expected_key_pages <= set(gallery_lookup)
+    assert all(gallery_lookup[key].get("is_key_page") is True for key in expected_key_pages)
 
 
 def test_generated_html_references_existing_images():

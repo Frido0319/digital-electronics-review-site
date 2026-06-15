@@ -3,6 +3,8 @@ from __future__ import annotations
 import json
 import re
 
+import fitz
+
 from . import config
 from .models import KnowledgePoint, Question, SourcePage, SubQuestion, to_jsonable
 
@@ -45,33 +47,60 @@ def _source_file_key(path) -> str:
     return str(path.relative_to(config.SOURCE_ROOT)).replace("\\", "/")
 
 
-LECTURE_GALLERY_PAGES: dict[str, list[int]] = {
-    "第1章 半导体器件讲义/第1章-半导体器件1.pdf": [17, 19, 21, 23, 25, 27, 29, 31, 33],
-    "第1章 半导体器件讲义/第1章-半导体器件2.pdf": [1, 5, 9, 11, 13, 15, 17, 19, 21, 23],
-    "第1章 半导体器件讲义/第1章-半导体器件34-.pdf": [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33],
-    "第2章 基本放大电路/第2章-基本放大电路5.pdf": [1, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27],
-    "第2章 基本放大电路/第2章-基本放大电路6.pdf": [4, 6, 8, 10, 12, 14, 16, 18, 20],
-    "第2章 基本放大电路/第2章-基本放大电路7.pdf": [3, 5, 7, 9, 11, 13, 15, 17, 19],
-    "第2章 基本放大电路/第2章-基本放大电路8.pdf": [1, 5, 9, 13, 17, 19],
-    "第2章 基本放大电路/第2章-基本放大电路10.pdf": [1, 3, 5, 7, 9, 11, 13, 15, 17],
-    "第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf": [1, 5, 9, 11, 15, 18, 20, 22, 24, 26, 30],
-    "第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf": [1, 2, 4, 7, 9, 12, 14, 16, 20, 24, 28],
-    "第5章-直流稳压电源.pdf": [1, 5, 7, 9, 11, 13, 15, 17, 19, 25, 27, 29],
-    "第7章 门电路和组合逻辑电路/第7章-门电路和组合逻辑电路1.pdf": [1, 5, 9, 13, 16, 21, 25, 29],
-    "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路2.pdf": [1, 5, 9, 13, 17, 21, 25],
-    "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf": [1, 2, 7, 11, 15, 19, 23],
-    "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf": [1, 5, 9, 12, 16, 20, 24, 28, 32],
+EXCLUDED_LECTURE_GALLERY_RANGES: dict[str, list[tuple[int, int]]] = {
+    "第2章 基本放大电路/第2章-基本放大电路9.pdf": [(1, 24)],  # 2.6 场效应晶体管放大电路
+    "第2章 基本放大电路/第2章-基本放大电路10.pdf": [(21, 25)],  # 2.8 放大电路的频率特性
+    "第5章-直流稳压电源.pdf": [
+        (18, 22),  # 5.1.3 三相桥式整流电路
+        (33, 34),  # 5.2.2 电感电容滤波器；5.2.3 π形滤波器
+        (59, 62),  # 5.3.4 开关型稳压电源
+    ],
+    "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路5.pdf": [(61, 67)],  # 7.12 应用举例
 }
 
 
-def build_lecture_gallery() -> list[dict]:
+def lecture_gallery_excluded_pages(file_key: str) -> set[int]:
+    excluded: set[int] = set()
+    for start, end in EXCLUDED_LECTURE_GALLERY_RANGES.get(file_key, []):
+        excluded.update(range(start, end + 1))
+    return excluded
+
+
+def build_key_source_page_lookup(
+    knowledge_points: list[KnowledgePoint] | None = None,
+    questions: list[Question] | None = None,
+) -> set[tuple[str, int]]:
+    if knowledge_points is None:
+        knowledge_points = build_knowledge_points()
+    if questions is None:
+        questions = build_questions()
+    return {
+        (page.file.replace("\\", "/"), page.page)
+        for point in knowledge_points
+        for page in point.source_pages
+    } | {
+        (page.file.replace("\\", "/"), page.page)
+        for question in questions
+        for page in question.source_pages
+    }
+
+
+def build_lecture_gallery(
+    knowledge_points: list[KnowledgePoint] | None = None,
+    questions: list[Question] | None = None,
+) -> list[dict]:
     gallery = []
+    key_source_pages = build_key_source_page_lookup(knowledge_points, questions)
     for files in config.SOURCE_FILES.values():
         for path in files:
-            file_key = _source_file_key(path)
-            pages = LECTURE_GALLERY_PAGES.get(file_key)
-            if not pages:
+            if path.suffix.lower() != ".pdf":
                 continue
+            file_key = _source_file_key(path)
+            doc = fitz.open(str(path))
+            page_count = doc.page_count
+            doc.close()
+            excluded_pages = lecture_gallery_excluded_pages(file_key)
+            pages = [page for page in range(1, page_count + 1) if page not in excluded_pages]
             chapter = path.name.split("章", 1)[0].replace("第", "")
             gallery.append(
                 {
@@ -82,6 +111,7 @@ def build_lecture_gallery() -> list[dict]:
                         {
                             "page": page,
                             "image_path": _gallery_image_name(file_key, page),
+                            "is_key_page": (file_key, page) in key_source_pages,
                         }
                         for page in pages
                     ],
@@ -514,7 +544,7 @@ def seed_content() -> None:
 
     knowledge_points = build_knowledge_points()
     questions = build_questions()
-    lecture_gallery = build_lecture_gallery()
+    lecture_gallery = build_lecture_gallery(knowledge_points, questions)
     manifest = {
         "course_pages": sorted(
             {page.image_path for point in knowledge_points for page in point.source_pages}
@@ -548,9 +578,11 @@ def render_required_source_pages() -> None:
         for files in config.SOURCE_FILES.values()
         for path in files
     }
-    required_pages = [page for point in build_knowledge_points() for page in point.source_pages]
-    required_pages.extend(page for question in build_questions() for page in question.source_pages)
-    for source in build_lecture_gallery():
+    knowledge_points = build_knowledge_points()
+    questions = build_questions()
+    required_pages = [page for point in knowledge_points for page in point.source_pages]
+    required_pages.extend(page for question in questions for page in question.source_pages)
+    for source in build_lecture_gallery(knowledge_points, questions):
         required_pages.extend(_source(source["file"], page["page"], page["image_path"]) for page in source["pages"])
     rendered: set[str] = set()
     for page in required_pages:

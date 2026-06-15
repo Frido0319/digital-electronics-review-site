@@ -20,6 +20,15 @@ def _js(value: str) -> str:
     return json.dumps(value or "", ensure_ascii=False)
 
 
+def _modal_button_attrs(image: str, caption: str) -> str:
+    return (
+        'type="button" '
+        'onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" '
+        f'data-modal-src="{_esc(image)}" '
+        f'data-modal-caption="{_esc(caption)}"'
+    )
+
+
 def _formula_label(point: dict, formula: str) -> str:
     special_labels = {
         "rectifier_bridge": "桥式整流",
@@ -40,7 +49,7 @@ def _source_pages_html(source_pages: list[dict]) -> str:
         label = f'{page["file"]} p.{page["page"]}'
         parts.append(
             '<figure class="source-page">'
-            f'<button type="button" onclick="openImageModal({_js(image)}, {_js(label)})">'
+            f'<button {_modal_button_attrs(image, label)}>'
             f'<img src="{_esc(image)}" alt="{_esc(label)}" loading="lazy" decoding="async" '
             "onerror=\"this.closest('figure').classList.add('image-missing')\">"
             f"</button><figcaption>{_esc(label)}</figcaption></figure>"
@@ -79,7 +88,7 @@ def _knowledge_card(point: dict) -> str:
 def _question_card(question: dict) -> str:
     images = "".join(
         '<figure class="homework-image">'
-        f'<button type="button" onclick="openImageModal({_js(path)}, {_js(question["id"] + " 原题图")})">'
+        f'<button {_modal_button_attrs(path, question["id"] + " 原题图")}>'
         f'<img src="{_esc(path)}" alt="{_esc(question["id"])} 原题图" loading="lazy" decoding="async" '
         "onerror=\"this.closest('figure').classList.add('image-missing')\">"
         f'</button><figcaption>{_esc(question["id"])} 原题图</figcaption></figure>'
@@ -176,12 +185,12 @@ def _lecture_gallery_html(gallery: list[dict]) -> str:
     for source in gallery:
         pages = "".join(
             f"""
-            <figure class="lecture-page">
-              <button type="button" onclick="openImageModal({_js(page["image_path"])}, {_js(source["title"] + " p." + str(page["page"]))})">
+            <figure class="lecture-page{' is-key-page' if page.get("is_key_page") else ''}">
+              <button {_modal_button_attrs(page["image_path"], source["title"] + " p." + str(page["page"]))}>
                 <img src="{_esc(page["image_path"])}" alt="{_esc(source["title"])} 第 {_esc(str(page["page"]))} 页截图" loading="lazy" decoding="async"
                   onerror="this.closest('figure').classList.add('image-missing')">
               </button>
-              <figcaption>{_esc(source["title"])} p.{_esc(str(page["page"]))}</figcaption>
+              <figcaption>{'<span class="key-page-badge">题目重点页</span> ' if page.get("is_key_page") else ''}{_esc(source["title"])} p.{_esc(str(page["page"]))}</figcaption>
             </figure>
             """
             for page in source["pages"]
@@ -306,6 +315,8 @@ def render_site() -> None:
     .lecture-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 320px)); gap:14px; align-items:start; margin-top:14px; }}
     .lecture-source {{ border-top:1px solid var(--line); padding-top:10px; margin-top:10px; }}
     .lecture-source summary {{ cursor:pointer; font-weight:650; }}
+    .lecture-page.is-key-page button {{ border:3px solid #dc2626; box-shadow:0 0 0 3px rgba(220,38,38,.13); }}
+    .key-page-badge {{ display:inline-flex; align-items:center; border:1px solid #dc2626; border-radius:999px; padding:1px 6px; margin-right:4px; color:#b91c1c; font-weight:700; background:#fff1f2; }}
     .quick-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; }}
     .quick-card {{ border:1px solid var(--line); border-radius:8px; padding:14px; background:#fbfcfd; }}
     .checklist li {{ margin-bottom:8px; }}
