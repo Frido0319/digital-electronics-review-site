@@ -214,6 +214,47 @@ def test_lecture_gallery_marks_homework_and_knowledge_source_pages_as_key_pages(
     assert all(gallery_lookup[key].get("is_key_page") is True for key in expected_key_pages)
 
 
+def test_lecture_gallery_expands_key_marking_beyond_single_source_pages():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
+    key_pages_by_source = {
+        source["file"]: [page for page in source["pages"] if page.get("is_key_page")]
+        for source in manifest["lecture_gallery"]
+    }
+    all_key_pages = [page for pages in key_pages_by_source.values() for page in pages]
+
+    assert len(all_key_pages) >= 55
+    assert any(page.get("key_reason") == "题目/知识点直接来源页" for page in all_key_pages)
+    assert any(page.get("key_reason") == "题目相关相邻讲解页" for page in all_key_pages)
+    assert sum(1 for page in key_pages_by_source["第5章-直流稳压电源.pdf"] if page.get("is_key_page")) >= 5
+
+
+def test_lecture_gallery_marks_focus_images_as_double_red_box_pages():
+    import json
+    from src.seed_content import seed_content, super_key_image_names
+
+    seed_content()
+    manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
+    gallery_lookup = {
+        (source["file"], page["page"]): page
+        for source in manifest["lecture_gallery"]
+        for page in source["pages"]
+    }
+    super_pages = [page for source in manifest["lecture_gallery"] for page in source["pages"] if page.get("is_super_key_page")]
+    target_file = "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路5.pdf"
+
+    assert set(super_key_image_names()) >= {"1.jpg", "2.jpg", "10.jpg", "9b3303554c659be093baf22ab61de8e0.jpg"}
+    assert len(super_pages) >= 200
+    assert gallery_lookup[(target_file, 114)]["is_super_key_page"] is True
+    assert "10.jpg" in gallery_lookup[(target_file, 114)]["super_key_reason"]
+    assert gallery_lookup[(target_file, 118)]["is_super_key_page"] is True
+    assert any("2.jpg" in page.get("super_key_reason", "") for page in super_pages if page["page"] in {1, 2, 3, 4, 9, 11})
+    assert all(page.get("is_key_page") is True for page in super_pages)
+
+
 def test_generated_html_references_existing_images():
     from html.parser import HTMLParser
 

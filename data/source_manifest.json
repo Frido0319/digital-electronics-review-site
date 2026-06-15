@@ -659,172 +659,274 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 27,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p027.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 28,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p028.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 29,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p029.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 30,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p030.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 31,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p031.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 32,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p032.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 33,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p033.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 34,
           "image_path": "assets/course_pages/gallery_1_1_1_pdf_p034.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         }
       ]
     },
@@ -836,127 +938,202 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p009.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9.jpg"
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p017.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg"
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg"
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_1_1_2_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     },
@@ -968,277 +1145,442 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p015.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 27,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p027.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 28,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p028.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 29,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p029.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 30,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p030.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 31,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p031.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：8.jpg、9.jpg"
         },
         {
           "page": 32,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p032.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 33,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p033.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 34,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p034.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 35,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p035.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 36,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p036.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 37,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p037.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 38,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p038.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 39,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p039.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 40,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p040.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 41,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p041.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 42,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p042.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 43,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p043.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 44,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p044.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 45,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p045.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 46,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p046.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 47,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p047.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 48,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p048.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 49,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p049.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 50,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p050.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 51,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p051.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 52,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p052.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 53,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p053.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 54,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p054.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 55,
           "image_path": "assets/course_pages/gallery_1_1_34_pdf_p055.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     },
@@ -1250,167 +1592,266 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p001.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg"
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 27,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p027.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 28,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p028.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 29,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p029.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 30,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p030.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 31,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p031.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 32,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p032.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 33,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p033.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 34,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p034.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 35,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p035.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 36,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p036.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 37,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p037.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 38,
           "image_path": "assets/course_pages/gallery_2_2_10_pdf_p038.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         }
       ]
     },
@@ -1422,152 +1863,242 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p023.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 27,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p027.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 28,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p028.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 29,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p029.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 30,
           "image_path": "assets/course_pages/gallery_2_2_5_pdf_p030.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     },
@@ -1579,132 +2110,210 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：5.jpg、7.jpg"
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p004.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_2_2_6_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     },
@@ -1716,97 +2325,154 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：7.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p005.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：7.jpg"
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_2_2_7_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     },
@@ -1818,97 +2484,154 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p001.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：7.jpg"
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：7.jpg"
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：7.jpg"
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_2_2_8_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     },
@@ -1926,157 +2649,250 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p011.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p018.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 27,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p027.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 28,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p028.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 29,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p029.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 30,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p030.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 31,
           "image_path": "assets/course_pages/gallery_3_3_11_pdf_p031.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     },
@@ -2088,202 +2904,322 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p002.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p007.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p020.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 27,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p027.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 28,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p028.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg"
         },
         {
           "page": 29,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p029.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 30,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p030.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         },
         {
           "page": 31,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p031.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 32,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p032.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 33,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p033.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 34,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p034.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 35,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p035.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 36,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p036.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 37,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p037.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 38,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p038.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 39,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p039.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 40,
           "image_path": "assets/course_pages/gallery_3_3_12_pdf_p040.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
         }
       ]
     },
@@ -2295,267 +3231,426 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_5_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_5_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_5_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_5_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_5_pdf_p005.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_5_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_5_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_5_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_5_pdf_p009.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_5_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_5_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_5_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_5_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_5_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_5_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_5_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_5_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_5_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_5_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_5_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_5_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 27,
           "image_path": "assets/course_pages/gallery_5_pdf_p027.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 28,
           "image_path": "assets/course_pages/gallery_5_pdf_p028.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 29,
           "image_path": "assets/course_pages/gallery_5_pdf_p029.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 30,
           "image_path": "assets/course_pages/gallery_5_pdf_p030.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 31,
           "image_path": "assets/course_pages/gallery_5_pdf_p031.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 32,
           "image_path": "assets/course_pages/gallery_5_pdf_p032.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 35,
           "image_path": "assets/course_pages/gallery_5_pdf_p035.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 36,
           "image_path": "assets/course_pages/gallery_5_pdf_p036.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 37,
           "image_path": "assets/course_pages/gallery_5_pdf_p037.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 38,
           "image_path": "assets/course_pages/gallery_5_pdf_p038.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 39,
           "image_path": "assets/course_pages/gallery_5_pdf_p039.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 40,
           "image_path": "assets/course_pages/gallery_5_pdf_p040.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 41,
           "image_path": "assets/course_pages/gallery_5_pdf_p041.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 42,
           "image_path": "assets/course_pages/gallery_5_pdf_p042.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 43,
           "image_path": "assets/course_pages/gallery_5_pdf_p043.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 44,
           "image_path": "assets/course_pages/gallery_5_pdf_p044.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 45,
           "image_path": "assets/course_pages/gallery_5_pdf_p045.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 46,
           "image_path": "assets/course_pages/gallery_5_pdf_p046.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 47,
           "image_path": "assets/course_pages/gallery_5_pdf_p047.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 48,
           "image_path": "assets/course_pages/gallery_5_pdf_p048.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：2.jpg"
         },
         {
           "page": 49,
           "image_path": "assets/course_pages/gallery_5_pdf_p049.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 50,
           "image_path": "assets/course_pages/gallery_5_pdf_p050.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 51,
           "image_path": "assets/course_pages/gallery_5_pdf_p051.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 52,
           "image_path": "assets/course_pages/gallery_5_pdf_p052.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 53,
           "image_path": "assets/course_pages/gallery_5_pdf_p053.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 54,
           "image_path": "assets/course_pages/gallery_5_pdf_p054.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 55,
           "image_path": "assets/course_pages/gallery_5_pdf_p055.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 56,
           "image_path": "assets/course_pages/gallery_5_pdf_p056.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 57,
           "image_path": "assets/course_pages/gallery_5_pdf_p057.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 58,
           "image_path": "assets/course_pages/gallery_5_pdf_p058.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 63,
           "image_path": "assets/course_pages/gallery_5_pdf_p063.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 64,
           "image_path": "assets/course_pages/gallery_5_pdf_p064.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     },
@@ -2567,127 +3662,202 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p001.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_7_7_2_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         }
       ]
     },
@@ -2699,122 +3869,194 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p002.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p011.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_7_7_3_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         }
       ]
     },
@@ -2826,187 +4068,298 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p012.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 27,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p027.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 28,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p028.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 29,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p029.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 30,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p030.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 31,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p031.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 32,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p032.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 33,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p033.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 34,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p034.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 35,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p035.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 36,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p036.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 37,
           "image_path": "assets/course_pages/gallery_7_7_4_pdf_p037.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     },
@@ -3018,592 +4371,946 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p016.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 27,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p027.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 28,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p028.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 29,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p029.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 30,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p030.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 31,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p031.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 32,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p032.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 33,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p033.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 34,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p034.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 35,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p035.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 36,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p036.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 37,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p037.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 38,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p038.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 39,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p039.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 40,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p040.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 41,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p041.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 42,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p042.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 43,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p043.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 44,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p044.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 45,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p045.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 46,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p046.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 47,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p047.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 48,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p048.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 49,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p049.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 50,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p050.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 51,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p051.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 52,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p052.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 53,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p053.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 54,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p054.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 55,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p055.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 56,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p056.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 57,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p057.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 58,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p058.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 59,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p059.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 60,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p060.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 68,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p068.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 69,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p069.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 70,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p070.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 71,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p071.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 72,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p072.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 73,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p073.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 74,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p074.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 75,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p075.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 76,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p076.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 77,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p077.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 78,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p078.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 79,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p079.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 80,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p080.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 81,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p081.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 82,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p082.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 83,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p083.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 84,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p084.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 85,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p085.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 86,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p086.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 87,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p087.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 88,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p088.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 89,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p089.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 90,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p090.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 91,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p091.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 92,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p092.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 93,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p093.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 94,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p094.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 95,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p095.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 96,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p096.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 97,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p097.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 98,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p098.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 99,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p099.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 100,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p100.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 101,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p101.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 102,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p102.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 103,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p103.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 104,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p104.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 105,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p105.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 106,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p106.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 107,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p107.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 108,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p108.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 109,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p109.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 110,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p110.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 111,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p111.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 112,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p112.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 113,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p113.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 114,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p114.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：10.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 115,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p115.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：10.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 116,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p116.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：10.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 117,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p117.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：10.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 118,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p118.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：10.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 119,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p119.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：10.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 120,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p120.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 121,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p121.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 122,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p122.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 123,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p123.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 124,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p124.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：10.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         },
         {
           "page": 125,
           "image_path": "assets/course_pages/gallery_7_7_5_pdf_p125.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：10.jpg、9b3303554c659be093baf22ab61de8e0.jpg"
         }
       ]
     },
@@ -3615,157 +5322,250 @@
         {
           "page": 1,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p001.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 2,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p002.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 3,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p003.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 4,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p004.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 5,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p005.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 6,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p006.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 7,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p007.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 8,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p008.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 9,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p009.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 10,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p010.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 11,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p011.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 12,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p012.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 13,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p013.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 14,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p014.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 15,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p015.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 16,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p016.png",
-          "is_key_page": true
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 17,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p017.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 18,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p018.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 19,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p019.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 20,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p020.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 21,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p021.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 22,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p022.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 23,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p023.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 24,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p024.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 25,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p025.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 26,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p026.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 27,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p027.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 28,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p028.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 29,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p029.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         },
         {
           "page": 30,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p030.png",
-          "is_key_page": false
+          "is_key_page": true,
+          "key_reason": null,
+          "is_super_key_page": true,
+          "super_key_reason": "重点中的重点截图命中：1.jpg"
         },
         {
           "page": 31,
           "image_path": "assets/course_pages/gallery_7_7_1_pdf_p031.png",
-          "is_key_page": false
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     }

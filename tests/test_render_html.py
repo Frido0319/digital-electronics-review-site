@@ -46,10 +46,28 @@ def test_render_site_populates_methods_and_checklist_from_seed_data():
     html = config.INDEX_HTML.read_text(encoding="utf-8")
 
     assert "本区由知识点公式自动汇总" not in html
-    assert "桥式整流：UO = 0.9U2" in html
-    assert "虚短虚断：u+ = u-" in html
+    assert "桥式整流" in html
+    assert "虚短虚断" in html
     assert "考前清单" in html
     assert "有效值和平均值" in html
+
+
+def test_render_site_uses_display_math_blocks_for_formulas_and_calculations():
+    seed_content()
+    render_site()
+    html = config.INDEX_HTML.read_text(encoding="utf-8")
+
+    assert 'class="math-block"' in html
+    assert 'class="math-line"' in html
+    assert 'data-raw="UO = 0.9U2"' in html
+    assert "U<sub>O</sub> = 0.9U<sub>2</sub>" in html
+    assert 'data-raw="u+ = u-"' in html
+    assert "u<sup>+</sup> = u<sup>-</sup>" in html
+    assert 'data-raw="IO / 2 = 1 A"' in html
+    assert '<span class="frac"><span>I<sub>O</sub></span><span>2</span></span> = 1 A' in html
+    assert "桥式整流：UO = 0.9U2" not in html
+    assert "虚短虚断：u+ = u-" not in html
+    assert "<p>、</p>" not in html
 
 
 def test_render_site_exposes_answer_status_summary():
@@ -71,7 +89,7 @@ def test_render_site_includes_expanded_lecture_gallery():
     assert "原讲义 PDF 截图库" in html
     assert 'id="lecture-gallery"' in html
     assert 'class="lecture-page"' in html
-    assert html.count('class="lecture-page"') >= 550
+    assert html.count('<figure class="lecture-page') >= 550
     assert "第2章-基本放大电路7.pdf" in html
     assert "第7章 门电路和组合逻辑电路4.pdf" in html
 
@@ -82,11 +100,25 @@ def test_render_site_marks_key_gallery_pages_with_red_border_and_modal():
     html = config.INDEX_HTML.read_text(encoding="utf-8")
 
     assert 'class="lecture-page is-key-page"' in html
-    assert "题目重点页" in html
+    assert "题目/知识点直接来源页" in html
+    assert "题目相关相邻讲解页" in html
     assert ".lecture-page.is-key-page button" in html
     assert "#dc2626" in html
     gallery_html = html.split('id="lecture-gallery"', 1)[1].split('id="answer-status"', 1)[0]
     assert gallery_html.count('<figure class="lecture-page') == gallery_html.count("data-modal-src=")
+
+
+def test_render_site_marks_focus_gallery_pages_with_double_red_border():
+    seed_content()
+    render_site()
+    html = config.INDEX_HTML.read_text(encoding="utf-8")
+
+    assert 'class="lecture-page is-key-page is-super-key-page"' in html
+    assert "重点中的重点截图命中" in html
+    assert "10.jpg" in html
+    assert ".lecture-page.is-super-key-page button" in html
+    assert 'class="super-key-page-badge"' in html
+    assert "4px double #b91c1c" in html
 
 
 def test_render_site_uses_safe_modal_button_attributes():

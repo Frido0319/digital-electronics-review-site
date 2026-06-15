@@ -58,6 +58,58 @@ EXCLUDED_LECTURE_GALLERY_RANGES: dict[str, list[tuple[int, int]]] = {
     "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路5.pdf": [(61, 67)],  # 7.12 应用举例
 }
 
+SUPER_KEY_DIR_NAME = "\u91cd\u70b9\u4e2d\u7684\u91cd\u70b9"
+SUPER_KEY_REASON_PREFIX = "\u91cd\u70b9\u4e2d\u7684\u91cd\u70b9\u622a\u56fe\u547d\u4e2d"
+
+
+SUPER_KEY_SOURCE_PAGE_RULES: dict[str, list[tuple[str, list[int]]]] = {
+    "1.jpg": [
+        ("第7章-门电路和组合逻辑电路1.pdf", [1, 12, 16, 18, 19, 20, 21, 22, 23, 24, 27, 28, 30]),
+        ("第7章 门电路和组合逻辑电路2.pdf", [1, 7, 8, 11, 13, 14, 19, 20, 21, 25]),
+        ("第7章 门电路和组合逻辑电路3.pdf", [1, 2, 3, 6, 11, 12, 13, 14, 17, 18, 19, 20, 21, 22, 23, 24]),
+        ("第7章 门电路和组合逻辑电路4.pdf", [1, 2, 4, 10, 12, 13, 16, 22]),
+        ("第7章 门电路和组合逻辑电路5.pdf", [1, 20, 36, 50, 51, 52, 53, 54, 55, 56, 57, 58]),
+    ],
+    "2.jpg": [
+        ("第5章-直流稳压电源.pdf", [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 23, 24, 25, 26, 28, 29, 30, 31, 32, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48]),
+    ],
+    "4.jpg": [
+        ("第3章  集成运算放大电路11.pdf", [1, 2, 3, 4, 5, 7, 9, 11, 12, 13, 14, 16, 17, 18, 19, 21, 22, 24, 28]),
+        ("第3章  集成运算放大电路12.pdf", [1, 2, 7, 9, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 27, 28, 30, 40]),
+    ],
+    "5.jpg": [
+        ("第2章-基本放大电路5.pdf", [2, 3, 5, 13, 22]),
+        ("第2章-基本放大电路6.pdf", [1, 2, 3]),
+        ("第2章-基本放大电路10.pdf", [1, 6, 7, 8, 9, 10, 11, 16, 17, 19, 20, 26, 28, 37, 38]),
+    ],
+    "7.jpg": [
+        ("第2章-基本放大电路5.pdf", [2, 3, 5, 13, 22]),
+        ("第2章-基本放大电路6.pdf", [1, 2, 3]),
+        ("第2章-基本放大电路7.pdf", [1, 10]),
+        ("第2章-基本放大电路8.pdf", [2, 3, 4]),
+        ("第2章-基本放大电路10.pdf", [7, 8, 9, 10, 11, 16, 17, 19, 20, 26, 28, 37, 38]),
+        ("第3章  集成运算放大电路11.pdf", [1, 2, 4, 5, 11, 13, 16, 17, 18, 21, 28]),
+        ("第3章  集成运算放大电路12.pdf", [1, 2, 7, 12, 15, 18, 19, 20, 30, 40]),
+    ],
+    "8.jpg": [
+        ("第1章-半导体器件1.pdf", [16, 17, 29, 31, 33, 34]),
+        ("第1章-半导体器件2.pdf", [3, 4, 6, 7, 8, 9, 10, 11, 17, 18, 19, 22, 23, 24]),
+        ("第1章-半导体器件34-.pdf", [1, 2, 3, 5, 7, 8, 9, 15, 17, 18, 19, 22, 23, 24, 27, 31]),
+    ],
+    "9.jpg": [
+        ("第1章-半导体器件1.pdf", [16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 29, 30, 31, 32, 33, 34]),
+        ("第1章-半导体器件2.pdf", [3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]),
+        ("第1章-半导体器件34-.pdf", [1, 2, 3, 5, 7, 8, 9, 15, 17, 18, 19, 22, 23, 24, 27, 31]),
+    ],
+    "9b3303554c659be093baf22ab61de8e0.jpg": [
+        ("第7章 门电路和组合逻辑电路4.pdf", [1, 2, 10, 12, 13, 16, 22, 23, 29]),
+        ("第7章 门电路和组合逻辑电路5.pdf", [1, 20, 22, 26, 31, 32, 34, 36, 37, 42, 43, 44, 48, 50, 51, 52, 53, 54, 55, 56, 57, 58, 78, 80, 86, 87, 92, 94, 102, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 124, 125]),
+    ],
+    "10.jpg": [
+        ("第7章 门电路和组合逻辑电路5.pdf", [114, 115, 116, 117, 118, 119, 124, 125]),
+    ],
+}
+
 
 def lecture_gallery_excluded_pages(file_key: str) -> set[int]:
     excluded: set[int] = set()
@@ -66,15 +118,58 @@ def lecture_gallery_excluded_pages(file_key: str) -> set[int]:
     return excluded
 
 
+def super_key_image_names() -> list[str]:
+    focus_dir = config.SOURCE_ROOT / SUPER_KEY_DIR_NAME
+    if not focus_dir.is_dir():
+        candidates = [
+            path
+            for path in config.SOURCE_ROOT.iterdir()
+            if path.is_dir() and len(list(path.glob("*.jpg"))) + len(list(path.glob("*.jpeg"))) >= 5
+        ]
+        focus_dir = max(candidates, key=lambda path: len(list(path.glob("*.jpg"))) + len(list(path.glob("*.jpeg"))), default=None)
+    if focus_dir is None or not focus_dir.is_dir():
+        return []
+    return sorted(path.name for pattern in ("*.jpg", "*.jpeg") for path in focus_dir.glob(pattern))
+
+
+def _matching_super_key_targets(file_key: str, available_images: set[str]) -> dict[int, list[str]]:
+    matches: dict[int, list[str]] = {}
+    for image_name, rules in SUPER_KEY_SOURCE_PAGE_RULES.items():
+        if image_name not in available_images:
+            continue
+        for file_suffix, pages in rules:
+            if file_key.endswith(file_suffix):
+                for page in pages:
+                    matches.setdefault(page, []).append(image_name)
+    return matches
+
+
+def build_super_key_source_page_lookup(available_images: list[str] | None = None) -> dict[tuple[str, int], str]:
+    image_names = set(available_images if available_images is not None else super_key_image_names())
+    super_key_pages: dict[tuple[str, int], str] = {}
+    for files in config.SOURCE_FILES.values():
+        for path in files:
+            if path.suffix.lower() != ".pdf":
+                continue
+            file_key = _source_file_key(path)
+            excluded_pages = lecture_gallery_excluded_pages(file_key)
+            matched_pages = _matching_super_key_targets(file_key, image_names)
+            for page, matched_images in matched_pages.items():
+                if page in excluded_pages:
+                    continue
+                super_key_pages[(file_key, page)] = f"{SUPER_KEY_REASON_PREFIX}\uff1a{'、'.join(sorted(set(matched_images)))}"
+    return super_key_pages
+
+
 def build_key_source_page_lookup(
     knowledge_points: list[KnowledgePoint] | None = None,
     questions: list[Question] | None = None,
-) -> set[tuple[str, int]]:
+) -> dict[tuple[str, int], str]:
     if knowledge_points is None:
         knowledge_points = build_knowledge_points()
     if questions is None:
         questions = build_questions()
-    return {
+    direct_pages = {
         (page.file.replace("\\", "/"), page.page)
         for point in knowledge_points
         for page in point.source_pages
@@ -83,6 +178,13 @@ def build_key_source_page_lookup(
         for question in questions
         for page in question.source_pages
     }
+    key_pages: dict[tuple[str, int], str] = {}
+    for file_key, page in direct_pages:
+        for neighbor in range(page - 1, page + 2):
+            if neighbor > 0:
+                key_pages.setdefault((file_key, neighbor), "题目相关相邻讲解页")
+        key_pages[(file_key, page)] = "题目/知识点直接来源页"
+    return key_pages
 
 
 def build_lecture_gallery(
@@ -91,6 +193,7 @@ def build_lecture_gallery(
 ) -> list[dict]:
     gallery = []
     key_source_pages = build_key_source_page_lookup(knowledge_points, questions)
+    super_key_source_pages = build_super_key_source_page_lookup()
     for files in config.SOURCE_FILES.values():
         for path in files:
             if path.suffix.lower() != ".pdf":
@@ -111,7 +214,10 @@ def build_lecture_gallery(
                         {
                             "page": page,
                             "image_path": _gallery_image_name(file_key, page),
-                            "is_key_page": (file_key, page) in key_source_pages,
+                            "is_key_page": (file_key, page) in key_source_pages or (file_key, page) in super_key_source_pages,
+                            "key_reason": key_source_pages.get((file_key, page)),
+                            "is_super_key_page": (file_key, page) in super_key_source_pages,
+                            "super_key_reason": super_key_source_pages.get((file_key, page)),
                         }
                         for page in pages
                     ],

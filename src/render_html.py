@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 from collections import defaultdict
 from pathlib import Path
 
@@ -18,6 +19,163 @@ def _esc(value: str) -> str:
 
 def _js(value: str) -> str:
     return json.dumps(value or "", ensure_ascii=False)
+
+
+MATH_CHARS = r"A-Za-z0-9\u03b2\u03a9\u03bc\u03c9\u221a\u0394()\+\-*/.'\u00b7\u00d7\u2225"
+RELATION_PATTERN = r"=|\u2248|\u2264|\u2265|\u2261|>|<|\uff1e|\uff1c|\uff1d"
+MATH_EXPR_RE = re.compile(
+    rf"(?<![A-Za-z0-9])"
+    rf"([{MATH_CHARS}][{MATH_CHARS}\s]*(?:{RELATION_PATTERN})"
+    rf"[{MATH_CHARS}\s]+(?:\s*(?:{RELATION_PATTERN})\s*[{MATH_CHARS}\s]+)*)"
+)
+PARALLEL_EXPR_RE = re.compile(r"(?<![A-Za-z0-9])([A-Za-z][A-Za-z0-9]*\s*//\s*[A-Za-z][A-Za-z0-9]*(?:\s*//\s*[A-Za-z][A-Za-z0-9]*)*)")
+RELATION_RE = re.compile(rf"\s*({RELATION_PATTERN})\s*")
+TOKEN_RE = re.compile(r"U\([A-Za-z]+\)[A-Za-z0-9]*|[ui][+-]|[A-Za-z]+[A-Za-z0-9]*")
+
+
+def _format_token(token: str) -> str:
+    sign = ""
+    if len(token) == 2 and token[0] in {"u", "i"} and token[-1] in "+-":
+        token, sign = token[:-1], token[-1]
+    if token in {"sin", "cos", "tan", "log", "ln"}:
+        base, sub = token, ""
+    elif token.startswith("U("):
+        base, sub = "U", token[1:]
+    elif len(token) == 4 and token[0] in "UIR" and token[2] in "UIR" and token[1].isupper() and token[3].isupper():
+        return _format_token(token[:2]) + _format_token(token[2:])
+    elif token == "rbe":
+        base, sub = "r", "be"
+    elif token in {"ri", "ro", "ui", "uo"}:
+        base, sub = token[0], token[1:]
+    elif len(token) == 1:
+        base, sub = token, ""
+    elif token[0].islower() and token[1:].isalpha():
+        base, sub = token[0], token[1:]
+    elif token[0].isupper() and (token[1:].isalpha() or any(char.isdigit() for char in token[1:])):
+        base, sub = token[0], token[1:]
+    else:
+        base, sub = token, ""
+    result = _esc(base)
+    if sub:
+        result += f"<sub>{_esc(sub)}</sub>"
+    if sign:
+        result += f"<sup>{_esc(sign)}</sup>"
+    return result
+
+
+def _escape_math_text(value: str) -> str:
+    return _esc(value).replace("\u2032", "<sup>&prime;</sup>")
+
+
+def _single_division_index(value: str) -> int:
+    for index, char in enumerate(value):
+        if char != "/":
+            continue
+        prev_is_slash = index > 0 and value[index - 1] == "/"
+        next_is_slash = index + 1 < len(value) and value[index + 1] == "/"
+        if not prev_is_slash and not next_is_slash:
+            return index
+    return -1
+
+
+def _format_math_text(value: str) -> str:
+    normalized = (
+        value.strip()
+        .replace("//", "\u2225")
+        .replace("*", "\u00b7")
+        .replace("\u00d7", "\u00b7")
+        .replace("'", "\u2032")
+    )
+    pieces: list[str] = []
+    last = 0
+    for match in TOKEN_RE.finditer(normalized):
+        pieces.append(_escape_math_text(normalized[last : match.start()]))
+        pieces.append(_format_token(match.group(0)))
+        last = match.end()
+    pieces.append(_escape_math_text(normalized[last:]))
+    return "".join(pieces)
+
+
+def _format_math_part(value: str) -> str:
+    value = value.strip()
+    division_index = _single_division_index(value)
+    if division_index != -1:
+        numerator = value[:division_index].strip()
+        denominator = value[division_index + 1 :].strip()
+        if numerator and denominator:
+            return (
+                f'<span class="frac"><span>{_format_math_text(numerator)}</span>'
+                f"<span>{_format_math_text(denominator)}</span></span>"
+            )
+    return _format_math_text(value)
+
+
+def _format_relation(operator: str) -> str:
+    normalized = {
+        "\uff1d": "=",
+        "\uff1e": ">",
+        "\uff1c": "<",
+    }.get(operator, operator)
+    return _esc(normalized)
+
+
+def _format_math(raw: str) -> str:
+    raw = (raw or "").strip()
+    pieces: list[str] = []
+    last = 0
+    for match in RELATION_RE.finditer(raw):
+        part = raw[last : match.start()].strip()
+        if part:
+            pieces.append(_format_math_part(part))
+        pieces.append(f" {_format_relation(match.group(1))} ")
+        last = match.end()
+    tail = raw[last:].strip()
+    if tail:
+        pieces.append(_format_math_part(tail))
+    return "".join(pieces).strip() or _format_math_part(raw)
+
+
+def _math_block(raw: str, label: str | None = None) -> str:
+    label_html = f'<div class="math-label">{_esc(label)}</div>' if label else ""
+    return (
+        f'<div class="math-block" data-raw="{_esc(raw)}">'
+        f'{label_html}<div class="math-line">{_format_math(raw)}</div></div>'
+    )
+
+
+def _iter_math_matches(text: str):
+    matches = sorted(
+        list(MATH_EXPR_RE.finditer(text or "")) + list(PARALLEL_EXPR_RE.finditer(text or "")),
+        key=lambda match: match.start(),
+    )
+    cursor = 0
+    for match in matches:
+        if match.start() < cursor:
+            continue
+        yield match
+        cursor = match.end()
+
+
+def _render_mixed_text(text: str) -> str:
+    text = text or ""
+    parts: list[str] = []
+    last = 0
+    math_separators = "，,。；;、"
+    for match in _iter_math_matches(text):
+        before = text[last:match.start()].strip()
+        if before and before not in math_separators:
+            parts.append(f"<p>{_esc(before)}</p>")
+        expression = match.group(1).strip(f" {math_separators}")
+        if expression:
+            parts.append(_math_block(expression))
+        trailing = text[match.end() : match.end() + 1]
+        last = match.end() + 1 if trailing in math_separators else match.end()
+    rest = text[last:].strip()
+    if rest and rest not in math_separators:
+        parts.append(f"<p>{_esc(rest)}</p>")
+    if not parts:
+        return f"<p>{_esc(text)}</p>"
+    return "".join(parts)
 
 
 def _modal_button_attrs(image: str, caption: str) -> str:
@@ -58,9 +216,9 @@ def _source_pages_html(source_pages: list[dict]) -> str:
 
 
 def _knowledge_card(point: dict) -> str:
-    formulas = "".join(f"<li>{_esc(item)}</li>" for item in point["formulas"]) or "<li>本知识点无固定公式。</li>"
-    prerequisites = "".join(f"<li>{_esc(item)}</li>" for item in point.get("prerequisites", [])) or "<li>无额外前置知识。</li>"
-    pitfalls = "".join(f"<li>{_esc(item)}</li>" for item in point["pitfalls"])
+    formulas = "".join(f"<li>{_math_block(item)}</li>" for item in point["formulas"]) or "<li>本知识点无固定公式。</li>"
+    prerequisites = "".join(f"<li>{_render_mixed_text(item)}</li>" for item in point.get("prerequisites", [])) or "<li>无额外前置知识。</li>"
+    pitfalls = "".join(f"<li>{_render_mixed_text(item)}</li>" for item in point["pitfalls"])
     related = " ".join(f'<a href="#question-{_esc(qid)}">{_esc(qid)}</a>' for qid in point["related_questions"])
     return f"""
     <article class="knowledge-card searchable" id="knowledge-{_esc(point["id"])}" data-search="{_esc(point["title"])} {_esc(point["summary"])} {_esc(" ".join(point["related_questions"]))}">
@@ -70,8 +228,8 @@ def _knowledge_card(point: dict) -> str:
         <p class="summary">{_esc(point["summary"])}</p>
       </header>
       <div class="card-grid">
-        <section><h4>必须掌握</h4><p>{_esc(point["must_know"])}</p></section>
-        <section><h4>从零理解</h4><p>{_esc(point["intuition"])}</p></section>
+        <section><h4>必须掌握</h4>{_render_mixed_text(point["must_know"])}</section>
+        <section><h4>从零理解</h4>{_render_mixed_text(point["intuition"])}</section>
         <section><h4>前置知识</h4><ul>{prerequisites}</ul></section>
         <section><h4>公式/规则</h4><ul class="formula-list">{formulas}</ul></section>
         <section><h4>关联作业</h4><p class="link-row">{related}</p></section>
@@ -98,9 +256,10 @@ def _question_card(question: dict) -> str:
     subquestions = "".join(
         f"""
         <section class="subquestion">
-          <h4>{_esc(sub["id"])} {_esc(sub["prompt"])}</h4>
-          <ol>{''.join(f'<li>{_esc(step)}</li>' for step in sub["solution_steps"])}</ol>
-          <p class="answer"><strong>答案：</strong>{_esc(sub["answer"])}</p>
+          <h4>{_esc(sub["id"])}</h4>
+          <div class="subquestion-prompt">{_render_mixed_text(sub["prompt"])}</div>
+          <ol>{''.join(f'<li>{_render_mixed_text(step)}</li>' for step in sub["solution_steps"])}</ol>
+          <div class="answer"><strong>答案：</strong>{_render_mixed_text(sub["answer"])}</div>
         </section>
         """
         for sub in question["subquestions"]
@@ -110,7 +269,7 @@ def _question_card(question: dict) -> str:
       <header>
         <p class="eyebrow">第 {_esc(question["chapter"])} 章作业题</p>
         <h3>{_esc(question["id"])} | {_esc(question["title"])}</h3>
-        <p>{_esc(question["prompt"])}</p>
+        {_render_mixed_text(question["prompt"])}
       </header>
       <div class="homework-strip">{images}</div>
       <section><h4>考点定位</h4><p class="link-row">{knowledge}</p></section>
@@ -125,15 +284,18 @@ def _methods_html(knowledge: list[dict]) -> str:
     method_items = []
     for point in knowledge:
         if point["formulas"]:
-            formulas = "".join(f"<li>{_esc(_formula_label(point, formula))}</li>" for formula in point["formulas"])
+            formulas = "".join(
+                f'<li><span class="formula-topic">{_esc(_formula_label(point, ""))}</span>{_math_block(formula)}</li>'
+                for formula in point["formulas"]
+            )
         else:
-            formulas = f"<li>{_esc(point['title'])}：无固定公式，重点按判断步骤做题。</li>"
+            formulas = f'<li>{_render_mixed_text(point["title"] + "：无固定公式，重点按判断步骤做题。")}</li>'
         method_items.append(
             f"""
             <article class="quick-card">
               <h3>{_esc(point["title"])}</h3>
               <ul class="formula-list">{formulas}</ul>
-              <p class="muted">使用场景：{_esc(point["must_know"])}</p>
+              <div class="muted">使用场景：{_render_mixed_text(point["must_know"])}</div>
             </article>
             """
         )
@@ -150,8 +312,8 @@ def _checklist_html(knowledge: list[dict]) -> str:
     pitfall_items = []
     for point in knowledge:
         for pitfall in point["pitfalls"]:
-            pitfall_items.append(f"<li><strong>{_esc(point['title'])}</strong>：{_esc(pitfall)}</li>")
-    pitfall_items.append("<li><strong>整流题通用提醒</strong>：不要把有效值和平均值混用，题目给出的 U2 通常是交流有效值。</li>")
+            pitfall_items.append(f"<li><strong>{_esc(point['title'])}</strong>{_render_mixed_text(pitfall)}</li>")
+    pitfall_items.append(f"<li><strong>整流题通用提醒</strong>{_render_mixed_text('不要把有效值和平均值混用，题目给出的 U2 通常是交流有效值。')}</li>")
     return f"""
       <section class="scope" id="checklist">
         <h2>易错点与考前清单</h2>
@@ -178,6 +340,26 @@ def _answer_status_html(questions: list[dict]) -> str:
     """
 
 
+def _lecture_page_classes(page: dict) -> str:
+    classes = ["lecture-page"]
+    if page.get("is_key_page"):
+        classes.append("is-key-page")
+    if page.get("is_super_key_page"):
+        classes.append("is-super-key-page")
+    return " ".join(classes)
+
+
+def _lecture_page_badges(page: dict) -> str:
+    badges = []
+    if page.get("is_super_key_page"):
+        badges.append(
+            f'<span class="super-key-page-badge">{_esc(page.get("super_key_reason") or "重点中的重点")}</span>'
+        )
+    if page.get("is_key_page") and page.get("key_reason"):
+        badges.append(f'<span class="key-page-badge">{_esc(page["key_reason"])}</span>')
+    return (" ".join(badges) + " ") if badges else ""
+
+
 def _lecture_gallery_html(gallery: list[dict]) -> str:
     if not gallery:
         return ""
@@ -185,12 +367,12 @@ def _lecture_gallery_html(gallery: list[dict]) -> str:
     for source in gallery:
         pages = "".join(
             f"""
-            <figure class="lecture-page{' is-key-page' if page.get("is_key_page") else ''}">
+            <figure class="{_lecture_page_classes(page)}">
               <button {_modal_button_attrs(page["image_path"], source["title"] + " p." + str(page["page"]))}>
                 <img src="{_esc(page["image_path"])}" alt="{_esc(source["title"])} 第 {_esc(str(page["page"]))} 页截图" loading="lazy" decoding="async"
                   onerror="this.closest('figure').classList.add('image-missing')">
               </button>
-              <figcaption>{'<span class="key-page-badge">题目重点页</span> ' if page.get("is_key_page") else ''}{_esc(source["title"])} p.{_esc(str(page["page"]))}</figcaption>
+              <figcaption>{_lecture_page_badges(page)}{_esc(source["title"])} p.{_esc(str(page["page"]))}</figcaption>
             </figure>
             """
             for page in source["pages"]
@@ -316,9 +498,23 @@ def render_site() -> None:
     .lecture-source {{ border-top:1px solid var(--line); padding-top:10px; margin-top:10px; }}
     .lecture-source summary {{ cursor:pointer; font-weight:650; }}
     .lecture-page.is-key-page button {{ border:3px solid #dc2626; box-shadow:0 0 0 3px rgba(220,38,38,.13); }}
+    .lecture-page.is-super-key-page button {{ border:4px double #b91c1c; box-shadow:0 0 0 4px rgba(185,28,28,.14), inset 0 0 0 2px rgba(185,28,28,.08); }}
     .key-page-badge {{ display:inline-flex; align-items:center; border:1px solid #dc2626; border-radius:999px; padding:1px 6px; margin-right:4px; color:#b91c1c; font-weight:700; background:#fff1f2; }}
+    .super-key-page-badge {{ display:inline-flex; align-items:center; border:1px solid #b91c1c; border-radius:999px; padding:1px 6px; margin-right:4px; color:#7f1d1d; font-weight:800; background:#fee2e2; }}
     .quick-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; }}
     .quick-card {{ border:1px solid var(--line); border-radius:8px; padding:14px; background:#fbfcfd; }}
+    .formula-list {{ list-style:none; padding-left:0; margin:10px 0 0; }}
+    .formula-list li {{ margin:0 0 12px; }}
+    .formula-topic {{ display:block; margin-bottom:6px; color:var(--muted); font-weight:650; }}
+    .math-block {{ margin:10px 0 14px; padding:10px 12px; overflow-x:auto; border:1px solid #d5e5e1; border-radius:6px; background:#f8fcfb; text-align:center; }}
+    .math-label {{ margin-bottom:6px; color:var(--muted); font-size:.86rem; text-align:left; }}
+    .math-line {{ display:inline-flex; align-items:center; justify-content:center; gap:.26em; min-width:max-content; font-family:"Times New Roman", "Cambria Math", Georgia, serif; font-size:1.14rem; line-height:1.8; white-space:nowrap; }}
+    .frac {{ display:inline-grid; grid-template-rows:auto auto; align-items:center; min-width:2.3em; margin:0 .16em; vertical-align:middle; line-height:1.1; }}
+    .frac > span {{ display:block; padding:.08em .36em; text-align:center; }}
+    .frac > span:first-child {{ border-bottom:1.5px solid currentColor; }}
+    .math-line sub {{ font-size:.68em; vertical-align:sub; }}
+    .math-line sup {{ font-size:.68em; vertical-align:super; }}
+    .subquestion-prompt .math-block, .answer .math-block, .checklist .math-block {{ background:#fff; }}
     .checklist li {{ margin-bottom:8px; }}
     figure {{ margin:0; }}
     figure button {{ display:block; width:100%; padding:0; border:1px solid var(--line); border-radius:6px; background:white; cursor:zoom-in; overflow:hidden; }}
