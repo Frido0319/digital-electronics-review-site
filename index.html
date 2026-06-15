@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数电复习网站</title>
+  <style>
+    :root { color-scheme: light; --ink:#1c2430; --muted:#5d6878; --line:#d8dee8; --paper:#f7f8fb; --panel:#ffffff; --accent:#0f766e; --accent-2:#8a5a00; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.55; }
+    button, input { font:inherit; }
+    .password-screen { min-height:100vh; display:grid; place-items:center; padding:24px; }
+    .login-panel { width:min(420px, 100%); background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:24px; box-shadow:0 16px 40px rgba(28,36,48,.08); }
+    .login-panel input { width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:6px; margin:10px 0; }
+    .login-panel button, .tool-button { border:0; border-radius:6px; padding:10px 14px; background:var(--accent); color:white; cursor:pointer; }
+    .app-shell { display:grid; grid-template-columns:280px minmax(0,1fr); min-height:100vh; }
+    aside { position:sticky; top:0; height:100vh; overflow:auto; padding:18px; border-right:1px solid var(--line); background:#eef4f3; }
+    main { padding:24px clamp(16px, 3vw, 44px); }
+    nav a, .link-row a { display:inline-flex; margin:4px 6px 4px 0; color:#075985; text-decoration:none; border-bottom:1px solid transparent; }
+    nav a:hover, .link-row a:hover { border-bottom-color:currentColor; }
+    .search-box { display:flex; gap:8px; margin:18px 0; }
+    .search-box input { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:6px; }
+    .scope, .knowledge-card, .question-card { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:18px; margin:18px 0; }
+    .eyebrow { color:var(--accent-2); font-size:.86rem; margin:0 0 4px; }
+    h1, h2, h3, h4 { line-height:1.25; }
+    .summary { color:var(--muted); }
+    .card-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }
+    .source-strip, .homework-strip { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 260px)); gap:12px; align-items:start; }
+    figure { margin:0; }
+    figure button { display:block; width:100%; padding:0; border:1px solid var(--line); border-radius:6px; background:white; cursor:zoom-in; overflow:hidden; }
+    img { display:block; max-width:100%; height:auto; }
+    figcaption { font-size:.82rem; color:var(--muted); margin-top:5px; }
+    .image-missing::after { content:"图片待生成"; display:block; padding:10px; color:#a33; }
+    .subquestion { border-top:1px solid var(--line); padding-top:12px; margin-top:12px; }
+    .answer { background:#edf7f4; padding:10px 12px; border-radius:6px; }
+    .answer-source, .muted { color:var(--muted); }
+    .hidden { display:none !important; }
+    .modal { position:fixed; inset:0; background:rgba(11,18,32,.82); display:grid; place-items:center; padding:20px; z-index:20; }
+    .modal figure { max-width:min(1100px, 96vw); max-height:92vh; }
+    .modal img { max-height:82vh; background:white; }
+    .modal button { margin-top:10px; border:0; border-radius:6px; padding:9px 12px; }
+    mark { background:#fff1a6; }
+    @media (max-width: 820px) {
+      .app-shell { grid-template-columns:1fr; }
+      aside { position:relative; height:auto; max-height:45vh; }
+      main { padding:16px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="password-screen" id="password-screen">
+    <form class="login-panel" onsubmit="return unlockCourse(event)">
+      <h1>数电复习网站</h1>
+      <p>输入统一访问密码后进入。</p>
+      <label for="course-password">访问密码</label>
+      <input id="course-password" type="password" autocomplete="current-password">
+      <button type="submit">进入复习</button>
+      <p class="muted" id="password-message" role="status"></p>
+    </form>
+  </section>
+  <div class="app-shell hidden" id="course-app">
+    <aside>
+      <h2>目录</h2>
+      <nav>
+        <a href="#scope">考试范围</a>
+        <h3>章节知识主线</h3>
+        <a href="#chapter-1">第 1 章</a><a href="#chapter-2">第 2 章</a><a href="#chapter-3">第 3 章</a><a href="#chapter-4">第 4 章</a><a href="#chapter-5">第 5 章</a><a href="#chapter-7">第 7 章</a>
+        <h3>作业题号索引</h3>
+        <div><a href="#question-2.4.5">2.4.5</a><a href="#question-3.2.13">3.2.13</a><a href="#question-4.2.12">4.2.12</a><a href="#question-5.1.8">5.1.8</a><a href="#question-7.5.14">7.5.14</a></div>
+        <a href="#methods">公式和方法速查</a>
+        <a href="#checklist">易错点与考前清单</a>
+      </nav>
+    </aside>
+    <main>
+      <header>
+        <h1>数电复习网站</h1>
+        <p>章节知识为主线，作业题号可直接索引。每个知识点追溯到课件来源页，每道题保留原题图并拆到子题级解析。</p>
+        <div class="search-box">
+          <input id="search-input" aria-label="搜索题号或知识点" placeholder="搜索：5.1.8、桥式整流、卡诺图、虚短虚断">
+          <button class="tool-button" type="button" onclick="clearSearch()">清除</button>
+        </div>
+        <p id="search-status" class="muted"></p>
+      </header>
+      <section class="scope" id="scope">
+        <h2>考试范围</h2>
+        <p>完全不做：不进入目录、不写解释、不出题、不放折叠区。</p>
+        <ul><li>第 2 章 2.6：黑板标记不考</li><li>第 2 章 2.8：黑板标记不考</li><li>第 3 章 3.3.1：黑板标记不考</li><li>第 3 章 3.3.2：黑板标记不考</li><li>第 3 章 3.4：黑板标记不考</li><li>第 5 章 5.1.3：黑板标记不考</li><li>第 5 章 5.2.2：黑板标记不考</li><li>第 5 章 5.2.3：黑板标记不考</li><li>第 5 章 5.3.4：黑板标记不考</li><li>第 7 章 7.12：黑板标记不考</li></ul>
+        <p>逐题按内容判断：题号疑似落入不考范围但内容属于考试主线时保留；内容确属不考范围时排除。</p>
+      </section>
+      
+            <section class="chapter-section" id="chapter-1">
+              <h2>第 1 章</h2>
+              <div class="knowledge-list">
+    <article class="knowledge-card searchable" id="knowledge-semiconductor_pn_junction" data-search="PN结单向导电性 PN结正向导通、反向截止，是二极管和晶体管理解的起点。 1.x">
+      <header>
+        <p class="eyebrow">第 1 章知识点</p>
+        <h3>PN结单向导电性</h3>
+        <p class="summary">PN结正向导通、反向截止，是二极管和晶体管理解的起点。</p>
+      </header>
+      <div class="card-grid">
+        <section><h4>必须掌握</h4><p>会判断二极管导通/截止方向，理解伏安特性和反向击穿。</p></section>
+        <section><h4>从零理解</h4><p>正向电压降低势垒，载流子容易通过；反向电压抬高势垒，电流近似为零。</p></section>
+        <section><h4>公式/规则</h4><ul class="formula-list"><li>本知识点无固定公式。</li></ul></section>
+        <section><h4>关联作业</h4><p class="link-row"><a href="#question-1.x">1.x</a></p></section>
+      </div>
+      <details>
+        <summary>来源课件页</summary>
+        <div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch1_p029.png", "第1章 半导体器件讲义/第1章-半导体器件1.pdf p.29")"><img src="assets/course_pages/ch1_p029.png" alt="第1章 半导体器件讲义/第1章-半导体器件1.pdf p.29" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件1.pdf p.29</figcaption></figure></div>
+      </details>
+      <section class="pitfalls"><h4>易错点</h4><ul><li>不要把稳压二极管的反向击穿工作状态当成普通二极管损坏。</li></ul></section>
+    </article>
+    </div>
+              <h3>本章相关作业</h3>
+              <div class="question-list"><p class="muted">本章题目待补充。</p></div>
+            </section>
+            
+            <section class="chapter-section" id="chapter-2">
+              <h2>第 2 章</h2>
+              <div class="knowledge-list">
+    <article class="knowledge-card searchable" id="knowledge-bjt_static_operating_point" data-search="共射放大电路静态工作点 静态工作点决定三极管是否在线性放大区。 2.4.5">
+      <header>
+        <p class="eyebrow">第 2 章知识点</p>
+        <h3>共射放大电路静态工作点</h3>
+        <p class="summary">静态工作点决定三极管是否在线性放大区。</p>
+      </header>
+      <div class="card-grid">
+        <section><h4>必须掌握</h4><p>会列直流通路并计算 IB、IC、UCE。</p></section>
+        <section><h4>从零理解</h4><p>没有交流信号时先把电路停在一个合适位置，交流信号才有上下摆动空间。</p></section>
+        <section><h4>公式/规则</h4><ul class="formula-list"><li>IB = (UCC - UBE) / RB</li><li>IC = βIB</li><li>UCE = UCC - ICRC</li></ul></section>
+        <section><h4>关联作业</h4><p class="link-row"><a href="#question-2.4.5">2.4.5</a></p></section>
+      </div>
+      <details>
+        <summary>来源课件页</summary>
+        <div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch2_p023.png", "第2章 基本放大电路/第2章-基本放大电路5.pdf p.23")"><img src="assets/course_pages/ch2_p023.png" alt="第2章 基本放大电路/第2章-基本放大电路5.pdf p.23" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路5.pdf p.23</figcaption></figure></div>
+      </details>
+      <section class="pitfalls"><h4>易错点</h4><ul><li>计算静态量时电容开路，不能把交流负载直接代入直流通路。</li></ul></section>
+    </article>
+    
+    <article class="knowledge-card searchable" id="knowledge-bjt_small_signal_model" data-search="微变等效电路法 把三极管在小信号范围内等效成线性受控源模型。 2.4.5 2.4.7">
+      <header>
+        <p class="eyebrow">第 2 章知识点</p>
+        <h3>微变等效电路法</h3>
+        <p class="summary">把三极管在小信号范围内等效成线性受控源模型。</p>
+      </header>
+      <div class="card-grid">
+        <section><h4>必须掌握</h4><p>会画交流通路、微变等效电路，并计算 Au、ri、ro。</p></section>
+        <section><h4>从零理解</h4><p>先固定静态点，再只观察附近很小的交流变化。</p></section>
+        <section><h4>公式/规则</h4><ul class="formula-list"><li>Au = -β(RC // RL) / rbe</li><li>ri = RB1 // RB2 // rbe</li><li>ro ≈ RC</li></ul></section>
+        <section><h4>关联作业</h4><p class="link-row"><a href="#question-2.4.5">2.4.5</a> <a href="#question-2.4.7">2.4.7</a></p></section>
+      </div>
+      <details>
+        <summary>来源课件页</summary>
+        <div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch2_p004.png", "第2章 基本放大电路/第2章-基本放大电路6.pdf p.4")"><img src="assets/course_pages/ch2_p004.png" alt="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路6.pdf p.4</figcaption></figure></div>
+      </details>
+      <section class="pitfalls"><h4>易错点</h4><ul><li>带负载和空载增益不同，不能漏掉 RC // RL。</li></ul></section>
+    </article>
+    </div>
+              <h3>本章相关作业</h3>
+              <div class="question-list">
+    <article class="question-card searchable" id="question-2.4.5" data-search="2.4.5 分压式偏置放大电路综合计算 计算静态值，画微变等效电路，计算 Au、ri、ro，并分析负载影响。">
+      <header>
+        <p class="eyebrow">第 2 章作业题</p>
+        <h3>2.4.5 | 分压式偏置放大电路综合计算</h3>
+        <p>计算静态值，画微变等效电路，计算 Au、ri、ro，并分析负载影响。</p>
+      </header>
+      <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal("assets/homework_images/2_4_5_placeholder.png", "2.4.5 原题图")"><img src="assets/homework_images/2_4_5_placeholder.png" alt="2.4.5 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.4.5 原题图</figcaption></figure></div>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a> <a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch2_p005.png", "第2章 基本放大电路/第2章-基本放大电路7.pdf p.5")"><img src="assets/course_pages/ch2_p005.png" alt="第2章 基本放大电路/第2章-基本放大电路7.pdf p.5" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路7.pdf p.5</figcaption></figure></div></section>
+      <section><h4>子题级解析</h4>
+        <section class="subquestion">
+          <h4>2.4.5(1) 计算静态值 IB、IC、UCE。</h4>
+          <ol><li>列直流通路。</li><li>用分压偏置估算法求基极电位。</li><li>求 IE、IC、IB 和 UCE。</li></ol>
+          <p class="answer"><strong>答案：</strong>待接入官方答案或推导。</p>
+        </section>
+        
+        <section class="subquestion">
+          <h4>2.4.5(2) 画出微变等效电路。</h4>
+          <ol><li>交流分析中电容视为短路。</li><li>电源端为交流地。</li><li>三极管替换为 rbe 与 βib 受控源模型。</li></ol>
+          <p class="answer"><strong>答案：</strong>待接入官方答案或推导。</p>
+        </section>
+        
+        <section class="subquestion">
+          <h4>2.4.5(3) 计算 Au、ri、ro。</h4>
+          <ol><li>使用 RC // RL。</li><li>输入电阻考虑偏置电阻并联。</li><li>输出电阻近似为 RC。</li></ol>
+          <p class="answer"><strong>答案：</strong>待接入官方答案或推导。</p>
+        </section>
+        
+        <section class="subquestion">
+          <h4>2.4.5(4) 计算输出端开路时电压放大倍数并说明 RL 影响。</h4>
+          <ol><li>开路时去掉 RL。</li><li>比较 RC 与 RC // RL。</li></ol>
+          <p class="answer"><strong>答案：</strong>待接入官方答案或推导。</p>
+        </section>
+        </section>
+      <p class="answer-source">答案来源：待核对</p>
+    </article>
+    </div>
+            </section>
+            
+            <section class="chapter-section" id="chapter-3">
+              <h2>第 3 章</h2>
+              <div class="knowledge-list">
+    <article class="knowledge-card searchable" id="knowledge-ideal_op_amp_rules" data-search="理想运放虚短虚断 线性负反馈下，理想运放满足虚短和虚断。 3.2.8 3.2.13 3.2.16">
+      <header>
+        <p class="eyebrow">第 3 章知识点</p>
+        <h3>理想运放虚短虚断</h3>
+        <p class="summary">线性负反馈下，理想运放满足虚短和虚断。</p>
+      </header>
+      <div class="card-grid">
+        <section><h4>必须掌握</h4><p>会用 u+ = u-、i+ = i- = 0 推导比例、加法、减法运算关系。</p></section>
+        <section><h4>从零理解</h4><p>运放输出会自动调节，让两个输入端电压几乎相等，但输入端几乎不取电流。</p></section>
+        <section><h4>公式/规则</h4><ul class="formula-list"><li>u+ = u-</li><li>i+ = i- = 0</li></ul></section>
+        <section><h4>关联作业</h4><p class="link-row"><a href="#question-3.2.8">3.2.8</a> <a href="#question-3.2.13">3.2.13</a> <a href="#question-3.2.16">3.2.16</a></p></section>
+      </div>
+      <details>
+        <summary>来源课件页</summary>
+        <div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch3_p011.png", "第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.11")"><img src="assets/course_pages/ch3_p011.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.11" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.11</figcaption></figure></div>
+      </details>
+      <section class="pitfalls"><h4>易错点</h4><ul><li>虚短不是输入端真的短接，虚断不是反馈支路断开。</li></ul></section>
+    </article>
+    </div>
+              <h3>本章相关作业</h3>
+              <div class="question-list">
+    <article class="question-card searchable" id="question-3.2.13" data-search="3.2.13 运放多输入运算关系推导 求图示电路中 uo 与各输入电压的运算关系式。">
+      <header>
+        <p class="eyebrow">第 3 章作业题</p>
+        <h3>3.2.13 | 运放多输入运算关系推导</h3>
+        <p>求图示电路中 uo 与各输入电压的运算关系式。</p>
+      </header>
+      <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal("assets/homework_images/3_2_13_placeholder.png", "3.2.13 原题图")"><img src="assets/homework_images/3_2_13_placeholder.png" alt="3.2.13 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>3.2.13 原题图</figcaption></figure></div>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch3_p002.png", "第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.2")"><img src="assets/course_pages/ch3_p002.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.2" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.2</figcaption></figure></div></section>
+      <section><h4>子题级解析</h4>
+        <section class="subquestion">
+          <h4>3.2.13 求输出表达式。</h4>
+          <ol><li>使用虚短虚断。</li><li>对反相端或同相端列 KCL。</li><li>整理 uo 与输入电压关系。</li></ol>
+          <p class="answer"><strong>答案：</strong>待接入官方答案或推导。</p>
+        </section>
+        </section>
+      <p class="answer-source">答案来源：待核对</p>
+    </article>
+    </div>
+            </section>
+            
+            <section class="chapter-section" id="chapter-4">
+              <h2>第 4 章</h2>
+              <div class="knowledge-list">
+    <article class="knowledge-card searchable" id="knowledge-negative_feedback_type" data-search="负反馈类型判断 反馈类型由输出取样方式和输入混合方式决定。 4.2.6 4.2.12">
+      <header>
+        <p class="eyebrow">第 4 章知识点</p>
+        <h3>负反馈类型判断</h3>
+        <p class="summary">反馈类型由输出取样方式和输入混合方式决定。</p>
+      </header>
+      <div class="card-grid">
+        <section><h4>必须掌握</h4><p>会判断电压/电流反馈、串联/并联反馈，并说明对输入输出电阻的影响。</p></section>
+        <section><h4>从零理解</h4><p>看反馈从输出端取电压还是取电流，再看回到输入端是串进去还是并进去。</p></section>
+        <section><h4>公式/规则</h4><ul class="formula-list"><li>本知识点无固定公式。</li></ul></section>
+        <section><h4>关联作业</h4><p class="link-row"><a href="#question-4.2.6">4.2.6</a> <a href="#question-4.2.12">4.2.12</a></p></section>
+      </div>
+      <details>
+        <summary>来源课件页</summary>
+        <div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch4_slide001.png", "第4章  电子电路中的反馈.ppt p.1")"><img src="assets/course_pages/ch4_slide001.png" alt="第4章  电子电路中的反馈.ppt p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第4章  电子电路中的反馈.ppt p.1</figcaption></figure></div>
+      </details>
+      <section class="pitfalls"><h4>易错点</h4><ul><li>不要只看反馈线位置，要看取样量和混合方式。</li></ul></section>
+    </article>
+    </div>
+              <h3>本章相关作业</h3>
+              <div class="question-list">
+    <article class="question-card searchable" id="question-4.2.12" data-search="4.2.12 按指标选择负反馈类型 为了实现指定输入输出电阻变化和稳定对象，判断应引入何种负反馈。">
+      <header>
+        <p class="eyebrow">第 4 章作业题</p>
+        <h3>4.2.12 | 按指标选择负反馈类型</h3>
+        <p>为了实现指定输入输出电阻变化和稳定对象，判断应引入何种负反馈。</p>
+      </header>
+      <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal("assets/homework_images/4_2_12_placeholder.png", "4.2.12 原题图")"><img src="assets/homework_images/4_2_12_placeholder.png" alt="4.2.12 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>4.2.12 原题图</figcaption></figure></div>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-negative_feedback_type">negative_feedback_type</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch4_slide001.png", "第4章  电子电路中的反馈.ppt p.1")"><img src="assets/course_pages/ch4_slide001.png" alt="第4章  电子电路中的反馈.ppt p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第4章  电子电路中的反馈.ppt p.1</figcaption></figure></div></section>
+      <section><h4>子题级解析</h4>
+        <section class="subquestion">
+          <h4>4.2.12(1) 减少输入电阻，增大输出电阻。</h4>
+          <ol><li>减少输入电阻对应并联混合。</li><li>增大输出电阻对应电流取样。</li></ol>
+          <p class="answer"><strong>答案：</strong>应选择并联电流负反馈方向，待图确认接法。</p>
+        </section>
+        
+        <section class="subquestion">
+          <h4>4.2.12(2) 稳定输出电压，判断输入电阻是否增大。</h4>
+          <ol><li>稳定输出电压对应电压取样。</li><li>输入电阻变化由串联或并联混合决定。</li></ol>
+          <p class="answer"><strong>答案：</strong>应选择电压反馈；若为串联混合则输入电阻增大，具体接法待图确认。</p>
+        </section>
+        
+        <section class="subquestion">
+          <h4>4.2.12(3) 稳定输出电流，并减小输入电阻。</h4>
+          <ol><li>稳定输出电流对应电流取样。</li><li>减小输入电阻对应并联混合。</li></ol>
+          <p class="answer"><strong>答案：</strong>应选择并联电流负反馈，待图确认接法。</p>
+        </section>
+        </section>
+      <p class="answer-source">答案来源：推导答案</p>
+    </article>
+    </div>
+            </section>
+            
+            <section class="chapter-section" id="chapter-5">
+              <h2>第 5 章</h2>
+              <div class="knowledge-list">
+    <article class="knowledge-card searchable" id="knowledge-rectifier_bridge" data-search="单相桥式整流 桥式整流让交流正负半周都以同一方向流过负载。 5.1.8">
+      <header>
+        <p class="eyebrow">第 5 章知识点</p>
+        <h3>单相桥式整流</h3>
+        <p class="summary">桥式整流让交流正负半周都以同一方向流过负载。</p>
+      </header>
+      <div class="card-grid">
+        <section><h4>必须掌握</h4><p>会计算输出平均电压、平均电流、二极管最大反向电压和二次电流。</p></section>
+        <section><h4>从零理解</h4><p>四个二极管轮流导通，把负半周翻到正方向。</p></section>
+        <section><h4>公式/规则</h4><ul class="formula-list"><li>UO = 0.9U2</li><li>IO = UO / RL</li><li>URM = √2U2</li></ul></section>
+        <section><h4>关联作业</h4><p class="link-row"><a href="#question-5.1.8">5.1.8</a></p></section>
+      </div>
+      <details>
+        <summary>来源课件页</summary>
+        <div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch5_p009.png", "第5章-直流稳压电源.pdf p.9")"><img src="assets/course_pages/ch5_p009.png" alt="第5章-直流稳压电源.pdf p.9" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第5章-直流稳压电源.pdf p.9</figcaption></figure></div>
+      </details>
+      <section class="pitfalls"><h4>易错点</h4><ul><li>题目给的是有效值 U2，输出平均值不是 U2。</li></ul></section>
+    </article>
+    </div>
+              <h3>本章相关作业</h3>
+              <div class="question-list">
+    <article class="question-card searchable" id="question-5.1.8" data-search="5.1.8 单相桥式整流参数计算 直流负载 110V、55Ω，采用单相桥式整流电路供电，求变压器二次电压、二次电流有效值并选用二极管。">
+      <header>
+        <p class="eyebrow">第 5 章作业题</p>
+        <h3>5.1.8 | 单相桥式整流参数计算</h3>
+        <p>直流负载 110V、55Ω，采用单相桥式整流电路供电，求变压器二次电压、二次电流有效值并选用二极管。</p>
+      </header>
+      <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal("assets/homework_images/5_1_8_placeholder.png", "5.1.8 原题图")"><img src="assets/homework_images/5_1_8_placeholder.png" alt="5.1.8 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>5.1.8 原题图</figcaption></figure></div>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-rectifier_bridge">rectifier_bridge</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch5_p009.png", "第5章-直流稳压电源.pdf p.9")"><img src="assets/course_pages/ch5_p009.png" alt="第5章-直流稳压电源.pdf p.9" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第5章-直流稳压电源.pdf p.9</figcaption></figure></div></section>
+      <section><h4>子题级解析</h4>
+        <section class="subquestion">
+          <h4>5.1.8(1) 求变压器二次电压有效值。</h4>
+          <ol><li>桥式整流无滤波时 UO = 0.9U2。</li><li>U2 = 110 / 0.9 ≈ 122 V。</li></ol>
+          <p class="answer"><strong>答案：</strong>U2 ≈ 122 V。</p>
+        </section>
+        
+        <section class="subquestion">
+          <h4>5.1.8(2) 求二次电流有效值。</h4>
+          <ol><li>负载电流 IO = 110 / 55 = 2 A。</li><li>桥式整流中 I2 ≈ 1.11IO。</li><li>I2 ≈ 2.22 A。</li></ol>
+          <p class="answer"><strong>答案：</strong>I2 ≈ 2.22 A。</p>
+        </section>
+        
+        <section class="subquestion">
+          <h4>5.1.8(3) 选用二极管。</h4>
+          <ol><li>每只二极管平均电流约为 IO / 2 = 1 A。</li><li>URM = √2U2 ≈ 173 V。</li><li>实际选型应留额定裕量。</li></ol>
+          <p class="answer"><strong>答案：</strong>二极管平均电流应大于 1 A，反向峰值电压应大于约 173 V，并留裕量。</p>
+        </section>
+        </section>
+      <p class="answer-source">答案来源：推导答案</p>
+    </article>
+    </div>
+            </section>
+            
+            <section class="chapter-section" id="chapter-7">
+              <h2>第 7 章</h2>
+              <div class="knowledge-list">
+    <article class="knowledge-card searchable" id="knowledge-boolean_simplification" data-search="逻辑代数与卡诺图化简 用逻辑代数或卡诺图把逻辑函数化到便于实现的形式。 7.5.9 7.5.13 7.5.14">
+      <header>
+        <p class="eyebrow">第 7 章知识点</p>
+        <h3>逻辑代数与卡诺图化简</h3>
+        <p class="summary">用逻辑代数或卡诺图把逻辑函数化到便于实现的形式。</p>
+      </header>
+      <div class="card-grid">
+        <section><h4>必须掌握</h4><p>会代数化简、卡诺图圈组、转换成与非门实现。</p></section>
+        <section><h4>从零理解</h4><p>化简的目标是减少门电路数量和输入端数量。</p></section>
+        <section><h4>公式/规则</h4><ul class="formula-list"><li>A + A = A</li><li>A·A = A</li><li>A + A&#x27;B = A + B</li></ul></section>
+        <section><h4>关联作业</h4><p class="link-row"><a href="#question-7.5.9">7.5.9</a> <a href="#question-7.5.13">7.5.13</a> <a href="#question-7.5.14">7.5.14</a></p></section>
+      </div>
+      <details>
+        <summary>来源课件页</summary>
+        <div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch7_p011.png", "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11")"><img src="assets/course_pages/ch7_p011.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11</figcaption></figure></div>
+      </details>
+      <section class="pitfalls"><h4>易错点</h4><ul><li>卡诺图圈组必须按 1、2、4、8 个相邻格，边界可相邻。</li></ul></section>
+    </article>
+    
+    <article class="knowledge-card searchable" id="knowledge-combinational_logic_design" data-search="组合逻辑电路设计 从逻辑功能要求出发列真值表、写表达式、化简并画逻辑图。 7.6.17">
+      <header>
+        <p class="eyebrow">第 7 章知识点</p>
+        <h3>组合逻辑电路设计</h3>
+        <p class="summary">从逻辑功能要求出发列真值表、写表达式、化简并画逻辑图。</p>
+      </header>
+      <div class="card-grid">
+        <section><h4>必须掌握</h4><p>会把文字条件转换成输入输出逻辑关系。</p></section>
+        <section><h4>从零理解</h4><p>先把题目翻译成真值表，再选择合适门电路实现。</p></section>
+        <section><h4>公式/规则</h4><ul class="formula-list"><li>本知识点无固定公式。</li></ul></section>
+        <section><h4>关联作业</h4><p class="link-row"><a href="#question-7.6.17">7.6.17</a></p></section>
+      </div>
+      <details>
+        <summary>来源课件页</summary>
+        <div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch7_p012.png", "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12")"><img src="assets/course_pages/ch7_p012.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12</figcaption></figure></div>
+      </details>
+      <section class="pitfalls"><h4>易错点</h4><ul><li>优先级题要先给最高优先级输出，再排除更高优先级后给低优先级输出。</li></ul></section>
+    </article>
+    </div>
+              <h3>本章相关作业</h3>
+              <div class="question-list">
+    <article class="question-card searchable" id="question-7.5.14" data-search="7.5.14 卡诺图化简 应用卡诺图化简给定逻辑函数。">
+      <header>
+        <p class="eyebrow">第 7 章作业题</p>
+        <h3>7.5.14 | 卡诺图化简</h3>
+        <p>应用卡诺图化简给定逻辑函数。</p>
+      </header>
+      <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal("assets/homework_images/7_5_14_placeholder.png", "7.5.14 原题图")"><img src="assets/homework_images/7_5_14_placeholder.png" alt="7.5.14 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>7.5.14 原题图</figcaption></figure></div>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal("assets/course_pages/ch7_p011.png", "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11")"><img src="assets/course_pages/ch7_p011.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11</figcaption></figure></div></section>
+      <section><h4>子题级解析</h4>
+        <section class="subquestion">
+          <h4>7.5.14(1) 化简第一个逻辑式。</h4>
+          <ol><li>把最小项填入卡诺图。</li><li>按最大圈组覆盖所有 1。</li><li>写出最简与或式。</li></ol>
+          <p class="answer"><strong>答案：</strong>待接入官方答案或题图识别。</p>
+        </section>
+        
+        <section class="subquestion">
+          <h4>7.5.14(2) 化简第二个逻辑式。</h4>
+          <ol><li>把最小项填入卡诺图。</li><li>按最大圈组覆盖所有 1。</li><li>写出最简与或式。</li></ol>
+          <p class="answer"><strong>答案：</strong>待接入官方答案或题图识别。</p>
+        </section>
+        </section>
+      <p class="answer-source">答案来源：待核对</p>
+    </article>
+    </div>
+            </section>
+            
+      <section class="scope" id="methods"><h2>公式和方法速查</h2><p>本区由知识点公式自动汇总，后续生成任务会补全。</p></section>
+      <section class="scope" id="checklist"><h2>易错点与考前清单</h2><p>本区由各章易错点自动汇总，后续生成任务会补全。</p></section>
+    </main>
+  </div>
+  <div class="modal hidden" id="image-modal" onclick="closeImageModal()">
+    <figure onclick="event.stopPropagation()">
+      <img id="modal-image" alt="">
+      <figcaption id="modal-caption"></figcaption>
+      <button type="button" onclick="closeImageModal()">关闭</button>
+    </figure>
+  </div>
+  <script>
+    const PASSWORD_HASH = "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3";
+    const PASSWORD_STORAGE_KEY = "digital-electronics-review-unlocked";
+    async function sha256(value) {
+      const data = new TextEncoder().encode(value);
+      const digest = await crypto.subtle.digest("SHA-256", data);
+      return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+    function showCourse() {
+      document.getElementById("password-screen").classList.add("hidden");
+      document.getElementById("course-app").classList.remove("hidden");
+    }
+    async function unlockCourse(event) {
+      event.preventDefault();
+      const input = document.getElementById("course-password");
+      const message = document.getElementById("password-message");
+      if (await sha256(input.value) === PASSWORD_HASH) {
+        localStorage.setItem(PASSWORD_STORAGE_KEY, "1");
+        showCourse();
+      } else {
+        message.textContent = "密码不正确。";
+      }
+      return false;
+    }
+    if (localStorage.getItem(PASSWORD_STORAGE_KEY) === "1") showCourse();
+    const searchInput = document.getElementById("search-input");
+    searchInput.addEventListener("input", () => {
+      const query = searchInput.value.trim().toLowerCase();
+      let count = 0;
+      document.querySelectorAll(".searchable").forEach(card => {
+        const text = card.dataset.search.toLowerCase();
+        const hit = !query || text.includes(query);
+        card.classList.toggle("hidden", !hit);
+        if (hit && query) count += 1;
+      });
+      document.getElementById("search-status").textContent = query ? `找到 ${count} 个匹配项。` : "";
+    });
+    function clearSearch() {
+      searchInput.value = "";
+      searchInput.dispatchEvent(new Event("input"));
+      searchInput.focus();
+    }
+    function openImageModal(src, caption) {
+      document.getElementById("modal-image").src = src;
+      document.getElementById("modal-image").alt = caption;
+      document.getElementById("modal-caption").textContent = caption;
+      document.getElementById("image-modal").classList.remove("hidden");
+    }
+    function closeImageModal() {
+      document.getElementById("image-modal").classList.add("hidden");
+    }
+  </script>
+</body>
+</html>

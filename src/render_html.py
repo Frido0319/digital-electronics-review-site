@@ -1,0 +1,291 @@
+from __future__ import annotations
+
+import html
+import json
+from collections import defaultdict
+from pathlib import Path
+
+from . import config
+
+
+def _load_json(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _esc(value: str) -> str:
+    return html.escape(value or "", quote=True)
+
+
+def _js(value: str) -> str:
+    return json.dumps(value or "", ensure_ascii=False)
+
+
+def _source_pages_html(source_pages: list[dict]) -> str:
+    if not source_pages:
+        return '<p class="muted">来源页待补充。</p>'
+    parts = []
+    for page in source_pages:
+        image = page["image_path"]
+        label = f'{page["file"]} p.{page["page"]}'
+        parts.append(
+            '<figure class="source-page">'
+            f'<button type="button" onclick="openImageModal({_js(image)}, {_js(label)})">'
+            f'<img src="{_esc(image)}" alt="{_esc(label)}" loading="lazy" decoding="async" '
+            "onerror=\"this.closest('figure').classList.add('image-missing')\">"
+            f"</button><figcaption>{_esc(label)}</figcaption></figure>"
+        )
+    return "".join(parts)
+
+
+def _knowledge_card(point: dict) -> str:
+    formulas = "".join(f"<li>{_esc(item)}</li>" for item in point["formulas"]) or "<li>本知识点无固定公式。</li>"
+    pitfalls = "".join(f"<li>{_esc(item)}</li>" for item in point["pitfalls"])
+    related = " ".join(f'<a href="#question-{_esc(qid)}">{_esc(qid)}</a>' for qid in point["related_questions"])
+    return f"""
+    <article class="knowledge-card searchable" id="knowledge-{_esc(point["id"])}" data-search="{_esc(point["title"])} {_esc(point["summary"])} {_esc(" ".join(point["related_questions"]))}">
+      <header>
+        <p class="eyebrow">第 {_esc(point["chapter"])} 章知识点</p>
+        <h3>{_esc(point["title"])}</h3>
+        <p class="summary">{_esc(point["summary"])}</p>
+      </header>
+      <div class="card-grid">
+        <section><h4>必须掌握</h4><p>{_esc(point["must_know"])}</p></section>
+        <section><h4>从零理解</h4><p>{_esc(point["intuition"])}</p></section>
+        <section><h4>公式/规则</h4><ul class="formula-list">{formulas}</ul></section>
+        <section><h4>关联作业</h4><p class="link-row">{related}</p></section>
+      </div>
+      <details>
+        <summary>来源课件页</summary>
+        <div class="source-strip">{_source_pages_html(point["source_pages"])}</div>
+      </details>
+      <section class="pitfalls"><h4>易错点</h4><ul>{pitfalls}</ul></section>
+    </article>
+    """
+
+
+def _question_card(question: dict) -> str:
+    images = "".join(
+        '<figure class="homework-image">'
+        f'<button type="button" onclick="openImageModal({_js(path)}, {_js(question["id"] + " 原题图")})">'
+        f'<img src="{_esc(path)}" alt="{_esc(question["id"])} 原题图" loading="lazy" decoding="async" '
+        "onerror=\"this.closest('figure').classList.add('image-missing')\">"
+        f'</button><figcaption>{_esc(question["id"])} 原题图</figcaption></figure>'
+        for path in question["image_paths"]
+    )
+    knowledge = " ".join(f'<a href="#knowledge-{_esc(kid)}">{_esc(kid)}</a>' for kid in question["knowledge_ids"])
+    subquestions = "".join(
+        f"""
+        <section class="subquestion">
+          <h4>{_esc(sub["id"])} {_esc(sub["prompt"])}</h4>
+          <ol>{''.join(f'<li>{_esc(step)}</li>' for step in sub["solution_steps"])}</ol>
+          <p class="answer"><strong>答案：</strong>{_esc(sub["answer"])}</p>
+        </section>
+        """
+        for sub in question["subquestions"]
+    )
+    return f"""
+    <article class="question-card searchable" id="question-{_esc(question["id"])}" data-search="{_esc(question["id"])} {_esc(question["title"])} {_esc(question["prompt"])}">
+      <header>
+        <p class="eyebrow">第 {_esc(question["chapter"])} 章作业题</p>
+        <h3>{_esc(question["id"])} | {_esc(question["title"])}</h3>
+        <p>{_esc(question["prompt"])}</p>
+      </header>
+      <div class="homework-strip">{images}</div>
+      <section><h4>考点定位</h4><p class="link-row">{knowledge}</p></section>
+      <section><h4>来源课件页</h4><div class="source-strip">{_source_pages_html(question["source_pages"])}</div></section>
+      <section><h4>子题级解析</h4>{subquestions}</section>
+      <p class="answer-source">答案来源：{_esc(question["answer_source"])}</p>
+    </article>
+    """
+
+
+def render_site() -> None:
+    knowledge = _load_json(config.KNOWLEDGE_MAP_JSON)["knowledge_points"]
+    questions = _load_json(config.QUESTION_BANK_JSON)["questions"]
+    exclusions = _load_json(config.EXCLUSIONS_JSON)
+
+    chapter_points = defaultdict(list)
+    chapter_questions = defaultdict(list)
+    for point in knowledge:
+        chapter_points[point["chapter"]].append(point)
+    for question in questions:
+        chapter_questions[question["chapter"]].append(question)
+
+    nav_chapters = "".join(f'<a href="#chapter-{chapter}">第 {chapter} 章</a>' for chapter in ["1", "2", "3", "4", "5", "7"])
+    question_links = "".join(f'<a href="#question-{_esc(question["id"])}">{_esc(question["id"])}</a>' for question in questions)
+    exclusion_items = "".join(
+        f'<li>第 {_esc(item["chapter"])} 章 {_esc(item["section"])}：{_esc(item["reason"])}</li>'
+        for item in exclusions["excluded_sections"]
+    )
+    chapter_sections = []
+    for chapter in ["1", "2", "3", "4", "5", "7"]:
+        points_html = "".join(_knowledge_card(point) for point in chapter_points[chapter])
+        questions_html = "".join(_question_card(question) for question in chapter_questions[chapter])
+        chapter_sections.append(
+            f"""
+            <section class="chapter-section" id="chapter-{chapter}">
+              <h2>第 {chapter} 章</h2>
+              <div class="knowledge-list">{points_html}</div>
+              <h3>本章相关作业</h3>
+              <div class="question-list">{questions_html or '<p class="muted">本章题目待补充。</p>'}</div>
+            </section>
+            """
+        )
+
+    html_text = f"""<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>数电复习网站</title>
+  <style>
+    :root {{ color-scheme: light; --ink:#1c2430; --muted:#5d6878; --line:#d8dee8; --paper:#f7f8fb; --panel:#ffffff; --accent:#0f766e; --accent-2:#8a5a00; }}
+    * {{ box-sizing:border-box; }}
+    body {{ margin:0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color:var(--ink); background:var(--paper); line-height:1.55; }}
+    button, input {{ font:inherit; }}
+    .password-screen {{ min-height:100vh; display:grid; place-items:center; padding:24px; }}
+    .login-panel {{ width:min(420px, 100%); background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:24px; box-shadow:0 16px 40px rgba(28,36,48,.08); }}
+    .login-panel input {{ width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:6px; margin:10px 0; }}
+    .login-panel button, .tool-button {{ border:0; border-radius:6px; padding:10px 14px; background:var(--accent); color:white; cursor:pointer; }}
+    .app-shell {{ display:grid; grid-template-columns:280px minmax(0,1fr); min-height:100vh; }}
+    aside {{ position:sticky; top:0; height:100vh; overflow:auto; padding:18px; border-right:1px solid var(--line); background:#eef4f3; }}
+    main {{ padding:24px clamp(16px, 3vw, 44px); }}
+    nav a, .link-row a {{ display:inline-flex; margin:4px 6px 4px 0; color:#075985; text-decoration:none; border-bottom:1px solid transparent; }}
+    nav a:hover, .link-row a:hover {{ border-bottom-color:currentColor; }}
+    .search-box {{ display:flex; gap:8px; margin:18px 0; }}
+    .search-box input {{ width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:6px; }}
+    .scope, .knowledge-card, .question-card {{ background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:18px; margin:18px 0; }}
+    .eyebrow {{ color:var(--accent-2); font-size:.86rem; margin:0 0 4px; }}
+    h1, h2, h3, h4 {{ line-height:1.25; }}
+    .summary {{ color:var(--muted); }}
+    .card-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }}
+    .source-strip, .homework-strip {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 260px)); gap:12px; align-items:start; }}
+    figure {{ margin:0; }}
+    figure button {{ display:block; width:100%; padding:0; border:1px solid var(--line); border-radius:6px; background:white; cursor:zoom-in; overflow:hidden; }}
+    img {{ display:block; max-width:100%; height:auto; }}
+    figcaption {{ font-size:.82rem; color:var(--muted); margin-top:5px; }}
+    .image-missing::after {{ content:"图片待生成"; display:block; padding:10px; color:#a33; }}
+    .subquestion {{ border-top:1px solid var(--line); padding-top:12px; margin-top:12px; }}
+    .answer {{ background:#edf7f4; padding:10px 12px; border-radius:6px; }}
+    .answer-source, .muted {{ color:var(--muted); }}
+    .hidden {{ display:none !important; }}
+    .modal {{ position:fixed; inset:0; background:rgba(11,18,32,.82); display:grid; place-items:center; padding:20px; z-index:20; }}
+    .modal figure {{ max-width:min(1100px, 96vw); max-height:92vh; }}
+    .modal img {{ max-height:82vh; background:white; }}
+    .modal button {{ margin-top:10px; border:0; border-radius:6px; padding:9px 12px; }}
+    mark {{ background:#fff1a6; }}
+    @media (max-width: 820px) {{
+      .app-shell {{ grid-template-columns:1fr; }}
+      aside {{ position:relative; height:auto; max-height:45vh; }}
+      main {{ padding:16px; }}
+    }}
+  </style>
+</head>
+<body>
+  <section class="password-screen" id="password-screen">
+    <form class="login-panel" onsubmit="return unlockCourse(event)">
+      <h1>数电复习网站</h1>
+      <p>输入统一访问密码后进入。</p>
+      <label for="course-password">访问密码</label>
+      <input id="course-password" type="password" autocomplete="current-password">
+      <button type="submit">进入复习</button>
+      <p class="muted" id="password-message" role="status"></p>
+    </form>
+  </section>
+  <div class="app-shell hidden" id="course-app">
+    <aside>
+      <h2>目录</h2>
+      <nav>
+        <a href="#scope">考试范围</a>
+        <h3>章节知识主线</h3>
+        {nav_chapters}
+        <h3>作业题号索引</h3>
+        <div>{question_links}</div>
+        <a href="#methods">公式和方法速查</a>
+        <a href="#checklist">易错点与考前清单</a>
+      </nav>
+    </aside>
+    <main>
+      <header>
+        <h1>数电复习网站</h1>
+        <p>章节知识为主线，作业题号可直接索引。每个知识点追溯到课件来源页，每道题保留原题图并拆到子题级解析。</p>
+        <div class="search-box">
+          <input id="search-input" aria-label="搜索题号或知识点" placeholder="搜索：5.1.8、桥式整流、卡诺图、虚短虚断">
+          <button class="tool-button" type="button" onclick="clearSearch()">清除</button>
+        </div>
+        <p id="search-status" class="muted"></p>
+      </header>
+      <section class="scope" id="scope">
+        <h2>考试范围</h2>
+        <p>{_esc(exclusions["policy"])}</p>
+        <ul>{exclusion_items}</ul>
+        <p>{_esc(exclusions["homework_policy"])}</p>
+      </section>
+      {''.join(chapter_sections)}
+      <section class="scope" id="methods"><h2>公式和方法速查</h2><p>本区由知识点公式自动汇总，后续生成任务会补全。</p></section>
+      <section class="scope" id="checklist"><h2>易错点与考前清单</h2><p>本区由各章易错点自动汇总，后续生成任务会补全。</p></section>
+    </main>
+  </div>
+  <div class="modal hidden" id="image-modal" onclick="closeImageModal()">
+    <figure onclick="event.stopPropagation()">
+      <img id="modal-image" alt="">
+      <figcaption id="modal-caption"></figcaption>
+      <button type="button" onclick="closeImageModal()">关闭</button>
+    </figure>
+  </div>
+  <script>
+    const PASSWORD_HASH = "{config.DEFAULT_PASSWORD_SHA256}";
+    const PASSWORD_STORAGE_KEY = "digital-electronics-review-unlocked";
+    async function sha256(value) {{
+      const data = new TextEncoder().encode(value);
+      const digest = await crypto.subtle.digest("SHA-256", data);
+      return Array.from(new Uint8Array(digest)).map(b => b.toString(16).padStart(2, "0")).join("");
+    }}
+    function showCourse() {{
+      document.getElementById("password-screen").classList.add("hidden");
+      document.getElementById("course-app").classList.remove("hidden");
+    }}
+    async function unlockCourse(event) {{
+      event.preventDefault();
+      const input = document.getElementById("course-password");
+      const message = document.getElementById("password-message");
+      if (await sha256(input.value) === PASSWORD_HASH) {{
+        localStorage.setItem(PASSWORD_STORAGE_KEY, "1");
+        showCourse();
+      }} else {{
+        message.textContent = "密码不正确。";
+      }}
+      return false;
+    }}
+    if (localStorage.getItem(PASSWORD_STORAGE_KEY) === "1") showCourse();
+    const searchInput = document.getElementById("search-input");
+    searchInput.addEventListener("input", () => {{
+      const query = searchInput.value.trim().toLowerCase();
+      let count = 0;
+      document.querySelectorAll(".searchable").forEach(card => {{
+        const text = card.dataset.search.toLowerCase();
+        const hit = !query || text.includes(query);
+        card.classList.toggle("hidden", !hit);
+        if (hit && query) count += 1;
+      }});
+      document.getElementById("search-status").textContent = query ? `找到 ${{count}} 个匹配项。` : "";
+    }});
+    function clearSearch() {{
+      searchInput.value = "";
+      searchInput.dispatchEvent(new Event("input"));
+      searchInput.focus();
+    }}
+    function openImageModal(src, caption) {{
+      document.getElementById("modal-image").src = src;
+      document.getElementById("modal-image").alt = caption;
+      document.getElementById("modal-caption").textContent = caption;
+      document.getElementById("image-modal").classList.remove("hidden");
+    }}
+    function closeImageModal() {{
+      document.getElementById("image-modal").classList.add("hidden");
+    }}
+  </script>
+</body>
+</html>
+"""
+    config.INDEX_HTML.write_text(html_text, encoding="utf-8")
