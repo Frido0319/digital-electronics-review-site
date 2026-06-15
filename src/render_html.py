@@ -169,6 +169,40 @@ def _answer_status_html(questions: list[dict]) -> str:
     """
 
 
+def _lecture_gallery_html(gallery: list[dict]) -> str:
+    if not gallery:
+        return ""
+    groups = []
+    for source in gallery:
+        pages = "".join(
+            f"""
+            <figure class="lecture-page">
+              <button type="button" onclick="openImageModal({_js(page["image_path"])}, {_js(source["title"] + " p." + str(page["page"]))})">
+                <img src="{_esc(page["image_path"])}" alt="{_esc(source["title"])} 第 {_esc(str(page["page"]))} 页截图" loading="lazy" decoding="async"
+                  onerror="this.closest('figure').classList.add('image-missing')">
+              </button>
+              <figcaption>{_esc(source["title"])} p.{_esc(str(page["page"]))}</figcaption>
+            </figure>
+            """
+            for page in source["pages"]
+        )
+        groups.append(
+            f"""
+            <details class="lecture-source">
+              <summary>第 {_esc(source["chapter"])} 章 | {_esc(source["title"])} | {len(source["pages"])} 页截图</summary>
+              <div class="lecture-grid">{pages}</div>
+            </details>
+            """
+        )
+    return f"""
+      <section class="scope" id="lecture-gallery">
+        <h2>原讲义 PDF 截图库</h2>
+        <p>这里集中放更多原讲义截图，方便你从整理版回到老师原 PDF 页面核对。每份 PDF 默认折叠，打开后再按页查看截图。</p>
+        {''.join(groups)}
+      </section>
+    """
+
+
 def _write_outline(knowledge: list[dict], questions: list[dict]) -> None:
     by_chapter_questions = defaultdict(list)
     by_chapter_points = defaultdict(list)
@@ -204,6 +238,7 @@ def render_site() -> None:
     knowledge = _load_json(config.KNOWLEDGE_MAP_JSON)["knowledge_points"]
     questions = _load_json(config.QUESTION_BANK_JSON)["questions"]
     exclusions = _load_json(config.EXCLUSIONS_JSON)
+    manifest = _load_json(config.SOURCE_MANIFEST_JSON)
 
     chapter_points = defaultdict(list)
     chapter_questions = defaultdict(list)
@@ -236,6 +271,7 @@ def render_site() -> None:
     methods_html = _methods_html(knowledge)
     checklist_html = _checklist_html(knowledge)
     answer_status_html = _answer_status_html(questions)
+    lecture_gallery_html = _lecture_gallery_html(manifest.get("lecture_gallery", []))
     _write_outline(knowledge, questions)
 
     html_text = f"""<!doctype html>
@@ -267,6 +303,9 @@ def render_site() -> None:
     .summary {{ color:var(--muted); }}
     .card-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }}
     .source-strip, .homework-strip {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 260px)); gap:12px; align-items:start; }}
+    .lecture-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 320px)); gap:14px; align-items:start; margin-top:14px; }}
+    .lecture-source {{ border-top:1px solid var(--line); padding-top:10px; margin-top:10px; }}
+    .lecture-source summary {{ cursor:pointer; font-weight:650; }}
     .quick-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; }}
     .quick-card {{ border:1px solid var(--line); border-radius:8px; padding:14px; background:#fbfcfd; }}
     .checklist li {{ margin-bottom:8px; }}
@@ -313,6 +352,7 @@ def render_site() -> None:
         {nav_chapters}
         <h3>作业题号索引</h3>
         <div>{question_links}</div>
+        <a href="#lecture-gallery">原讲义 PDF 截图库</a>
         <a href="#answer-status">答案状态</a>
         <a href="#methods">公式和方法速查</a>
         <a href="#checklist">易错点与考前清单</a>
@@ -344,6 +384,7 @@ def render_site() -> None:
         </ol>
       </section>
       {''.join(chapter_sections)}
+      {lecture_gallery_html}
       {answer_status_html}
       {methods_html}
       {checklist_html}

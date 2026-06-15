@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 
 from . import config
 from .models import KnowledgePoint, Question, SourcePage, SubQuestion, to_jsonable
@@ -31,6 +32,62 @@ def _pending_question(
         subquestions=[SubQuestion(id, "完成本题。", "待接入官方答案或进一步推导。", route)],
         answer_source="待核对",
     )
+
+
+def _gallery_image_name(file: str, page: int) -> str:
+    stem = re.sub(r"[^A-Za-z0-9]+", "_", file).strip("_").lower()
+    if len(stem) > 64:
+        stem = stem[-64:]
+    return f"assets/course_pages/gallery_{stem}_p{page:03d}.png"
+
+
+def _source_file_key(path) -> str:
+    return str(path.relative_to(config.SOURCE_ROOT)).replace("\\", "/")
+
+
+LECTURE_GALLERY_PAGES: dict[str, list[int]] = {
+    "第1章 半导体器件讲义/第1章-半导体器件1.pdf": [17, 19, 21, 23, 25, 27, 29, 31, 33],
+    "第1章 半导体器件讲义/第1章-半导体器件2.pdf": [1, 5, 9, 11, 13, 15, 17, 19, 21, 23],
+    "第1章 半导体器件讲义/第1章-半导体器件34-.pdf": [5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27, 29, 31, 33],
+    "第2章 基本放大电路/第2章-基本放大电路5.pdf": [1, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27],
+    "第2章 基本放大电路/第2章-基本放大电路6.pdf": [4, 6, 8, 10, 12, 14, 16, 18, 20],
+    "第2章 基本放大电路/第2章-基本放大电路7.pdf": [3, 5, 7, 9, 11, 13, 15, 17, 19],
+    "第2章 基本放大电路/第2章-基本放大电路8.pdf": [1, 5, 9, 13, 17, 19],
+    "第2章 基本放大电路/第2章-基本放大电路10.pdf": [1, 3, 5, 7, 9, 11, 13, 15, 17],
+    "第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf": [1, 5, 9, 11, 15, 18, 20, 22, 24, 26, 30],
+    "第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf": [1, 2, 4, 7, 9, 12, 14, 16, 20, 24, 28],
+    "第5章-直流稳压电源.pdf": [1, 5, 7, 9, 11, 13, 15, 17, 19, 25, 27, 29],
+    "第7章 门电路和组合逻辑电路/第7章-门电路和组合逻辑电路1.pdf": [1, 5, 9, 13, 16, 21, 25, 29],
+    "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路2.pdf": [1, 5, 9, 13, 17, 21, 25],
+    "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf": [1, 2, 7, 11, 15, 19, 23],
+    "第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf": [1, 5, 9, 12, 16, 20, 24, 28, 32],
+}
+
+
+def build_lecture_gallery() -> list[dict]:
+    gallery = []
+    for files in config.SOURCE_FILES.values():
+        for path in files:
+            file_key = _source_file_key(path)
+            pages = LECTURE_GALLERY_PAGES.get(file_key)
+            if not pages:
+                continue
+            chapter = path.name.split("章", 1)[0].replace("第", "")
+            gallery.append(
+                {
+                    "file": file_key,
+                    "title": path.name,
+                    "chapter": chapter,
+                    "pages": [
+                        {
+                            "page": page,
+                            "image_path": _gallery_image_name(file_key, page),
+                        }
+                        for page in pages
+                    ],
+                }
+            )
+    return gallery
 
 
 def build_knowledge_points() -> list[KnowledgePoint]:
@@ -457,12 +514,15 @@ def seed_content() -> None:
 
     knowledge_points = build_knowledge_points()
     questions = build_questions()
+    lecture_gallery = build_lecture_gallery()
     manifest = {
         "course_pages": sorted(
             {page.image_path for point in knowledge_points for page in point.source_pages}
             | {page.image_path for question in questions for page in question.source_pages}
+            | {page["image_path"] for source in lecture_gallery for page in source["pages"]}
         ),
         "homework_images": sorted({path for question in questions for path in question.image_paths}),
+        "lecture_gallery": lecture_gallery,
         "notes": [
             "Curated review records include all currently extracted homework IDs. Official answer files can replace pending answers later.",
             "Blackboard exclusions are enforced by content review and validation.",
@@ -490,6 +550,8 @@ def render_required_source_pages() -> None:
     }
     required_pages = [page for point in build_knowledge_points() for page in point.source_pages]
     required_pages.extend(page for question in build_questions() for page in question.source_pages)
+    for source in build_lecture_gallery():
+        required_pages.extend(_source(source["file"], page["page"], page["image_path"]) for page in source["pages"])
     rendered: set[str] = set()
     for page in required_pages:
         source = known_files.get(page.file.replace("\\", "/"))

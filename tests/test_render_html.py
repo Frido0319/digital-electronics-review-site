@@ -63,6 +63,19 @@ def test_render_site_exposes_answer_status_summary():
     assert "后续上传官方答案后可替换" in html
 
 
+def test_render_site_includes_expanded_lecture_gallery():
+    seed_content()
+    render_site()
+    html = config.INDEX_HTML.read_text(encoding="utf-8")
+
+    assert "原讲义 PDF 截图库" in html
+    assert 'id="lecture-gallery"' in html
+    assert 'class="lecture-page"' in html
+    assert html.count('class="lecture-page"') >= 70
+    assert "第2章-基本放大电路7.pdf" in html
+    assert "第7章 门电路和组合逻辑电路4.pdf" in html
+
+
 def test_render_site_writes_shareable_outline():
     seed_content()
     render_site()

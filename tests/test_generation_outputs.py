@@ -98,6 +98,47 @@ def test_source_page_manifest_covers_question_source_pages():
     assert question_pages <= manifest_pages
 
 
+def test_source_page_manifest_includes_expanded_lecture_gallery():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
+    gallery = manifest["lecture_gallery"]
+    gallery_paths = {
+        page["image_path"]
+        for source in gallery
+        for page in source["pages"]
+    }
+
+    assert len(gallery) >= 10
+    assert len(gallery_paths) >= 70
+    assert gallery_paths <= set(manifest["course_pages"])
+    assert all(path.startswith("assets/course_pages/") for path in gallery_paths)
+
+
+def test_lecture_gallery_omits_blackboard_excluded_topics():
+    import fitz
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
+    text_chunks = []
+    for source in manifest["lecture_gallery"]:
+        source_path = config.SOURCE_ROOT / source["file"]
+        doc = fitz.open(str(source_path))
+        for page in source["pages"]:
+            text_chunks.append(doc[page["page"] - 1].get_text("text"))
+        doc.close()
+    gallery_text = "\n".join(text_chunks)
+
+    assert "场效应晶体管放大电路" not in gallery_text
+    assert "频率特性" not in gallery_text
+    assert "三相桥式整流" not in gallery_text
+    assert "电感电容滤波器" not in gallery_text
+
+
 def test_generated_html_references_existing_images():
     from html.parser import HTMLParser
 
