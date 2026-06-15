@@ -116,6 +116,21 @@ def test_render_site_uses_safe_modal_button_attributes():
     assert all(button.get("data-modal-caption") for button in parser.modal_buttons)
 
 
+def test_image_modal_has_previous_and_next_navigation_controls():
+    seed_content()
+    render_site()
+    html = config.INDEX_HTML.read_text(encoding="utf-8")
+
+    assert 'class="modal-nav modal-prev"' in html
+    assert 'class="modal-nav modal-next"' in html
+    assert 'aria-label="上一张图片"' in html
+    assert 'aria-label="下一张图片"' in html
+    assert "showAdjacentImage(-1)" in html
+    assert "showAdjacentImage(1)" in html
+    assert 'event.key === "ArrowLeft"' in html
+    assert 'event.key === "ArrowRight"' in html
+
+
 def test_render_site_writes_shareable_outline():
     seed_content()
     render_site()
