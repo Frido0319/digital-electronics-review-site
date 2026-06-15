@@ -212,3 +212,21 @@ def seed_content() -> None:
         encoding="utf-8",
     )
     config.SOURCE_MANIFEST_JSON.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def render_required_source_pages() -> None:
+    from .extract_sources import render_pdf_page
+
+    known_files = {
+        str(path.relative_to(config.SOURCE_ROOT)).replace("\\", "/"): path
+        for files in config.SOURCE_FILES.values()
+        for path in files
+    }
+    rendered: set[str] = set()
+    for point in build_knowledge_points():
+        for page in point.source_pages:
+            source = known_files.get(page.file.replace("\\", "/"))
+            if source is None or source.suffix.lower() != ".pdf" or page.image_path in rendered:
+                continue
+            render_pdf_page(source, page.page, config.PROJECT_ROOT / page.image_path)
+            rendered.add(page.image_path)

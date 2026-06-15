@@ -71,3 +71,15 @@ def test_validator_reports_missing_placeholder_assets():
     assert report["question_count"] >= 5
     assert report["knowledge_count"] >= 8
     assert report["missing_assets"]
+
+
+def test_source_page_manifest_paths_are_unique():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
+    pages = manifest["course_pages"]
+
+    assert len(pages) == len(set(pages))
+    assert all(path.startswith("assets/course_pages/") for path in pages)
