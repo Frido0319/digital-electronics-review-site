@@ -20,3 +20,11 @@ def test_expected_output_paths_are_inside_project():
 
 def test_exclusion_policy_file_exists():
     assert config.EXCLUSIONS_JSON.is_file()
+
+
+def test_extraction_helpers_normalize_text_and_paths():
+    from src.extract_sources import clean_text, relative_asset_path
+
+    assert clean_text("  第5章\n\n直流   稳压电源 ") == "第5章 直流 稳压电源"
+    path = config.PROJECT_ROOT / "assets" / "course_pages" / "ch5_p001.png"
+    assert relative_asset_path(path) == "assets/course_pages/ch5_p001.png"
