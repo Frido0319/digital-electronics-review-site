@@ -59,18 +59,18 @@ def test_seed_data_excludes_blackboard_sections_from_knowledge_titles():
     assert "频率特性" not in titles
 
 
-def test_validator_reports_missing_placeholder_assets():
+def test_validator_accepts_complete_mvp_assets():
     from src.render_html import render_site
     from src.seed_content import seed_content
     from src.validate_site import validate_site
 
     seed_content()
     render_site()
-    report = validate_site(strict_assets=False)
+    report = validate_site(strict_assets=True)
 
     assert report["question_count"] >= 5
     assert report["knowledge_count"] >= 8
-    assert report["missing_assets"]
+    assert report["missing_assets"] == []
 
 
 def test_source_page_manifest_paths_are_unique():
@@ -83,3 +83,65 @@ def test_source_page_manifest_paths_are_unique():
 
     assert len(pages) == len(set(pages))
     assert all(path.startswith("assets/course_pages/") for path in pages)
+
+
+def test_seed_questions_do_not_use_placeholder_images_for_mapped_homework():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    questions = json.loads(config.QUESTION_BANK_JSON.read_text(encoding="utf-8"))["questions"]
+    mapped_ids = {"2.4.5", "3.2.13", "4.2.12", "5.1.8", "7.5.14"}
+
+    for question in questions:
+        if question["id"] in mapped_ids:
+            assert question["image_paths"]
+            assert all("placeholder" not in path for path in question["image_paths"])
+            assert all((config.PROJECT_ROOT / path).is_file() for path in question["image_paths"] if not path.endswith(".emf"))
+
+
+def test_seed_questions_cover_all_text_extracted_homework_ids():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    questions = json.loads(config.QUESTION_BANK_JSON.read_text(encoding="utf-8"))["questions"]
+    question_ids = {question["id"] for question in questions}
+    expected = {
+        "1.3.6",
+        "1.3.9",
+        "1.4.3",
+        "1.5.8",
+        "1.5.9",
+        "2.4.5",
+        "2.4.6",
+        "2.4.7",
+        "2.6.2",
+        "2.6.3",
+        "2.6.4",
+        "3.1.2",
+        "3.2.8",
+        "3.2.13",
+        "3.2.16",
+        "3.3.4",
+        "4.2.6",
+        "4.2.12",
+        "5.1.1",
+        "5.1.8",
+        "7.2.5",
+        "7.3.1",
+        "7.5.9",
+        "7.5.13",
+        "7.5.14",
+        "7.6.17a",
+        "7.6.17b",
+    }
+
+    assert expected <= question_ids
+
+
+def test_office_ascii_stem_produces_safe_filename():
+    from src.extract_sources import ascii_stem
+
+    assert ascii_stem("第4章  电子电路中的反馈.ppt").startswith("office_")
+    assert ascii_stem("5 直流稳压电源作业.docx").endswith("_docx")

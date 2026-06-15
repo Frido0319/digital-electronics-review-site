@@ -10,11 +10,27 @@
     "assets/course_pages/ch7_p012.png"
   ],
   "homework_images": [
-    "assets/homework_images/2_4_5_placeholder.png",
-    "assets/homework_images/3_2_13_placeholder.png",
-    "assets/homework_images/4_2_12_placeholder.png",
-    "assets/homework_images/5_1_8_placeholder.png",
-    "assets/homework_images/7_5_14_placeholder.png"
+    "assets/homework_images/1,半导体器件作业_image1.png",
+    "assets/homework_images/1,半导体器件作业_image2.png",
+    "assets/homework_images/1,半导体器件作业_image3.png",
+    "assets/homework_images/1,半导体器件作业_image4.png",
+    "assets/homework_images/1,半导体器件作业_image5.png",
+    "assets/homework_images/1,半导体器件作业_image6.png",
+    "assets/homework_images/1,半导体器件作业_image7.png",
+    "assets/homework_images/2,基本放大电路作业_image11.png",
+    "assets/homework_images/2,基本放大电路作业_image3.png",
+    "assets/homework_images/2,基本放大电路作业_image6.png",
+    "assets/homework_images/2,基本放大电路作业_image7.png",
+    "assets/homework_images/3, 运算放大电路作业_image1.png",
+    "assets/homework_images/3, 运算放大电路作业_image3.png",
+    "assets/homework_images/3, 运算放大电路作业_image5.png",
+    "assets/homework_images/3, 运算放大电路作业_image6.png",
+    "assets/homework_images/3, 运算放大电路作业_image8.png",
+    "assets/homework_images/4 电子电路中的负反馈作业_image1.png",
+    "assets/homework_images/4 电子电路中的负反馈作业_image2.png",
+    "assets/homework_images/7 门电路和组合逻辑电路作业_image1.png",
+    "assets/homework_images/7 门电路和组合逻辑电路作业_image2.png",
+    "assets/homework_images/ch5_homework_page001.png"
   ],
   "notes": [
     "MVP contains curated representative records; later extraction/OCR tasks should replace placeholders with real images and full question set.",

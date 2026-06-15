@@ -12,6 +12,13 @@ from docx import Document
 from . import config
 
 
+def ascii_stem(name: str) -> str:
+    safe = re.sub(r"[^A-Za-z0-9]+", "_", name).strip("_").lower()
+    if not safe:
+        safe = "office"
+    return f"office_{safe}"
+
+
 def clean_text(text: str) -> str:
     return re.sub(r"\s+", " ", text or "").strip()
 
@@ -42,6 +49,44 @@ def render_pdf_page(pdf_path: Path, page_number: int, output_path: Path, zoom: f
     pixmap = page.get_pixmap(matrix=fitz.Matrix(zoom, zoom), alpha=False)
     pixmap.save(str(output_path))
     doc.close()
+
+
+def convert_office_to_pdf(source_path: Path, output_pdf: Path) -> bool:
+    import win32com.client
+
+    temp_dir = config.PROJECT_ROOT / "tmp" / "office_convert"
+    temp_dir.mkdir(parents=True, exist_ok=True)
+    temp_source = temp_dir / f"{ascii_stem(source_path.name)}{source_path.suffix.lower()}"
+    shutil.copyfile(source_path, temp_source)
+    output_pdf.parent.mkdir(parents=True, exist_ok=True)
+
+    if source_path.suffix.lower() == ".docx":
+        word = None
+        try:
+            word = win32com.client.Dispatch("Word.Application")
+            word.Visible = False
+            doc = word.Documents.Open(str(temp_source.resolve()), ReadOnly=True)
+            doc.SaveAs(str(output_pdf.resolve()), FileFormat=17)
+            doc.Close(False)
+            return output_pdf.is_file()
+        finally:
+            if word is not None:
+                word.Quit()
+
+    if source_path.suffix.lower() in {".ppt", ".pptx"}:
+        powerpoint = None
+        try:
+            powerpoint = win32com.client.Dispatch("PowerPoint.Application")
+            powerpoint.Visible = True
+            presentation = powerpoint.Presentations.Open(str(temp_source.resolve()), ReadOnly=True, Untitled=False, WithWindow=False)
+            presentation.SaveAs(str(output_pdf.resolve()), 32)
+            presentation.Close()
+            return output_pdf.is_file()
+        finally:
+            if powerpoint is not None:
+                powerpoint.Quit()
+
+    return False
 
 
 def extract_docx_text_and_media(docx_path: Path, media_dir: Path) -> dict:
