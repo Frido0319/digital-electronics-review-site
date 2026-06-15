@@ -198,7 +198,9 @@ def render_site() -> None:
     <aside>
       <h2>目录</h2>
       <nav>
-        <a href="#scope">考试范围</a>
+        <p class="nav-hint">建议顺序：先看考试范围，再按章节过知识点，最后按题号索引查漏补缺。</p>
+        <p class="current-location">当前位置：<span id="current-location">考试范围</span></p>
+        <a href="#scope" aria-current="page">考试范围</a>
         <h3>章节知识主线</h3>
         {nav_chapters}
         <h3>作业题号索引</h3>
@@ -222,6 +224,15 @@ def render_site() -> None:
         <p>{_esc(exclusions["policy"])}</p>
         <ul>{exclusion_items}</ul>
         <p>{_esc(exclusions["homework_policy"])}</p>
+      </section>
+      <section class="scope" id="beginner-route">
+        <h2>初学者学习路线</h2>
+        <ol>
+          <li>先读每章的前置知识，确认自己知道相关电路、公式或逻辑规则的入口概念。</li>
+          <li>再看“必须掌握”和“从零理解”，只抓会做题必须用到的判断规则。</li>
+          <li>打开来源课件页，对照原 PPT/PDF 图和公式，避免只背整理版。</li>
+          <li>最后进入相关作业题，按“解题路线 -> 子题级解析 -> 最终答案”核对。</li>
+        </ol>
       </section>
       {''.join(chapter_sections)}
       <section class="scope" id="methods"><h2>公式和方法速查</h2><p>本区由知识点公式自动汇总，后续生成任务会补全。</p></section>
@@ -277,6 +288,22 @@ def render_site() -> None:
       searchInput.dispatchEvent(new Event("input"));
       searchInput.focus();
     }}
+    const navLinks = Array.from(document.querySelectorAll("aside nav a[href^='#']"));
+    const locationLabel = document.getElementById("current-location");
+    function updateCurrentLocation(hash) {{
+      const activeHash = hash || "#scope";
+      navLinks.forEach(link => {{
+        if (link.getAttribute("href") === activeHash) {{
+          link.setAttribute("aria-current", "page");
+          if (locationLabel) locationLabel.textContent = link.textContent.trim();
+        }} else {{
+          link.removeAttribute("aria-current");
+        }}
+      }});
+    }}
+    navLinks.forEach(link => link.addEventListener("click", () => updateCurrentLocation(link.getAttribute("href"))));
+    window.addEventListener("hashchange", () => updateCurrentLocation(window.location.hash));
+    updateCurrentLocation(window.location.hash || "#scope");
     function openImageModal(src, caption) {{
       document.getElementById("modal-image").src = src;
       document.getElementById("modal-image").alt = caption;

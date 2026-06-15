@@ -62,7 +62,9 @@
     <aside>
       <h2>目录</h2>
       <nav>
-        <a href="#scope">考试范围</a>
+        <p class="nav-hint">建议顺序：先看考试范围，再按章节过知识点，最后按题号索引查漏补缺。</p>
+        <p class="current-location">当前位置：<span id="current-location">考试范围</span></p>
+        <a href="#scope" aria-current="page">考试范围</a>
         <h3>章节知识主线</h3>
         <a href="#chapter-1">第 1 章</a><a href="#chapter-2">第 2 章</a><a href="#chapter-3">第 3 章</a><a href="#chapter-4">第 4 章</a><a href="#chapter-5">第 5 章</a><a href="#chapter-7">第 7 章</a>
         <h3>作业题号索引</h3>
@@ -86,6 +88,15 @@
         <p>完全不做：不进入目录、不写解释、不出题、不放折叠区。</p>
         <ul><li>第 2 章 2.6：黑板标记不考</li><li>第 2 章 2.8：黑板标记不考</li><li>第 3 章 3.3.1：黑板标记不考</li><li>第 3 章 3.3.2：黑板标记不考</li><li>第 3 章 3.4：黑板标记不考</li><li>第 5 章 5.1.3：黑板标记不考</li><li>第 5 章 5.2.2：黑板标记不考</li><li>第 5 章 5.2.3：黑板标记不考</li><li>第 5 章 5.3.4：黑板标记不考</li><li>第 7 章 7.12：黑板标记不考</li></ul>
         <p>逐题按内容判断：题号疑似落入不考范围但内容属于考试主线时保留；内容确属不考范围时排除。</p>
+      </section>
+      <section class="scope" id="beginner-route">
+        <h2>初学者学习路线</h2>
+        <ol>
+          <li>先读每章的前置知识，确认自己知道相关电路、公式或逻辑规则的入口概念。</li>
+          <li>再看“必须掌握”和“从零理解”，只抓会做题必须用到的判断规则。</li>
+          <li>打开来源课件页，对照原 PPT/PDF 图和公式，避免只背整理版。</li>
+          <li>最后进入相关作业题，按“解题路线 -> 子题级解析 -> 最终答案”核对。</li>
+        </ol>
       </section>
       
             <section class="chapter-section" id="chapter-1">
@@ -922,6 +933,22 @@
       searchInput.dispatchEvent(new Event("input"));
       searchInput.focus();
     }
+    const navLinks = Array.from(document.querySelectorAll("aside nav a[href^='#']"));
+    const locationLabel = document.getElementById("current-location");
+    function updateCurrentLocation(hash) {
+      const activeHash = hash || "#scope";
+      navLinks.forEach(link => {
+        if (link.getAttribute("href") === activeHash) {
+          link.setAttribute("aria-current", "page");
+          if (locationLabel) locationLabel.textContent = link.textContent.trim();
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+    navLinks.forEach(link => link.addEventListener("click", () => updateCurrentLocation(link.getAttribute("href"))));
+    window.addEventListener("hashchange", () => updateCurrentLocation(window.location.hash));
+    updateCurrentLocation(window.location.hash || "#scope");
     function openImageModal(src, caption) {
       document.getElementById("modal-image").src = src;
       document.getElementById("modal-image").alt = caption;

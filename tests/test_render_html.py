@@ -27,3 +27,13 @@ def test_render_site_includes_search_and_image_modal():
     assert 'aria-label="搜索题号或知识点"' in html
     assert 'id="image-modal"' in html
     assert "openImageModal" in html
+
+
+def test_render_site_includes_beginner_route_and_current_location():
+    seed_content()
+    render_site()
+    html = config.INDEX_HTML.read_text(encoding="utf-8")
+
+    assert "初学者学习路线" in html
+    assert 'id="current-location"' in html
+    assert 'aria-current' in html
