@@ -85,6 +85,42 @@ def test_source_page_manifest_paths_are_unique():
     assert all(path.startswith("assets/course_pages/") for path in pages)
 
 
+def test_source_page_manifest_covers_question_source_pages():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
+    questions = json.loads(config.QUESTION_BANK_JSON.read_text(encoding="utf-8"))["questions"]
+    manifest_pages = set(manifest["course_pages"])
+    question_pages = {page["image_path"] for question in questions for page in question["source_pages"]}
+
+    assert question_pages <= manifest_pages
+
+
+def test_generated_html_references_existing_images():
+    from html.parser import HTMLParser
+
+    class ImgParser(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.sources = []
+
+        def handle_starttag(self, tag, attrs):
+            if tag != "img":
+                return
+            attrs_dict = dict(attrs)
+            if attrs_dict.get("src"):
+                self.sources.append(attrs_dict["src"])
+
+    parser = ImgParser()
+    parser.feed(config.INDEX_HTML.read_text(encoding="utf-8"))
+    missing = [source for source in parser.sources if not (config.PROJECT_ROOT / source).is_file()]
+
+    assert parser.sources
+    assert missing == []
+
+
 def test_seed_questions_do_not_use_placeholder_images_for_mapped_homework():
     import json
     from src.seed_content import seed_content

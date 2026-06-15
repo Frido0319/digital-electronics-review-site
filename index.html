@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f766e'/%3E%3Cpath d='M7 16h18M10 10h12M10 22h12' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
   <title>数电复习网站</title>
   <style>
     :root { color-scheme: light; --ink:#1c2430; --muted:#5d6878; --line:#d8dee8; --paper:#f7f8fb; --panel:#ffffff; --accent:#0f766e; --accent-2:#8a5a00; }
@@ -26,6 +27,9 @@
     .summary { color:var(--muted); }
     .card-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }
     .source-strip, .homework-strip { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 260px)); gap:12px; align-items:start; }
+    .quick-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; }
+    .quick-card { border:1px solid var(--line); border-radius:8px; padding:14px; background:#fbfcfd; }
+    .checklist li { margin-bottom:8px; }
     figure { margin:0; }
     figure button { display:block; width:100%; padding:0; border:1px solid var(--line); border-radius:6px; background:white; cursor:zoom-in; overflow:hidden; }
     img { display:block; max-width:100%; height:auto; }
@@ -69,6 +73,7 @@
         <a href="#chapter-1">第 1 章</a><a href="#chapter-2">第 2 章</a><a href="#chapter-3">第 3 章</a><a href="#chapter-4">第 4 章</a><a href="#chapter-5">第 5 章</a><a href="#chapter-7">第 7 章</a>
         <h3>作业题号索引</h3>
         <div><a href="#question-1.3.6">1.3.6</a><a href="#question-1.3.9">1.3.9</a><a href="#question-1.4.3">1.4.3</a><a href="#question-1.5.8">1.5.8</a><a href="#question-1.5.9">1.5.9</a><a href="#question-2.4.5">2.4.5</a><a href="#question-2.4.6">2.4.6</a><a href="#question-2.4.7">2.4.7</a><a href="#question-2.6.2">2.6.2</a><a href="#question-2.6.3">2.6.3</a><a href="#question-2.6.4">2.6.4</a><a href="#question-3.1.2">3.1.2</a><a href="#question-3.2.8">3.2.8</a><a href="#question-3.2.13">3.2.13</a><a href="#question-3.2.16">3.2.16</a><a href="#question-3.3.4">3.3.4</a><a href="#question-4.2.6">4.2.6</a><a href="#question-4.2.12">4.2.12</a><a href="#question-5.1.1">5.1.1</a><a href="#question-5.1.8">5.1.8</a><a href="#question-7.2.5">7.2.5</a><a href="#question-7.3.1">7.3.1</a><a href="#question-7.5.9">7.5.9</a><a href="#question-7.5.13">7.5.13</a><a href="#question-7.5.14">7.5.14</a><a href="#question-7.6.17a">7.6.17a</a><a href="#question-7.6.17b">7.6.17b</a></div>
+        <a href="#answer-status">答案状态</a>
         <a href="#methods">公式和方法速查</a>
         <a href="#checklist">易错点与考前清单</a>
       </nav>
@@ -880,8 +885,75 @@
     </div>
             </section>
             
-      <section class="scope" id="methods"><h2>公式和方法速查</h2><p>本区由知识点公式自动汇总，后续生成任务会补全。</p></section>
-      <section class="scope" id="checklist"><h2>易错点与考前清单</h2><p>本区由各章易错点自动汇总，后续生成任务会补全。</p></section>
+      
+      <section class="scope" id="answer-status">
+        <h2>答案状态</h2>
+        <p>当前页面保留了每道题的解析入口和答案来源标记。后续上传官方答案后可替换“待核对”条目，并保留“官方答案/推导答案”的来源区分。</p>
+        <ul><li><strong>待核对</strong>：24 题</li><li><strong>推导答案</strong>：3 题</li></ul>
+      </section>
+    
+      
+      <section class="scope" id="methods">
+        <h2>公式和方法速查</h2>
+        <p>这里按知识点自动汇总公式、规则和使用场景。复习时先看公式，再回到对应章节卡片确认前置知识和来源页。</p>
+        <div class="quick-grid">
+            <article class="quick-card">
+              <h3>PN结单向导电性</h3>
+              <ul class="formula-list"><li>PN结单向导电性：无固定公式，重点按判断步骤做题。</li></ul>
+              <p class="muted">使用场景：会判断二极管导通/截止方向，理解伏安特性和反向击穿。</p>
+            </article>
+            
+            <article class="quick-card">
+              <h3>共射放大电路静态工作点</h3>
+              <ul class="formula-list"><li>静态工作点：IB = (UCC - UBE) / RB</li><li>静态工作点：IC = βIB</li><li>静态工作点：UCE = UCC - ICRC</li></ul>
+              <p class="muted">使用场景：会列直流通路并计算 IB、IC、UCE。</p>
+            </article>
+            
+            <article class="quick-card">
+              <h3>微变等效电路法</h3>
+              <ul class="formula-list"><li>微变等效：Au = -β(RC // RL) / rbe</li><li>微变等效：ri = RB1 // RB2 // rbe</li><li>微变等效：ro ≈ RC</li></ul>
+              <p class="muted">使用场景：会画交流通路、微变等效电路，并计算 Au、ri、ro。</p>
+            </article>
+            
+            <article class="quick-card">
+              <h3>理想运放虚短虚断</h3>
+              <ul class="formula-list"><li>虚短虚断：u+ = u-</li><li>虚短虚断：i+ = i- = 0</li></ul>
+              <p class="muted">使用场景：会用 u+ = u-、i+ = i- = 0 推导比例、加法、减法运算关系。</p>
+            </article>
+            
+            <article class="quick-card">
+              <h3>负反馈类型判断</h3>
+              <ul class="formula-list"><li>负反馈类型判断：无固定公式，重点按判断步骤做题。</li></ul>
+              <p class="muted">使用场景：会判断电压/电流反馈、串联/并联反馈，并说明对输入输出电阻的影响。</p>
+            </article>
+            
+            <article class="quick-card">
+              <h3>单相桥式整流</h3>
+              <ul class="formula-list"><li>桥式整流：UO = 0.9U2</li><li>桥式整流：IO = UO / RL</li><li>桥式整流：URM = √2U2</li></ul>
+              <p class="muted">使用场景：会计算输出平均电压、平均电流、二极管最大反向电压和二次电流。</p>
+            </article>
+            
+            <article class="quick-card">
+              <h3>逻辑代数与卡诺图化简</h3>
+              <ul class="formula-list"><li>逻辑代数：A + A = A</li><li>逻辑代数：A·A = A</li><li>逻辑代数：A + A&#x27;B = A + B</li></ul>
+              <p class="muted">使用场景：会代数化简、卡诺图圈组、转换成与非门实现。</p>
+            </article>
+            
+            <article class="quick-card">
+              <h3>组合逻辑电路设计</h3>
+              <ul class="formula-list"><li>组合逻辑电路设计：无固定公式，重点按判断步骤做题。</li></ul>
+              <p class="muted">使用场景：会把文字条件转换成输入输出逻辑关系。</p>
+            </article>
+            </div>
+      </section>
+    
+      
+      <section class="scope" id="checklist">
+        <h2>易错点与考前清单</h2>
+        <p>考前清单按章节知识点汇总。每做一道题后，回到这里确认自己没有踩同类错误。</p>
+        <ul class="checklist"><li><strong>PN结单向导电性</strong>：不要把稳压二极管的反向击穿工作状态当成普通二极管损坏。</li><li><strong>共射放大电路静态工作点</strong>：计算静态量时电容开路，不能把交流负载直接代入直流通路。</li><li><strong>微变等效电路法</strong>：带负载和空载增益不同，不能漏掉 RC // RL。</li><li><strong>理想运放虚短虚断</strong>：虚短不是输入端真的短接，虚断不是反馈支路断开。</li><li><strong>负反馈类型判断</strong>：不要只看反馈线位置，要看取样量和混合方式。</li><li><strong>单相桥式整流</strong>：题目给的是有效值 U2，输出平均值不是 U2。</li><li><strong>逻辑代数与卡诺图化简</strong>：卡诺图圈组必须按 1、2、4、8 个相邻格，边界可相邻。</li><li><strong>组合逻辑电路设计</strong>：优先级题要先给最高优先级输出，再排除更高优先级后给低优先级输出。</li><li><strong>整流题通用提醒</strong>：不要把有效值和平均值混用，题目给出的 U2 通常是交流有效值。</li></ul>
+      </section>
+    
     </main>
   </div>
   <div class="modal hidden" id="image-modal" onclick="closeImageModal()">

@@ -1,13 +1,28 @@
 {
   "course_pages": [
+    "assets/course_pages/ch1_p009.png",
+    "assets/course_pages/ch1_p015.png",
+    "assets/course_pages/ch1_p017.png",
+    "assets/course_pages/ch1_p027.png",
     "assets/course_pages/ch1_p029.png",
+    "assets/course_pages/ch2_p001.png",
     "assets/course_pages/ch2_p004.png",
+    "assets/course_pages/ch2_p005.png",
+    "assets/course_pages/ch2_p010_001.png",
     "assets/course_pages/ch2_p023.png",
+    "assets/course_pages/ch3_p002.png",
+    "assets/course_pages/ch3_p007.png",
     "assets/course_pages/ch3_p011.png",
+    "assets/course_pages/ch3_p018.png",
+    "assets/course_pages/ch3_p020.png",
     "assets/course_pages/ch4_slide001.png",
+    "assets/course_pages/ch5_p005.png",
     "assets/course_pages/ch5_p009.png",
+    "assets/course_pages/ch7_2_p001.png",
+    "assets/course_pages/ch7_3_p002.png",
     "assets/course_pages/ch7_p011.png",
-    "assets/course_pages/ch7_p012.png"
+    "assets/course_pages/ch7_p012.png",
+    "assets/course_pages/ch7_p016.png"
   ],
   "homework_images": [
     "assets/homework_images/1,半导体器件作业_image1.png",
@@ -33,7 +48,7 @@
     "assets/homework_images/ch5_homework_page001.png"
   ],
   "notes": [
-    "MVP contains curated representative records; later extraction/OCR tasks should replace placeholders with real images and full question set.",
+    "Curated review records include all currently extracted homework IDs. Official answer files can replace pending answers later.",
     "Blackboard exclusions are enforced by content review and validation."
   ]
 }

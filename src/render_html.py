@@ -20,6 +20,17 @@ def _js(value: str) -> str:
     return json.dumps(value or "", ensure_ascii=False)
 
 
+def _formula_label(point: dict, formula: str) -> str:
+    special_labels = {
+        "rectifier_bridge": "桥式整流",
+        "ideal_op_amp_rules": "虚短虚断",
+        "bjt_static_operating_point": "静态工作点",
+        "bjt_small_signal_model": "微变等效",
+        "boolean_simplification": "逻辑代数",
+    }
+    return f"{special_labels.get(point['id'], point['title'])}：{formula}"
+
+
 def _source_pages_html(source_pages: list[dict]) -> str:
     if not source_pages:
         return '<p class="muted">来源页待补充。</p>'
@@ -101,6 +112,94 @@ def _question_card(question: dict) -> str:
     """
 
 
+def _methods_html(knowledge: list[dict]) -> str:
+    method_items = []
+    for point in knowledge:
+        if point["formulas"]:
+            formulas = "".join(f"<li>{_esc(_formula_label(point, formula))}</li>" for formula in point["formulas"])
+        else:
+            formulas = f"<li>{_esc(point['title'])}：无固定公式，重点按判断步骤做题。</li>"
+        method_items.append(
+            f"""
+            <article class="quick-card">
+              <h3>{_esc(point["title"])}</h3>
+              <ul class="formula-list">{formulas}</ul>
+              <p class="muted">使用场景：{_esc(point["must_know"])}</p>
+            </article>
+            """
+        )
+    return f"""
+      <section class="scope" id="methods">
+        <h2>公式和方法速查</h2>
+        <p>这里按知识点自动汇总公式、规则和使用场景。复习时先看公式，再回到对应章节卡片确认前置知识和来源页。</p>
+        <div class="quick-grid">{''.join(method_items)}</div>
+      </section>
+    """
+
+
+def _checklist_html(knowledge: list[dict]) -> str:
+    pitfall_items = []
+    for point in knowledge:
+        for pitfall in point["pitfalls"]:
+            pitfall_items.append(f"<li><strong>{_esc(point['title'])}</strong>：{_esc(pitfall)}</li>")
+    pitfall_items.append("<li><strong>整流题通用提醒</strong>：不要把有效值和平均值混用，题目给出的 U2 通常是交流有效值。</li>")
+    return f"""
+      <section class="scope" id="checklist">
+        <h2>易错点与考前清单</h2>
+        <p>考前清单按章节知识点汇总。每做一道题后，回到这里确认自己没有踩同类错误。</p>
+        <ul class="checklist">{''.join(pitfall_items)}</ul>
+      </section>
+    """
+
+
+def _answer_status_html(questions: list[dict]) -> str:
+    status_counts: dict[str, int] = defaultdict(int)
+    for question in questions:
+        status_counts[question["answer_source"]] += 1
+    items = "".join(
+        f"<li><strong>{_esc(status)}</strong>：{count} 题</li>"
+        for status, count in sorted(status_counts.items())
+    )
+    return f"""
+      <section class="scope" id="answer-status">
+        <h2>答案状态</h2>
+        <p>当前页面保留了每道题的解析入口和答案来源标记。后续上传官方答案后可替换“待核对”条目，并保留“官方答案/推导答案”的来源区分。</p>
+        <ul>{items}</ul>
+      </section>
+    """
+
+
+def _write_outline(knowledge: list[dict], questions: list[dict]) -> None:
+    by_chapter_questions = defaultdict(list)
+    by_chapter_points = defaultdict(list)
+    for point in knowledge:
+        by_chapter_points[point["chapter"]].append(point)
+    for question in questions:
+        by_chapter_questions[question["chapter"]].append(question)
+
+    lines = [
+        "# 数电复习网站目录",
+        "",
+        "## 使用方式",
+        "- 章节知识是主入口，作业题号是查漏补缺入口。",
+        "- 每个知识点保留前置知识、来源课件页和相关作业。",
+        "- 官方答案状态：当前区分为“官方答案”“推导答案”“待核对”，后续可接入正式答案文件。",
+        "",
+    ]
+    for chapter in ["1", "2", "3", "4", "5", "7"]:
+        lines.append(f"## 第{chapter}章")
+        lines.append("")
+        lines.append("### 知识点")
+        for point in by_chapter_points[chapter]:
+            lines.append(f"- {point['title']}：{point['summary']}")
+        lines.append("")
+        lines.append("### 作业题")
+        for question in by_chapter_questions[chapter]:
+            lines.append(f"- {question['id']} {question['title']}（{question['answer_source']}）")
+        lines.append("")
+    config.OUTLINE_MD.write_text("\n".join(lines).rstrip() + "\n", encoding="utf-8")
+
+
 def render_site() -> None:
     knowledge = _load_json(config.KNOWLEDGE_MAP_JSON)["knowledge_points"]
     questions = _load_json(config.QUESTION_BANK_JSON)["questions"]
@@ -134,11 +233,17 @@ def render_site() -> None:
             """
         )
 
+    methods_html = _methods_html(knowledge)
+    checklist_html = _checklist_html(knowledge)
+    answer_status_html = _answer_status_html(questions)
+    _write_outline(knowledge, questions)
+
     html_text = f"""<!doctype html>
 <html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f766e'/%3E%3Cpath d='M7 16h18M10 10h12M10 22h12' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
   <title>数电复习网站</title>
   <style>
     :root {{ color-scheme: light; --ink:#1c2430; --muted:#5d6878; --line:#d8dee8; --paper:#f7f8fb; --panel:#ffffff; --accent:#0f766e; --accent-2:#8a5a00; }}
@@ -162,6 +267,9 @@ def render_site() -> None:
     .summary {{ color:var(--muted); }}
     .card-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }}
     .source-strip, .homework-strip {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 260px)); gap:12px; align-items:start; }}
+    .quick-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; }}
+    .quick-card {{ border:1px solid var(--line); border-radius:8px; padding:14px; background:#fbfcfd; }}
+    .checklist li {{ margin-bottom:8px; }}
     figure {{ margin:0; }}
     figure button {{ display:block; width:100%; padding:0; border:1px solid var(--line); border-radius:6px; background:white; cursor:zoom-in; overflow:hidden; }}
     img {{ display:block; max-width:100%; height:auto; }}
@@ -205,6 +313,7 @@ def render_site() -> None:
         {nav_chapters}
         <h3>作业题号索引</h3>
         <div>{question_links}</div>
+        <a href="#answer-status">答案状态</a>
         <a href="#methods">公式和方法速查</a>
         <a href="#checklist">易错点与考前清单</a>
       </nav>
@@ -235,8 +344,9 @@ def render_site() -> None:
         </ol>
       </section>
       {''.join(chapter_sections)}
-      <section class="scope" id="methods"><h2>公式和方法速查</h2><p>本区由知识点公式自动汇总，后续生成任务会补全。</p></section>
-      <section class="scope" id="checklist"><h2>易错点与考前清单</h2><p>本区由各章易错点自动汇总，后续生成任务会补全。</p></section>
+      {answer_status_html}
+      {methods_html}
+      {checklist_html}
     </main>
   </div>
   <div class="modal hidden" id="image-modal" onclick="closeImageModal()">

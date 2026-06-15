@@ -458,10 +458,13 @@ def seed_content() -> None:
     knowledge_points = build_knowledge_points()
     questions = build_questions()
     manifest = {
-        "course_pages": sorted({page.image_path for point in knowledge_points for page in point.source_pages}),
+        "course_pages": sorted(
+            {page.image_path for point in knowledge_points for page in point.source_pages}
+            | {page.image_path for question in questions for page in question.source_pages}
+        ),
         "homework_images": sorted({path for question in questions for path in question.image_paths}),
         "notes": [
-            "MVP contains curated representative records; later extraction/OCR tasks should replace placeholders with real images and full question set.",
+            "Curated review records include all currently extracted homework IDs. Official answer files can replace pending answers later.",
             "Blackboard exclusions are enforced by content review and validation.",
         ],
     }
@@ -485,19 +488,22 @@ def render_required_source_pages() -> None:
         for files in config.SOURCE_FILES.values()
         for path in files
     }
+    required_pages = [page for point in build_knowledge_points() for page in point.source_pages]
+    required_pages.extend(page for question in build_questions() for page in question.source_pages)
     rendered: set[str] = set()
-    for point in build_knowledge_points():
-        for page in point.source_pages:
-            source = known_files.get(page.file.replace("\\", "/"))
-            if source is None or source.suffix.lower() != ".pdf" or page.image_path in rendered:
-                if source is not None and source.suffix.lower() in {".ppt", ".pptx"}:
-                    output_pdf = config.PROJECT_ROOT / "tmp" / "office_convert" / "ch4_feedback.pdf"
-                    if convert_office_to_pdf(source, output_pdf):
-                        render_pdf_page(output_pdf, page.page, config.PROJECT_ROOT / page.image_path)
-                        rendered.add(page.image_path)
-                continue
+    for page in required_pages:
+        source = known_files.get(page.file.replace("\\", "/"))
+        if source is None or page.image_path in rendered:
+            continue
+        if source.suffix.lower() == ".pdf":
             render_pdf_page(source, page.page, config.PROJECT_ROOT / page.image_path)
             rendered.add(page.image_path)
+            continue
+        if source.suffix.lower() in {".ppt", ".pptx"}:
+            output_pdf = config.PROJECT_ROOT / "tmp" / "office_convert" / "ch4_feedback.pdf"
+            if convert_office_to_pdf(source, output_pdf):
+                render_pdf_page(output_pdf, page.page, config.PROJECT_ROOT / page.image_path)
+                rendered.add(page.image_path)
 
 
 def render_required_homework_pages() -> None:

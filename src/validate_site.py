@@ -37,6 +37,9 @@ def validate_site(strict_assets: bool = True) -> dict:
         for image_path in question["image_paths"]:
             if not _asset_exists(image_path):
                 missing_assets.append(image_path)
+        for page in question["source_pages"]:
+            if not _asset_exists(page["image_path"]):
+                missing_assets.append(page["image_path"])
 
     if "三相桥式整流" in config.INDEX_HTML.read_text(encoding="utf-8"):
         raise AssertionError("不考内容出现在学生页面: 三相桥式整流")
