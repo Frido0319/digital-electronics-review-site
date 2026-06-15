@@ -1,0 +1,23 @@
+{
+  "course_pages": [
+    "assets/course_pages/ch1_p029.png",
+    "assets/course_pages/ch2_p004.png",
+    "assets/course_pages/ch2_p023.png",
+    "assets/course_pages/ch3_p011.png",
+    "assets/course_pages/ch4_slide001.png",
+    "assets/course_pages/ch5_p009.png",
+    "assets/course_pages/ch7_p011.png",
+    "assets/course_pages/ch7_p012.png"
+  ],
+  "homework_images": [
+    "assets/homework_images/2_4_5_placeholder.png",
+    "assets/homework_images/3_2_13_placeholder.png",
+    "assets/homework_images/4_2_12_placeholder.png",
+    "assets/homework_images/5_1_8_placeholder.png",
+    "assets/homework_images/7_5_14_placeholder.png"
+  ],
+  "notes": [
+    "MVP contains curated representative records; later extraction/OCR tasks should replace placeholders with real images and full question set.",
+    "Blackboard exclusions are enforced by content review and validation."
+  ]
+}

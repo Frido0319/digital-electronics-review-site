@@ -28,3 +28,32 @@ def test_extraction_helpers_normalize_text_and_paths():
     assert clean_text("  第5章\n\n直流   稳压电源 ") == "第5章 直流 稳压电源"
     path = config.PROJECT_ROOT / "assets" / "course_pages" / "ch5_p001.png"
     assert relative_asset_path(path) == "assets/course_pages/ch5_p001.png"
+
+
+def test_seed_data_contains_chapter_first_structure():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+
+    knowledge = json.loads(config.KNOWLEDGE_MAP_JSON.read_text(encoding="utf-8"))
+    questions = json.loads(config.QUESTION_BANK_JSON.read_text(encoding="utf-8"))
+
+    chapters = {point["chapter"] for point in knowledge["knowledge_points"]}
+    question_ids = {question["id"] for question in questions["questions"]}
+
+    assert {"1", "2", "3", "4", "5", "7"} <= chapters
+    assert {"5.1.8", "7.5.14"} <= question_ids
+
+
+def test_seed_data_excludes_blackboard_sections_from_knowledge_titles():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    knowledge = json.loads(config.KNOWLEDGE_MAP_JSON.read_text(encoding="utf-8"))
+    titles = " ".join(point["title"] for point in knowledge["knowledge_points"])
+
+    assert "三相桥式整流" not in titles
+    assert "场效应晶体管放大电路" not in titles
+    assert "频率特性" not in titles
