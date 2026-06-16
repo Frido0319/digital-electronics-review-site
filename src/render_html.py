@@ -297,10 +297,10 @@ def _question_card(question: dict) -> str:
         {_render_mixed_text(question["prompt"])}
       </header>
       <div class="homework-strip">{images}</div>
-      <section><h4>考点定位</h4><p class="link-row">{knowledge}</p></section>
-      <section><h4>来源课件页</h4><div class="source-strip">{_source_pages_html(question["source_pages"])}</div></section>
       {official_answer_section}
       <section><h4>子题级解析</h4>{subquestions}</section>
+      <section><h4>考点定位</h4><p class="link-row">{knowledge}</p></section>
+      <section><h4>来源课件页</h4><div class="source-strip">{_source_pages_html(question["source_pages"])}</div></section>
       <p class="answer-source">答案来源：{_esc(question["answer_source"])}</p>
     </article>
     """
@@ -521,10 +521,15 @@ def render_site() -> None:
     .summary {{ color:var(--muted); }}
     .card-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }}
     .source-strip, .homework-strip, .official-answer-strip {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 260px)); gap:12px; align-items:start; }}
+    .question-card {{ padding:16px; }}
+    .question-card header > :last-child, .question-card section {{ margin-bottom:10px; }}
+    .question-card h4 {{ margin:0 0 8px; }}
+    .homework-strip {{ margin-bottom:10px; }}
     .lecture-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 320px)); gap:14px; align-items:start; margin-top:14px; }}
     .lecture-source {{ border-top:1px solid var(--line); padding-top:10px; margin-top:10px; }}
     .lecture-source summary {{ cursor:pointer; font-weight:650; }}
-    .official-answer-section {{ border-top:1px solid var(--line); padding-top:12px; margin-top:12px; }}
+    .official-answer-section {{ border-top:1px solid var(--line); padding-top:10px; margin-top:8px; }}
+    .official-answer-section .muted {{ margin:0 0 8px; }}
     .official-answer-page button {{ border:2px solid #0f766e; box-shadow:0 0 0 3px rgba(15,118,110,.09); }}
     .lecture-page.is-key-page button {{ border:3px solid #dc2626; box-shadow:0 0 0 3px rgba(220,38,38,.13); }}
     .lecture-page.is-super-key-page button {{ border:4px double #b91c1c; box-shadow:0 0 0 4px rgba(185,28,28,.14), inset 0 0 0 2px rgba(185,28,28,.08); }}

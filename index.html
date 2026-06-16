@@ -27,10 +27,15 @@
     .summary { color:var(--muted); }
     .card-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }
     .source-strip, .homework-strip, .official-answer-strip { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 260px)); gap:12px; align-items:start; }
+    .question-card { padding:16px; }
+    .question-card header > :last-child, .question-card section { margin-bottom:10px; }
+    .question-card h4 { margin:0 0 8px; }
+    .homework-strip { margin-bottom:10px; }
     .lecture-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 320px)); gap:14px; align-items:start; margin-top:14px; }
     .lecture-source { border-top:1px solid var(--line); padding-top:10px; margin-top:10px; }
     .lecture-source summary { cursor:pointer; font-weight:650; }
-    .official-answer-section { border-top:1px solid var(--line); padding-top:12px; margin-top:12px; }
+    .official-answer-section { border-top:1px solid var(--line); padding-top:10px; margin-top:8px; }
+    .official-answer-section .muted { margin:0 0 8px; }
     .official-answer-page button { border:2px solid #0f766e; box-shadow:0 0 0 3px rgba(15,118,110,.09); }
     .lecture-page.is-key-page button { border:3px solid #dc2626; box-shadow:0 0 0 3px rgba(220,38,38,.13); }
     .lecture-page.is-super-key-page button { border:4px double #b91c1c; box-shadow:0 0 0 4px rgba(185,28,28,.14), inset 0 0 0 2px rgba(185,28,28,.08); }
@@ -162,8 +167,6 @@
         <p>在图 1.08 所示各电路中，已知</p><div class="math-block" data-raw="U=5V"><div class="math-line">U = 5V</div></div><div class="math-block" data-raw="ui=10sinωt V"><div class="math-line">u<sub>i</sub> = 10sinωt V</div></div><p>二极管正向压降忽略不计，分别画出输出电压 uo 的波形。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/1,半导体器件作业_image1.png" data-modal-caption="1.3.6 原题图"><img src="assets/homework_images/1,半导体器件作业_image1.png" alt="1.3.6 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>1.3.6 原题图</figcaption></figure><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/1,半导体器件作业_image2.png" data-modal-caption="1.3.6 原题图"><img src="assets/homework_images/1,半导体器件作业_image2.png" alt="1.3.6 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>1.3.6 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-semiconductor_pn_junction">semiconductor_pn_junction</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch1_p009.png" data-modal-caption="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9"><img src="assets/course_pages/ch1_p009.png" alt="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -179,6 +182,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.1），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-semiconductor_pn_junction">semiconductor_pn_junction</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch1_p009.png" data-modal-caption="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9"><img src="assets/course_pages/ch1_p009.png" alt="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -189,8 +194,6 @@
         <p>在图 1.11 所示电路中，根据输入 VA、VB 的组合判断输出 VY 的大小。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/1,半导体器件作业_image3.png" data-modal-caption="1.3.9 原题图"><img src="assets/homework_images/1,半导体器件作业_image3.png" alt="1.3.9 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>1.3.9 原题图</figcaption></figure><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/1,半导体器件作业_image4.png" data-modal-caption="1.3.9 原题图"><img src="assets/homework_images/1,半导体器件作业_image4.png" alt="1.3.9 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>1.3.9 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-semiconductor_pn_junction">semiconductor_pn_junction</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch1_p009.png" data-modal-caption="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9"><img src="assets/course_pages/ch1_p009.png" alt="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -206,6 +209,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.1、p.2），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-semiconductor_pn_junction">semiconductor_pn_junction</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch1_p009.png" data-modal-caption="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9"><img src="assets/course_pages/ch1_p009.png" alt="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件2.pdf p.9</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -216,8 +221,6 @@
         <p>在图 1.13 中，已知电源、电阻和稳压管参数，求稳压电路工作状态和相关电流/电压。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/1,半导体器件作业_image5.png" data-modal-caption="1.4.3 原题图"><img src="assets/homework_images/1,半导体器件作业_image5.png" alt="1.4.3 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>1.4.3 原题图</figcaption></figure><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/1,半导体器件作业_image6.png" data-modal-caption="1.4.3 原题图"><img src="assets/homework_images/1,半导体器件作业_image6.png" alt="1.4.3 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>1.4.3 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-semiconductor_pn_junction">semiconductor_pn_junction</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch1_p017.png" data-modal-caption="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.17"><img src="assets/course_pages/ch1_p017.png" alt="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.17" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件2.pdf p.17</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -233,6 +236,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.2），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-semiconductor_pn_junction">semiconductor_pn_junction</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch1_p017.png" data-modal-caption="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.17"><img src="assets/course_pages/ch1_p017.png" alt="第1章 半导体器件讲义/第1章-半导体器件2.pdf p.17" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件2.pdf p.17</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -243,8 +248,6 @@
         <p>某晶体管给定 PCM、ICM、U(BR)CEO，判断不同 UCE、IC 组合下能否正常工作。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/1,半导体器件作业_image7.png" data-modal-caption="1.5.8 原题图"><img src="assets/homework_images/1,半导体器件作业_image7.png" alt="1.5.8 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>1.5.8 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-semiconductor_pn_junction">semiconductor_pn_junction</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch1_p027.png" data-modal-caption="第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.27"><img src="assets/course_pages/ch1_p027.png" alt="第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.27" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.27</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -260,6 +263,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.2、p.3），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-semiconductor_pn_junction">semiconductor_pn_junction</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch1_p027.png" data-modal-caption="第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.27"><img src="assets/course_pages/ch1_p027.png" alt="第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.27" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.27</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -270,8 +275,6 @@
         <p>判断图 1.14 中各晶体管处于截止、放大或饱和状态。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/1,半导体器件作业_image7.png" data-modal-caption="1.5.9 原题图"><img src="assets/homework_images/1,半导体器件作业_image7.png" alt="1.5.9 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>1.5.9 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-semiconductor_pn_junction">semiconductor_pn_junction</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch1_p015.png" data-modal-caption="第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.15"><img src="assets/course_pages/ch1_p015.png" alt="第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.15" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.15</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -287,6 +290,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.2、p.3），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-semiconductor_pn_junction">semiconductor_pn_junction</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch1_p015.png" data-modal-caption="第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.15"><img src="assets/course_pages/ch1_p015.png" alt="第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.15" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第1章 半导体器件讲义/第1章-半导体器件34-.pdf p.15</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     </div>
@@ -344,8 +349,6 @@
         <p>图 2.01 固定偏置晶体管放大电路中，已知 UCC、RC、RB 和 β，估算静态值；再结合输出特性曲线用图解法求静态工作点，并求静态时 C1、C2 上的电压和极性。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image1.png" data-modal-caption="2.2.5 原题图"><img src="assets/homework_images/2,基本放大电路作业_image1.png" alt="2.2.5 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.2.5 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p023.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路5.pdf p.23"><img src="assets/course_pages/ch2_p023.png" alt="第2章 基本放大电路/第2章-基本放大电路5.pdf p.23" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路5.pdf p.23</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -361,6 +364,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.3、p.4），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p023.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路5.pdf p.23"><img src="assets/course_pages/ch2_p023.png" alt="第2章 基本放大电路/第2章-基本放大电路5.pdf p.23" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路5.pdf p.23</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -371,8 +376,6 @@
         <p>利用微变等效电路计算题 2.2.5 放大电路的电压放大倍数 Au，分别讨论输出端开路和接入</p><div class="math-block" data-raw="RL=6kΩ"><div class="math-line">R<sub>L</sub> = 6kΩ</div></div><div class="math-block" data-raw="rbe=0.8kΩ"><div class="math-line">r<sub>be</sub> = 0.8kΩ</div></div><p>时的情况。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image1.png" data-modal-caption="2.3.4 原题图"><img src="assets/homework_images/2,基本放大电路作业_image1.png" alt="2.3.4 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.3.4 原题图</figcaption></figure><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image2.png" data-modal-caption="2.3.4 原题图"><img src="assets/homework_images/2,基本放大电路作业_image2.png" alt="2.3.4 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.3.4 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p004.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4"><img src="assets/course_pages/ch2_p004.png" alt="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路6.pdf p.4</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -388,6 +391,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.4），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p004.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4"><img src="assets/course_pages/ch2_p004.png" alt="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路6.pdf p.4</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -398,8 +403,6 @@
         <p>图 2.01(a) 电路中已知 UCC、RC、rbe 和 β；根据测得静态值判断管子工作状态，计算输出端开路时的电压放大倍数，并在 ui 有效值为 1mV 时求空载和</p><div class="math-block" data-raw="RL=6kΩ"><div class="math-line">R<sub>L</sub> = 6kΩ</div></div><p>时的输出电压。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image1.png" data-modal-caption="2.3.5 原题图"><img src="assets/homework_images/2,基本放大电路作业_image1.png" alt="2.3.5 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.3.5 原题图</figcaption></figure><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image2.png" data-modal-caption="2.3.5 原题图"><img src="assets/homework_images/2,基本放大电路作业_image2.png" alt="2.3.5 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.3.5 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a> <a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p004.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4"><img src="assets/course_pages/ch2_p004.png" alt="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路6.pdf p.4</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -415,6 +418,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.4），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a> <a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p004.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4"><img src="assets/course_pages/ch2_p004.png" alt="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路6.pdf p.4</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -425,8 +430,6 @@
         <p>计算静态值，画微变等效电路，计算 Au、ri、ro，并分析负载影响。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image3.png" data-modal-caption="2.4.5 原题图"><img src="assets/homework_images/2,基本放大电路作业_image3.png" alt="2.4.5 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.4.5 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a> <a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p005.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路7.pdf p.5"><img src="assets/course_pages/ch2_p005.png" alt="第2章 基本放大电路/第2章-基本放大电路7.pdf p.5" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路7.pdf p.5</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -463,6 +466,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.4、p.5），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a> <a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p005.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路7.pdf p.5"><img src="assets/course_pages/ch2_p005.png" alt="第2章 基本放大电路/第2章-基本放大电路7.pdf p.5" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路7.pdf p.5</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -473,8 +478,6 @@
         <p>在 2.4.5 中设</p><div class="math-block" data-raw="RS=1kΩ"><div class="math-line">R<sub>S</sub> = 1kΩ</div></div><p>计算输出端接有负载时的电压放大倍数，并说明信号源内阻 RS 的影响。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image3.png" data-modal-caption="2.4.6 原题图"><img src="assets/homework_images/2,基本放大电路作业_image3.png" alt="2.4.6 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.4.6 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p004.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4"><img src="assets/course_pages/ch2_p004.png" alt="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路6.pdf p.4</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -490,6 +493,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.5、p.6），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p004.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4"><img src="assets/course_pages/ch2_p004.png" alt="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路6.pdf p.4</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -500,8 +505,6 @@
         <p>在 2.4.5 电路中去掉发射极交流旁路电容 CE，判断静态值变化并计算 Au、ri、ro。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image3.png" data-modal-caption="2.4.7 原题图"><img src="assets/homework_images/2,基本放大电路作业_image3.png" alt="2.4.7 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.4.7 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a> <a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p005.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路7.pdf p.5"><img src="assets/course_pages/ch2_p005.png" alt="第2章 基本放大电路/第2章-基本放大电路7.pdf p.5" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路7.pdf p.5</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -531,6 +534,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.6），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a> <a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p005.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路7.pdf p.5"><img src="assets/course_pages/ch2_p005.png" alt="第2章 基本放大电路/第2章-基本放大电路7.pdf p.5" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路7.pdf p.5</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -541,8 +546,6 @@
         <p>在射极输出器中，已知 RS、RB1、RB2、RE、β、rbe，求 Au、ri、ro。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image6.png" data-modal-caption="2.6.2 原题图"><img src="assets/homework_images/2,基本放大电路作业_image6.png" alt="2.6.2 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.6.2 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p001.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路8.pdf p.1"><img src="assets/course_pages/ch2_p001.png" alt="第2章 基本放大电路/第2章-基本放大电路8.pdf p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路8.pdf p.1</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -558,6 +561,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.6），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p001.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路8.pdf p.1"><img src="assets/course_pages/ch2_p001.png" alt="第2章 基本放大电路/第2章-基本放大电路8.pdf p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路8.pdf p.1</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -568,8 +573,6 @@
         <p>两级放大电路中，估算各级静态值，画微变等效电路并计算 Au1、Au2、Au、ri、ro。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image7.png" data-modal-caption="2.6.3 原题图"><img src="assets/homework_images/2,基本放大电路作业_image7.png" alt="2.6.3 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.6.3 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a> <a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p010_001.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路10.pdf p.1"><img src="assets/course_pages/ch2_p010_001.png" alt="第2章 基本放大电路/第2章-基本放大电路10.pdf p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路10.pdf p.1</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -585,6 +588,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.6、p.7、p.8），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_static_operating_point">bjt_static_operating_point</a> <a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p010_001.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路10.pdf p.1"><img src="assets/course_pages/ch2_p010_001.png" alt="第2章 基本放大电路/第2章-基本放大电路10.pdf p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路10.pdf p.1</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -595,8 +600,6 @@
         <p>给定单管放大电路两个输出端，求两个电压放大倍数和两个输出电阻。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/2,基本放大电路作业_image11.png" data-modal-caption="2.6.4 原题图"><img src="assets/homework_images/2,基本放大电路作业_image11.png" alt="2.6.4 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>2.6.4 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p004.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4"><img src="assets/course_pages/ch2_p004.png" alt="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路6.pdf p.4</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -612,6 +615,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.8、p.9），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-bjt_small_signal_model">bjt_small_signal_model</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch2_p004.png" data-modal-caption="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4"><img src="assets/course_pages/ch2_p004.png" alt="第2章 基本放大电路/第2章-基本放大电路6.pdf p.4" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第2章 基本放大电路/第2章-基本放大电路6.pdf p.4</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     </div>
@@ -649,8 +654,6 @@
         <p>在图 3.08 电桥中，某桥臂电阻变化 ΔR，证明输出电压 uo 与非电量变化的关系。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/3, 运算放大电路作业_image1.png" data-modal-caption="3.1.2 原题图"><img src="assets/homework_images/3, 运算放大电路作业_image1.png" alt="3.1.2 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>3.1.2 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p011.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.11"><img src="assets/course_pages/ch3_p011.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.11" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.11</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -666,6 +669,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.9、p.10），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p011.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.11"><img src="assets/course_pages/ch3_p011.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.11" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.11</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -676,8 +681,6 @@
         <p>为获得较高电压放大倍数且避免高值 RF，证明图 3.10 电路的等效增益关系。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/3, 运算放大电路作业_image3.png" data-modal-caption="3.2.8 原题图"><img src="assets/homework_images/3, 运算放大电路作业_image3.png" alt="3.2.8 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>3.2.8 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p018.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.18"><img src="assets/course_pages/ch3_p018.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.18" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.18</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -693,6 +696,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.10），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p018.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.18"><img src="assets/course_pages/ch3_p018.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.18" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf p.18</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -703,8 +708,6 @@
         <p>求图示电路中 uo 与各输入电压的运算关系式。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/3, 运算放大电路作业_image5.png" data-modal-caption="3.2.13 原题图"><img src="assets/homework_images/3, 运算放大电路作业_image5.png" alt="3.2.13 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>3.2.13 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p002.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.2"><img src="assets/course_pages/ch3_p002.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.2" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.2</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -720,6 +723,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.11），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p002.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.2"><img src="assets/course_pages/ch3_p002.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.2" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.2</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -730,8 +735,6 @@
         <p>图 3.16 中已知</p><div class="math-block" data-raw="uI=uI1-uI2"><div class="math-line">u<sub>I</sub> = uI1-uI2</div></div><p>R1、RP，求输出电压 uo。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/3, 运算放大电路作业_image6.png" data-modal-caption="3.2.16 原题图"><img src="assets/homework_images/3, 运算放大电路作业_image6.png" alt="3.2.16 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>3.2.16 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p007.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7"><img src="assets/course_pages/ch3_p007.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -747,6 +750,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.11、p.12），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p007.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7"><img src="assets/course_pages/ch3_p007.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -757,8 +762,6 @@
         <p>图 3.19 积分运算电路中，试求 uo 与 uI1、uI2 的关系式。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/3, 运算放大电路作业_image7.png" data-modal-caption="3.2.21 原题图"><img src="assets/homework_images/3, 运算放大电路作业_image7.png" alt="3.2.21 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>3.2.21 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p007.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7"><img src="assets/course_pages/ch3_p007.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -774,6 +777,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.12），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p007.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7"><img src="assets/course_pages/ch3_p007.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.7</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -784,8 +789,6 @@
         <p>在图 3.27 中，给定 UOM、稳压管参数、ui 和参考电压，画传输特性和输出波形。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/3, 运算放大电路作业_image8.png" data-modal-caption="3.3.4 原题图"><img src="assets/homework_images/3, 运算放大电路作业_image8.png" alt="3.3.4 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>3.3.4 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p020.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.20"><img src="assets/course_pages/ch3_p020.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.20" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.20</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -801,6 +804,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.12、p.13、p.14），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-ideal_op_amp_rules">ideal_op_amp_rules</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch3_p020.png" data-modal-caption="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.20"><img src="assets/course_pages/ch3_p020.png" alt="第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.20" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf p.20</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     </div>
@@ -838,8 +843,6 @@
         <p>判断图 (a) 和 (b) 两个两级放大电路中引入了何种类型的交流反馈。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/4 电子电路中的负反馈作业_image1.png" data-modal-caption="4.2.6 原题图"><img src="assets/homework_images/4 电子电路中的负反馈作业_image1.png" alt="4.2.6 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>4.2.6 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-negative_feedback_type">negative_feedback_type</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch4_slide001.png" data-modal-caption="第4章  电子电路中的反馈.ppt p.1"><img src="assets/course_pages/ch4_slide001.png" alt="第4章  电子电路中的反馈.ppt p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第4章  电子电路中的反馈.ppt p.1</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -855,6 +858,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.14），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-negative_feedback_type">negative_feedback_type</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch4_slide001.png" data-modal-caption="第4章  电子电路中的反馈.ppt p.1"><img src="assets/course_pages/ch4_slide001.png" alt="第4章  电子电路中的反馈.ppt p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第4章  电子电路中的反馈.ppt p.1</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     
@@ -865,8 +870,6 @@
         <p>为了实现指定输入输出电阻变化和稳定对象，判断应引入何种负反馈。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/4 电子电路中的负反馈作业_image2.png" data-modal-caption="4.2.12 原题图"><img src="assets/homework_images/4 电子电路中的负反馈作业_image2.png" alt="4.2.12 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>4.2.12 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-negative_feedback_type">negative_feedback_type</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch4_slide001.png" data-modal-caption="第4章  电子电路中的反馈.ppt p.1"><img src="assets/course_pages/ch4_slide001.png" alt="第4章  电子电路中的反馈.ppt p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第4章  电子电路中的反馈.ppt p.1</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -896,6 +899,8 @@
           <div class="answer"><strong>答案：</strong><p>见本题下方官方参考答案截图（p.14、p.15），以截图中的手写推导、公式和最终结果为准。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-negative_feedback_type">negative_feedback_type</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch4_slide001.png" data-modal-caption="第4章  电子电路中的反馈.ppt p.1"><img src="assets/course_pages/ch4_slide001.png" alt="第4章  电子电路中的反馈.ppt p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第4章  电子电路中的反馈.ppt p.1</figcaption></figure></div></section>
       <p class="answer-source">答案来源：官方答案</p>
     </article>
     </div>
@@ -933,8 +938,6 @@
         <p>单相半波整流电路中，已知二次电压有效值</p><div class="math-block" data-raw="U=30V"><div class="math-line">U = 30V</div></div><p>负载电阻</p><div class="math-block" data-raw="RL=100Ω"><div class="math-line">R<sub>L</sub> = 100Ω</div></div><p>求输出平均电压、电流及电源波动时二极管最高反向电压。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/ch5_homework_page001.png" data-modal-caption="5.1.1 原题图"><img src="assets/homework_images/ch5_homework_page001.png" alt="5.1.1 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>5.1.1 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-rectifier_bridge">rectifier_bridge</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch5_p005.png" data-modal-caption="第5章-直流稳压电源.pdf p.5"><img src="assets/course_pages/ch5_p005.png" alt="第5章-直流稳压电源.pdf p.5" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第5章-直流稳压电源.pdf p.5</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -957,6 +960,8 @@
           <div class="answer"><strong>答案：</strong><div class="math-block" data-raw="URM≈46.7V"><div class="math-line">U<sub>RM</sub> ≈ 46.7V</div></div></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-rectifier_bridge">rectifier_bridge</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch5_p005.png" data-modal-caption="第5章-直流稳压电源.pdf p.5"><img src="assets/course_pages/ch5_p005.png" alt="第5章-直流稳压电源.pdf p.5" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第5章-直流稳压电源.pdf p.5</figcaption></figure></div></section>
       <p class="answer-source">答案来源：推导答案</p>
     </article>
     
@@ -967,8 +972,6 @@
         <p>直流负载 110V、55Ω，采用单相桥式整流电路供电，求变压器二次电压、二次电流有效值并选用二极管。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/ch5_homework_page001.png" data-modal-caption="5.1.8 原题图"><img src="assets/homework_images/ch5_homework_page001.png" alt="5.1.8 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>5.1.8 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-rectifier_bridge">rectifier_bridge</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch5_p009.png" data-modal-caption="第5章-直流稳压电源.pdf p.9"><img src="assets/course_pages/ch5_p009.png" alt="第5章-直流稳压电源.pdf p.9" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第5章-直流稳压电源.pdf p.9</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -998,6 +1001,8 @@
           <div class="answer"><strong>答案：</strong><p>二极管平均电流应大于 1 A，反向峰值电压应大于约 173 V，并留裕量。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-rectifier_bridge">rectifier_bridge</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch5_p009.png" data-modal-caption="第5章-直流稳压电源.pdf p.9"><img src="assets/course_pages/ch5_p009.png" alt="第5章-直流稳压电源.pdf p.9" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第5章-直流稳压电源.pdf p.9</figcaption></figure></div></section>
       <p class="answer-source">答案来源：推导答案</p>
     </article>
     </div>
@@ -1055,8 +1060,6 @@
         <p>在图 (a) 门电路中，分别在</p><div class="math-block" data-raw="C=1"><div class="math-line">C = 1</div></div><p>和</p><div class="math-block" data-raw="C=0"><div class="math-line">C = 0</div></div><p>时求输出 Y 的逻辑式和波形，并说明功能。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" data-modal-caption="7.2.5 原题图"><img src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" alt="7.2.5 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>7.2.5 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_p016.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章-门电路和组合逻辑电路1.pdf p.16"><img src="assets/course_pages/ch7_p016.png" alt="第7章 门电路和组合逻辑电路/第7章-门电路和组合逻辑电路1.pdf p.16" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章-门电路和组合逻辑电路1.pdf p.16</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -1072,6 +1075,8 @@
           <div class="answer"><strong>答案：</strong><p>待接入官方答案或进一步推导。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_p016.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章-门电路和组合逻辑电路1.pdf p.16"><img src="assets/course_pages/ch7_p016.png" alt="第7章 门电路和组合逻辑电路/第7章-门电路和组合逻辑电路1.pdf p.16" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章-门电路和组合逻辑电路1.pdf p.16</figcaption></figure></div></section>
       <p class="answer-source">答案来源：待核对</p>
     </article>
     
@@ -1082,8 +1087,6 @@
         <p>试用一片 74LS00 与非门实现指定逻辑关系。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/7 门电路和组合逻辑电路作业_image2.png" data-modal-caption="7.3.1 原题图"><img src="assets/homework_images/7 门电路和组合逻辑电路作业_image2.png" alt="7.3.1 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>7.3.1 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_2_p001.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路2.pdf p.1"><img src="assets/course_pages/ch7_2_p001.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路2.pdf p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路2.pdf p.1</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -1099,6 +1102,8 @@
           <div class="answer"><strong>答案：</strong><p>待接入官方答案或进一步推导。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_2_p001.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路2.pdf p.1"><img src="assets/course_pages/ch7_2_p001.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路2.pdf p.1" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路2.pdf p.1</figcaption></figure></div></section>
       <p class="answer-source">答案来源：待核对</p>
     </article>
     
@@ -1109,8 +1114,6 @@
         <p>用与非门和非门实现给定逻辑关系，并画出逻辑图。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" data-modal-caption="7.5.9 原题图"><img src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" alt="7.5.9 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>7.5.9 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_p011.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11"><img src="assets/course_pages/ch7_p011.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -1126,6 +1129,8 @@
           <div class="answer"><strong>答案：</strong><p>待接入官方答案或进一步推导。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_p011.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11"><img src="assets/course_pages/ch7_p011.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11</figcaption></figure></div></section>
       <p class="answer-source">答案来源：待核对</p>
     </article>
     
@@ -1136,8 +1141,6 @@
         <p>应用逻辑代数运算法则推证给定各式。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" data-modal-caption="7.5.13 原题图"><img src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" alt="7.5.13 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>7.5.13 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_3_p002.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.2"><img src="assets/course_pages/ch7_3_p002.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.2" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.2</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -1153,6 +1156,8 @@
           <div class="answer"><strong>答案：</strong><p>待接入官方答案或进一步推导。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_3_p002.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.2"><img src="assets/course_pages/ch7_3_p002.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.2" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.2</figcaption></figure></div></section>
       <p class="answer-source">答案来源：待核对</p>
     </article>
     
@@ -1163,8 +1168,6 @@
         <p>应用卡诺图化简给定逻辑函数。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" data-modal-caption="7.5.14 原题图"><img src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" alt="7.5.14 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>7.5.14 原题图</figcaption></figure><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/7 门电路和组合逻辑电路作业_image2.png" data-modal-caption="7.5.14 原题图"><img src="assets/homework_images/7 门电路和组合逻辑电路作业_image2.png" alt="7.5.14 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>7.5.14 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_p011.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11"><img src="assets/course_pages/ch7_p011.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -1187,6 +1190,8 @@
           <div class="answer"><strong>答案：</strong><p>待接入官方答案或题图识别。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_p011.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11"><img src="assets/course_pages/ch7_p011.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf p.11</figcaption></figure></div></section>
       <p class="answer-source">答案来源：待核对</p>
     </article>
     
@@ -1197,8 +1202,6 @@
         <p>特快、普快、普慢按优先级通行，同一时刻只能给一个开车信号，设计逻辑电路。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" data-modal-caption="7.6.17a 原题图"><img src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" alt="7.6.17a 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>7.6.17a 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-combinational_logic_design">combinational_logic_design</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_p012.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12"><img src="assets/course_pages/ch7_p012.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -1214,6 +1217,8 @@
           <div class="answer"><strong>答案：</strong><p>待接入官方答案或进一步推导。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-combinational_logic_design">combinational_logic_design</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_p012.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12"><img src="assets/course_pages/ch7_p012.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12</figcaption></figure></div></section>
       <p class="answer-source">答案来源：待核对</p>
     </article>
     
@@ -1224,8 +1229,6 @@
         <p>设 A、B、C、D 为 4 位 8421BCD 码，当数字</p><div class="math-block" data-raw="x&lt;3"><div class="math-line">x &lt; 3</div></div><p>或</p><div class="math-block" data-raw="x&gt;6"><div class="math-line">x &gt; 6</div></div><p>时输出 1，否则输出 0，用与非门组成逻辑图。</p>
       </header>
       <div class="homework-strip"><figure class="homework-image"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" data-modal-caption="7.6.17b 原题图"><img src="assets/homework_images/7 门电路和组合逻辑电路作业_image1.png" alt="7.6.17b 原题图" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>7.6.17b 原题图</figcaption></figure></div>
-      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-combinational_logic_design">combinational_logic_design</a> <a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
-      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_p012.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12"><img src="assets/course_pages/ch7_p012.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12</figcaption></figure></div></section>
       
       <section class="official-answer-section">
         <h4>官方参考答案页截图</h4>
@@ -1241,6 +1244,8 @@
           <div class="answer"><strong>答案：</strong><p>待接入官方答案或进一步推导。</p></div>
         </section>
         </section>
+      <section><h4>考点定位</h4><p class="link-row"><a href="#knowledge-combinational_logic_design">combinational_logic_design</a> <a href="#knowledge-boolean_simplification">boolean_simplification</a></p></section>
+      <section><h4>来源课件页</h4><div class="source-strip"><figure class="source-page"><button type="button" onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" data-modal-src="assets/course_pages/ch7_p012.png" data-modal-caption="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12"><img src="assets/course_pages/ch7_p012.png" alt="第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12" loading="lazy" decoding="async" onerror="this.closest('figure').classList.add('image-missing')"></button><figcaption>第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf p.12</figcaption></figure></div></section>
       <p class="answer-source">答案来源：待核对</p>
     </article>
     </div>

@@ -92,6 +92,9 @@ def test_render_site_shows_clickable_official_answer_pages():
     assert "assets/official_answer_pages/official_answers_p001.png" in html
     assert "1.3.6 官方参考答案 p.1" in html
     assert 'class="official-answer-page"' in html
+    card_html = html.split('id="question-1.3.6"', 1)[1].split('id="question-1.3.9"', 1)[0]
+    assert card_html.index("官方参考答案页截图") < card_html.index("考点定位")
+    assert card_html.index("官方参考答案页截图") < card_html.index("来源课件页")
 
 
 def test_render_site_includes_expanded_lecture_gallery():
