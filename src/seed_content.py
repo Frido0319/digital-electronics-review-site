@@ -13,6 +13,79 @@ def _source(file: str, page: int, image: str) -> SourcePage:
     return SourcePage(file=file, page=page, image_path=image)
 
 
+OFFICIAL_ANSWER_FILE = "课后作业/电子技术部分章节作业参考答案to中德.pdf"
+
+OFFICIAL_ANSWER_PAGE_LOOKUP: dict[str, list[int]] = {
+    "1.3.6": [1],
+    "1.3.9": [1, 2],
+    "1.4.3": [2],
+    "1.5.8": [2, 3],
+    "1.5.9": [2, 3],
+    "2.2.5": [3, 4],
+    "2.3.4": [4],
+    "2.3.5": [4],
+    "2.4.5": [4, 5],
+    "2.4.6": [5, 6],
+    "2.4.7": [6],
+    "2.6.2": [6],
+    "2.6.3": [6, 7, 8],
+    "2.6.4": [8, 9],
+    "3.1.2": [9, 10],
+    "3.2.8": [10],
+    "3.2.13": [11],
+    "3.2.16": [11, 12],
+    "3.2.21": [12],
+    "3.3.4": [12, 13, 14],
+    "4.2.6": [14],
+    "4.2.12": [14, 15],
+}
+
+
+def _official_answer_image_name(page: int) -> str:
+    return f"assets/official_answer_pages/official_answers_p{page:03d}.png"
+
+
+def _official_answer_pages(question_id: str) -> list[SourcePage]:
+    return [
+        _source(OFFICIAL_ANSWER_FILE, page, _official_answer_image_name(page))
+        for page in OFFICIAL_ANSWER_PAGE_LOOKUP.get(question_id, [])
+    ]
+
+
+def _apply_official_answer_pages(questions: list[Question]) -> list[Question]:
+    updated: list[Question] = []
+    for question in questions:
+        pages = _official_answer_pages(question.id)
+        if not pages:
+            updated.append(question)
+            continue
+        page_list = "、".join(f"p.{page.page}" for page in pages)
+        official_subquestions = [
+            SubQuestion(
+                id=subquestion.id,
+                prompt=subquestion.prompt,
+                answer=f"见本题下方官方参考答案截图（{page_list}），以截图中的手写推导、公式和最终结果为准。",
+                solution_steps=subquestion.solution_steps,
+            )
+            for subquestion in question.subquestions
+        ]
+        updated.append(
+            Question(
+                id=question.id,
+                chapter=question.chapter,
+                title=question.title,
+                prompt=question.prompt,
+                image_paths=question.image_paths,
+                knowledge_ids=question.knowledge_ids,
+                source_pages=question.source_pages,
+                subquestions=official_subquestions,
+                answer_source="官方答案",
+                official_answer_pages=pages,
+            )
+        )
+    return updated
+
+
 def _pending_question(
     id: str,
     chapter: str,
@@ -689,7 +762,7 @@ def seed_content() -> None:
     config.DATA_DIR.mkdir(parents=True, exist_ok=True)
 
     knowledge_points = build_knowledge_points()
-    questions = build_questions()
+    questions = _apply_official_answer_pages(build_questions())
     lecture_gallery = build_lecture_gallery(knowledge_points, questions)
     manifest = {
         "course_pages": sorted(
@@ -697,10 +770,11 @@ def seed_content() -> None:
             | {page.image_path for question in questions for page in question.source_pages}
             | {page["image_path"] for source in lecture_gallery for page in source["pages"]}
         ),
+        "official_answer_pages": sorted({page.image_path for question in questions for page in question.official_answer_pages}),
         "homework_images": sorted({path for question in questions for path in question.image_paths}),
         "lecture_gallery": lecture_gallery,
         "notes": [
-            "Curated review records include all currently extracted homework IDs. Official answer files can replace pending answers later.",
+            "Curated review records include all currently extracted homework IDs. Official answer PDF pages are attached for matched chapter exercises.",
             "Blackboard exclusions are enforced by content review and validation.",
         ],
     }
@@ -755,3 +829,13 @@ def render_required_homework_pages() -> None:
     output_pdf = config.PROJECT_ROOT / "tmp" / "office_convert" / "ch5_homework.pdf"
     if convert_office_to_pdf(ch5_homework, output_pdf):
         render_pdf_page(output_pdf, 1, config.PROJECT_ROOT / "assets/homework_images/ch5_homework_page001.png")
+
+
+def render_required_official_answer_pages() -> None:
+    from .extract_sources import render_pdf_page
+
+    answer_pdf = config.SOURCE_ROOT / OFFICIAL_ANSWER_FILE
+    if not answer_pdf.is_file():
+        return
+    for page in sorted({page for pages in OFFICIAL_ANSWER_PAGE_LOOKUP.values() for page in pages}):
+        render_pdf_page(answer_pdf, page, config.PROJECT_ROOT / _official_answer_image_name(page))

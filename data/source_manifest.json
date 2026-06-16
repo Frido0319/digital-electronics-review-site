@@ -624,6 +624,23 @@
     "assets/course_pages/gallery_7_7_5_pdf_p124.png",
     "assets/course_pages/gallery_7_7_5_pdf_p125.png"
   ],
+  "official_answer_pages": [
+    "assets/official_answer_pages/official_answers_p001.png",
+    "assets/official_answer_pages/official_answers_p002.png",
+    "assets/official_answer_pages/official_answers_p003.png",
+    "assets/official_answer_pages/official_answers_p004.png",
+    "assets/official_answer_pages/official_answers_p005.png",
+    "assets/official_answer_pages/official_answers_p006.png",
+    "assets/official_answer_pages/official_answers_p007.png",
+    "assets/official_answer_pages/official_answers_p008.png",
+    "assets/official_answer_pages/official_answers_p009.png",
+    "assets/official_answer_pages/official_answers_p010.png",
+    "assets/official_answer_pages/official_answers_p011.png",
+    "assets/official_answer_pages/official_answers_p012.png",
+    "assets/official_answer_pages/official_answers_p013.png",
+    "assets/official_answer_pages/official_answers_p014.png",
+    "assets/official_answer_pages/official_answers_p015.png"
+  ],
   "homework_images": [
     "assets/homework_images/1,半导体器件作业_image1.png",
     "assets/homework_images/1,半导体器件作业_image2.png",
@@ -5571,7 +5588,7 @@
     }
   ],
   "notes": [
-    "Curated review records include all currently extracted homework IDs. Official answer files can replace pending answers later.",
+    "Curated review records include all currently extracted homework IDs. Official answer PDF pages are attached for matched chapter exercises.",
     "Blackboard exclusions are enforced by content review and validation."
   ]
 }

@@ -215,6 +215,24 @@ def _source_pages_html(source_pages: list[dict]) -> str:
     return "".join(parts)
 
 
+def _official_answer_pages_html(question: dict) -> str:
+    pages = question.get("official_answer_pages", [])
+    if not pages:
+        return '<p class="muted">这份参考答案 PDF 暂未覆盖本题；当前保留已有解析或待核对状态。</p>'
+    parts = []
+    for page in pages:
+        image = page["image_path"]
+        label = f'{question["id"]} 官方参考答案 p.{page["page"]}'
+        parts.append(
+            '<figure class="official-answer-page">'
+            f'<button {_modal_button_attrs(image, label)}>'
+            f'<img src="{_esc(image)}" alt="{_esc(label)}" loading="lazy" decoding="async" '
+            "onerror=\"this.closest('figure').classList.add('image-missing')\">"
+            f"</button><figcaption>{_esc(label)}</figcaption></figure>"
+        )
+    return "".join(parts)
+
+
 def _knowledge_card(point: dict) -> str:
     formulas = "".join(f"<li>{_math_block(item)}</li>" for item in point["formulas"]) or "<li>本知识点无固定公式。</li>"
     prerequisites = "".join(f"<li>{_render_mixed_text(item)}</li>" for item in point.get("prerequisites", [])) or "<li>无额外前置知识。</li>"
@@ -264,8 +282,15 @@ def _question_card(question: dict) -> str:
         """
         for sub in question["subquestions"]
     )
+    official_answer_section = f"""
+      <section class="official-answer-section">
+        <h4>官方参考答案页截图</h4>
+        <p class="muted">来自《电子技术部分章节作业参考答案to中德.pdf》。截图保留原手写/公式版面，点击可放大，放大后可用左右箭头翻页。</p>
+        <div class="official-answer-strip">{_official_answer_pages_html(question)}</div>
+      </section>
+    """
     return f"""
-    <article class="question-card searchable" id="question-{_esc(question["id"])}" data-search="{_esc(question["id"])} {_esc(question["title"])} {_esc(question["prompt"])}">
+    <article class="question-card searchable" id="question-{_esc(question["id"])}" data-search="{_esc(question["id"])} {_esc(question["title"])} {_esc(question["prompt"])} {_esc(question["answer_source"])}">
       <header>
         <p class="eyebrow">第 {_esc(question["chapter"])} 章作业题</p>
         <h3>{_esc(question["id"])} | {_esc(question["title"])}</h3>
@@ -274,6 +299,7 @@ def _question_card(question: dict) -> str:
       <div class="homework-strip">{images}</div>
       <section><h4>考点定位</h4><p class="link-row">{knowledge}</p></section>
       <section><h4>来源课件页</h4><div class="source-strip">{_source_pages_html(question["source_pages"])}</div></section>
+      {official_answer_section}
       <section><h4>子题级解析</h4>{subquestions}</section>
       <p class="answer-source">答案来源：{_esc(question["answer_source"])}</p>
     </article>
@@ -331,10 +357,11 @@ def _answer_status_html(questions: list[dict]) -> str:
         f"<li><strong>{_esc(status)}</strong>：{count} 题</li>"
         for status, count in sorted(status_counts.items())
     )
+    official_count = sum(1 for question in questions if question.get("official_answer_pages"))
     return f"""
       <section class="scope" id="answer-status">
         <h2>答案状态</h2>
-        <p>当前页面保留了每道题的解析入口和答案来源标记。后续上传官方答案后可替换“待核对”条目，并保留“官方答案/推导答案”的来源区分。</p>
+        <p>当前页面保留了每道题的解析入口和答案来源标记。已接入的参考答案 PDF 覆盖 {official_count} 道题；未覆盖的第 5、7 章题目继续保留推导答案或待核对状态。</p>
         <ul>{items}</ul>
       </section>
     """
@@ -493,10 +520,12 @@ def render_site() -> None:
     h1, h2, h3, h4 {{ line-height:1.25; }}
     .summary {{ color:var(--muted); }}
     .card-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; }}
-    .source-strip, .homework-strip {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 260px)); gap:12px; align-items:start; }}
+    .source-strip, .homework-strip, .official-answer-strip {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 260px)); gap:12px; align-items:start; }}
     .lecture-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 320px)); gap:14px; align-items:start; margin-top:14px; }}
     .lecture-source {{ border-top:1px solid var(--line); padding-top:10px; margin-top:10px; }}
     .lecture-source summary {{ cursor:pointer; font-weight:650; }}
+    .official-answer-section {{ border-top:1px solid var(--line); padding-top:12px; margin-top:12px; }}
+    .official-answer-page button {{ border:2px solid #0f766e; box-shadow:0 0 0 3px rgba(15,118,110,.09); }}
     .lecture-page.is-key-page button {{ border:3px solid #dc2626; box-shadow:0 0 0 3px rgba(220,38,38,.13); }}
     .lecture-page.is-super-key-page button {{ border:4px double #b91c1c; box-shadow:0 0 0 4px rgba(185,28,28,.14), inset 0 0 0 2px rgba(185,28,28,.08); }}
     .key-page-badge {{ display:inline-flex; align-items:center; border:1px solid #dc2626; border-radius:999px; padding:1px 6px; margin-right:4px; color:#b91c1c; font-weight:700; background:#fff1f2; }}

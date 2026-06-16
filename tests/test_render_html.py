@@ -76,9 +76,22 @@ def test_render_site_exposes_answer_status_summary():
     html = config.INDEX_HTML.read_text(encoding="utf-8")
 
     assert "答案状态" in html
+    assert "官方答案" in html
     assert "待核对" in html
     assert "推导答案" in html
-    assert "后续上传官方答案后可替换" in html
+    assert "已接入的参考答案 PDF 覆盖" in html
+
+
+def test_render_site_shows_clickable_official_answer_pages():
+    seed_content()
+    render_site()
+    html = config.INDEX_HTML.read_text(encoding="utf-8")
+
+    assert "官方参考答案页截图" in html
+    assert "电子技术部分章节作业参考答案to中德.pdf" in html
+    assert "assets/official_answer_pages/official_answers_p001.png" in html
+    assert "1.3.6 官方参考答案 p.1" in html
+    assert 'class="official-answer-page"' in html
 
 
 def test_render_site_includes_expanded_lecture_gallery():

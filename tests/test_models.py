@@ -25,6 +25,7 @@ def test_question_serializes_with_subquestions_and_sources():
             )
         ],
         answer_source="推导答案",
+        official_answer_pages=[SourcePage(file="课后作业/参考答案.pdf", page=3, image_path="assets/official_answer_pages/p003.png")],
     )
 
     data = to_jsonable(question)
@@ -32,6 +33,7 @@ def test_question_serializes_with_subquestions_and_sources():
     assert data["id"] == "5.1.8"
     assert data["subquestions"][0]["id"] == "5.1.8(1)"
     assert data["source_pages"][0]["page"] == 9
+    assert data["official_answer_pages"][0]["image_path"] == "assets/official_answer_pages/p003.png"
 
 
 def test_knowledge_point_serializes_related_questions():

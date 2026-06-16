@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass, is_dataclass
+from dataclasses import asdict, dataclass, field, is_dataclass
 from typing import Any, Literal
 
 
@@ -48,6 +48,7 @@ class Question:
     source_pages: list[SourcePage]
     subquestions: list[SubQuestion]
     answer_source: AnswerSource
+    official_answer_pages: list[SourcePage] = field(default_factory=list)
 
 
 def to_jsonable(value: Any) -> Any:

@@ -23,7 +23,7 @@
         {
           "id": "1.3.6",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.1），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "先判断每个半周二极管是否导通。",
             "导通时按理想二极管短路处理。",
@@ -32,7 +32,14 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 1,
+          "image_path": "assets/official_answer_pages/official_answers_p001.png"
+        }
+      ]
     },
     {
       "id": "1.3.9",
@@ -57,7 +64,7 @@
         {
           "id": "1.3.9",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.1、p.2），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "分别假设二极管导通/截止。",
             "用节点电压验证假设是否自洽。",
@@ -65,7 +72,19 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 1,
+          "image_path": "assets/official_answer_pages/official_answers_p001.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 2,
+          "image_path": "assets/official_answer_pages/official_answers_p002.png"
+        }
+      ]
     },
     {
       "id": "1.4.3",
@@ -90,7 +109,7 @@
         {
           "id": "1.4.3",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.2），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "先判断稳压管是否处于反向击穿稳压区。",
             "列限流电阻电流。",
@@ -98,7 +117,14 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 2,
+          "image_path": "assets/official_answer_pages/official_answers_p002.png"
+        }
+      ]
     },
     {
       "id": "1.5.8",
@@ -122,7 +148,7 @@
         {
           "id": "1.5.8",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.2、p.3），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "检查集电极电流是否超过 ICM。",
             "检查管压降是否超过击穿电压。",
@@ -130,7 +156,19 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 2,
+          "image_path": "assets/official_answer_pages/official_answers_p002.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 3,
+          "image_path": "assets/official_answer_pages/official_answers_p003.png"
+        }
+      ]
     },
     {
       "id": "1.5.9",
@@ -154,7 +192,7 @@
         {
           "id": "1.5.9",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.2、p.3），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "先看基极-发射极是否正向偏置。",
             "若导通，估算基极电流和可能的集电极电流。",
@@ -162,7 +200,19 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 2,
+          "image_path": "assets/official_answer_pages/official_answers_p002.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 3,
+          "image_path": "assets/official_answer_pages/official_answers_p003.png"
+        }
+      ]
     },
     {
       "id": "2.2.5",
@@ -186,7 +236,7 @@
         {
           "id": "2.2.5",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.3、p.4），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "先画直流通路，耦合电容视为开路。",
             "由 RB 和 UCC 估算 IB，再用 βIB 估算 IC。",
@@ -196,7 +246,19 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 3,
+          "image_path": "assets/official_answer_pages/official_answers_p003.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 4,
+          "image_path": "assets/official_answer_pages/official_answers_p004.png"
+        }
+      ]
     },
     {
       "id": "2.3.4",
@@ -221,7 +283,7 @@
         {
           "id": "2.3.4",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.4），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "把三极管替换为 rbe 与 βib 微变模型。",
             "输出端开路时负载为 RC。",
@@ -230,7 +292,14 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 4,
+          "image_path": "assets/official_answer_pages/official_answers_p004.png"
+        }
+      ]
     },
     {
       "id": "2.3.5",
@@ -256,7 +325,7 @@
         {
           "id": "2.3.5",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.4），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "先由 UCE 和输出特性判断是否位于放大区。",
             "空载时用 RC 计算电压放大倍数。",
@@ -265,7 +334,14 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 4,
+          "image_path": "assets/official_answer_pages/official_answers_p004.png"
+        }
+      ]
     },
     {
       "id": "2.4.5",
@@ -290,7 +366,7 @@
         {
           "id": "2.4.5(1)",
           "prompt": "计算静态值 IB、IC、UCE。",
-          "answer": "待接入官方答案或推导。",
+          "answer": "见本题下方官方参考答案截图（p.4、p.5），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "列直流通路。",
             "用分压偏置估算法求基极电位。",
@@ -300,7 +376,7 @@
         {
           "id": "2.4.5(2)",
           "prompt": "画出微变等效电路。",
-          "answer": "待接入官方答案或推导。",
+          "answer": "见本题下方官方参考答案截图（p.4、p.5），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "交流分析中电容视为短路。",
             "电源端为交流地。",
@@ -310,7 +386,7 @@
         {
           "id": "2.4.5(3)",
           "prompt": "计算 Au、ri、ro。",
-          "answer": "待接入官方答案或推导。",
+          "answer": "见本题下方官方参考答案截图（p.4、p.5），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "使用 RC // RL。",
             "输入电阻考虑偏置电阻并联。",
@@ -320,14 +396,26 @@
         {
           "id": "2.4.5(4)",
           "prompt": "计算输出端开路时电压放大倍数并说明 RL 影响。",
-          "answer": "待接入官方答案或推导。",
+          "answer": "见本题下方官方参考答案截图（p.4、p.5），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "开路时去掉 RL。",
             "比较 RC 与 RC // RL。"
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 4,
+          "image_path": "assets/official_answer_pages/official_answers_p004.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 5,
+          "image_path": "assets/official_answer_pages/official_answers_p005.png"
+        }
+      ]
     },
     {
       "id": "2.4.6",
@@ -351,7 +439,7 @@
         {
           "id": "2.4.6",
           "prompt": "计算考虑 RS 后的整体电压放大倍数。",
-          "answer": "待接入官方答案或推导。",
+          "answer": "见本题下方官方参考答案截图（p.5、p.6），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "先沿用 2.4.5 的输入电阻 ri。",
             "信号源内阻与 ri 构成分压。",
@@ -359,7 +447,19 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 5,
+          "image_path": "assets/official_answer_pages/official_answers_p005.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 6,
+          "image_path": "assets/official_answer_pages/official_answers_p006.png"
+        }
+      ]
     },
     {
       "id": "2.4.7",
@@ -384,7 +484,7 @@
         {
           "id": "2.4.7(1)",
           "prompt": "判断静态值是否变化。",
-          "answer": "静态值不因去掉交流旁路电容而改变。",
+          "answer": "见本题下方官方参考答案截图（p.6），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "静态分析中电容本来视为开路。",
             "CE 只影响交流通路，不改变直流偏置。"
@@ -393,7 +493,7 @@
         {
           "id": "2.4.7(2)",
           "prompt": "画出微变等效电路。",
-          "answer": "待接入官方答案或推导。",
+          "answer": "见本题下方官方参考答案截图（p.6），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "交流通路中 RE 不再被 CE 短路。",
             "发射极电阻进入微变等效电路。"
@@ -402,7 +502,7 @@
         {
           "id": "2.4.7(3)",
           "prompt": "计算 Au、ri、ro 并说明 RE 的影响。",
-          "answer": "待接入官方答案或推导。",
+          "answer": "见本题下方官方参考答案截图（p.6），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "RE 引入交流负反馈。",
             "电压增益绝对值下降。",
@@ -410,7 +510,14 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 6,
+          "image_path": "assets/official_answer_pages/official_answers_p006.png"
+        }
+      ]
     },
     {
       "id": "2.6.2",
@@ -434,7 +541,7 @@
         {
           "id": "2.6.2",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.6），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "画出射极输出器交流等效电路。",
             "使用共集电极电路近似 Au≈1。",
@@ -442,7 +549,14 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 6,
+          "image_path": "assets/official_answer_pages/official_answers_p006.png"
+        }
+      ]
     },
     {
       "id": "2.6.3",
@@ -467,7 +581,7 @@
         {
           "id": "2.6.3",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.6、p.7、p.8），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "先分级画直流通路。",
             "计算每一级静态工作点。",
@@ -476,7 +590,24 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 6,
+          "image_path": "assets/official_answer_pages/official_answers_p006.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 7,
+          "image_path": "assets/official_answer_pages/official_answers_p007.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 8,
+          "image_path": "assets/official_answer_pages/official_answers_p008.png"
+        }
+      ]
     },
     {
       "id": "2.6.4",
@@ -500,7 +631,7 @@
         {
           "id": "2.6.4",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.8、p.9），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "分别识别集电极输出和发射极输出。",
             "集电极输出反相，发射极输出同相。",
@@ -508,7 +639,19 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 8,
+          "image_path": "assets/official_answer_pages/official_answers_p008.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 9,
+          "image_path": "assets/official_answer_pages/official_answers_p009.png"
+        }
+      ]
     },
     {
       "id": "3.1.2",
@@ -532,7 +675,7 @@
         {
           "id": "3.1.2",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.9、p.10），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "先求电桥两个中点电位。",
             "对变化电阻使用近似展开。",
@@ -540,7 +683,19 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 9,
+          "image_path": "assets/official_answer_pages/official_answers_p009.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 10,
+          "image_path": "assets/official_answer_pages/official_answers_p010.png"
+        }
+      ]
     },
     {
       "id": "3.2.8",
@@ -564,7 +719,7 @@
         {
           "id": "3.2.8",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.10），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "利用虚地确定输入电流。",
             "把 T 型网络等效成反馈电阻。",
@@ -572,7 +727,14 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 10,
+          "image_path": "assets/official_answer_pages/official_answers_p010.png"
+        }
+      ]
     },
     {
       "id": "3.2.13",
@@ -596,7 +758,7 @@
         {
           "id": "3.2.13",
           "prompt": "求输出表达式。",
-          "answer": "待接入官方答案或推导。",
+          "answer": "见本题下方官方参考答案截图（p.11），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "使用虚短虚断。",
             "对反相端或同相端列 KCL。",
@@ -604,7 +766,14 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 11,
+          "image_path": "assets/official_answer_pages/official_answers_p011.png"
+        }
+      ]
     },
     {
       "id": "3.2.16",
@@ -628,7 +797,7 @@
         {
           "id": "3.2.16",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.11、p.12），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "识别两级运放结构。",
             "用虚短虚断分别求两级输出。",
@@ -636,7 +805,19 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 11,
+          "image_path": "assets/official_answer_pages/official_answers_p011.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 12,
+          "image_path": "assets/official_answer_pages/official_answers_p012.png"
+        }
+      ]
     },
     {
       "id": "3.2.21",
@@ -660,7 +841,7 @@
         {
           "id": "3.2.21",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.12），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "使用虚短虚断确定输入端电位。",
             "对求和节点列 KCL。",
@@ -669,7 +850,14 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 12,
+          "image_path": "assets/official_answer_pages/official_answers_p012.png"
+        }
+      ]
     },
     {
       "id": "3.3.4",
@@ -693,7 +881,7 @@
         {
           "id": "3.3.4",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.12、p.13、p.14），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "比较 ui 与参考电压确定翻转点。",
             "根据限幅稳压管确定输出高低电平。",
@@ -701,7 +889,24 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 12,
+          "image_path": "assets/official_answer_pages/official_answers_p012.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 13,
+          "image_path": "assets/official_answer_pages/official_answers_p013.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 14,
+          "image_path": "assets/official_answer_pages/official_answers_p014.png"
+        }
+      ]
     },
     {
       "id": "4.2.6",
@@ -725,7 +930,7 @@
         {
           "id": "4.2.6",
           "prompt": "完成本题。",
-          "answer": "待接入官方答案或进一步推导。",
+          "answer": "见本题下方官方参考答案截图（p.14），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "先判断反馈信号从输出电压还是输出电流取样。",
             "再判断反馈回输入端是串联还是并联。",
@@ -733,7 +938,14 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 14,
+          "image_path": "assets/official_answer_pages/official_answers_p014.png"
+        }
+      ]
     },
     {
       "id": "4.2.12",
@@ -757,7 +969,7 @@
         {
           "id": "4.2.12(1)",
           "prompt": "减少输入电阻，增大输出电阻。",
-          "answer": "应选择并联电流负反馈方向，待图确认接法。",
+          "answer": "见本题下方官方参考答案截图（p.14、p.15），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "减少输入电阻对应并联混合。",
             "增大输出电阻对应电流取样。"
@@ -766,7 +978,7 @@
         {
           "id": "4.2.12(2)",
           "prompt": "稳定输出电压，判断输入电阻是否增大。",
-          "answer": "应选择电压反馈；若为串联混合则输入电阻增大，具体接法待图确认。",
+          "answer": "见本题下方官方参考答案截图（p.14、p.15），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "稳定输出电压对应电压取样。",
             "输入电阻变化由串联或并联混合决定。"
@@ -775,14 +987,26 @@
         {
           "id": "4.2.12(3)",
           "prompt": "稳定输出电流，并减小输入电阻。",
-          "answer": "应选择并联电流负反馈，待图确认接法。",
+          "answer": "见本题下方官方参考答案截图（p.14、p.15），以截图中的手写推导、公式和最终结果为准。",
           "solution_steps": [
             "稳定输出电流对应电流取样。",
             "减小输入电阻对应并联混合。"
           ]
         }
       ],
-      "answer_source": "推导答案"
+      "answer_source": "官方答案",
+      "official_answer_pages": [
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 14,
+          "image_path": "assets/official_answer_pages/official_answers_p014.png"
+        },
+        {
+          "file": "课后作业/电子技术部分章节作业参考答案to中德.pdf",
+          "page": 15,
+          "image_path": "assets/official_answer_pages/official_answers_p015.png"
+        }
+      ]
     },
     {
       "id": "5.1.1",
@@ -824,7 +1048,8 @@
           ]
         }
       ],
-      "answer_source": "推导答案"
+      "answer_source": "推导答案",
+      "official_answer_pages": []
     },
     {
       "id": "5.1.8",
@@ -875,7 +1100,8 @@
           ]
         }
       ],
-      "answer_source": "推导答案"
+      "answer_source": "推导答案",
+      "official_answer_pages": []
     },
     {
       "id": "7.2.5",
@@ -907,7 +1133,8 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "待核对",
+      "official_answer_pages": []
     },
     {
       "id": "7.3.1",
@@ -939,7 +1166,8 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "待核对",
+      "official_answer_pages": []
     },
     {
       "id": "7.5.9",
@@ -971,7 +1199,8 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "待核对",
+      "official_answer_pages": []
     },
     {
       "id": "7.5.13",
@@ -1003,7 +1232,8 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "待核对",
+      "official_answer_pages": []
     },
     {
       "id": "7.5.14",
@@ -1046,7 +1276,8 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "待核对",
+      "official_answer_pages": []
     },
     {
       "id": "7.6.17a",
@@ -1079,7 +1310,8 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "待核对",
+      "official_answer_pages": []
     },
     {
       "id": "7.6.17b",
@@ -1113,7 +1345,8 @@
           ]
         }
       ],
-      "answer_source": "待核对"
+      "answer_source": "待核对",
+      "official_answer_pages": []
     }
   ]
 }

@@ -109,6 +109,36 @@ def test_source_page_manifest_covers_question_source_pages():
     assert question_pages <= manifest_pages
 
 
+def test_seed_data_attaches_official_answer_pages_for_matched_questions():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    questions = json.loads(config.QUESTION_BANK_JSON.read_text(encoding="utf-8"))["questions"]
+    by_id = {question["id"]: question for question in questions}
+
+    assert by_id["1.3.6"]["answer_source"] == "官方答案"
+    assert by_id["1.3.6"]["official_answer_pages"][0]["image_path"] == "assets/official_answer_pages/official_answers_p001.png"
+    assert "见本题下方官方参考答案截图" in by_id["1.3.6"]["subquestions"][0]["answer"]
+    assert by_id["3.2.21"]["answer_source"] == "官方答案"
+    assert [page["page"] for page in by_id["3.2.21"]["official_answer_pages"]] == [12]
+    assert by_id["5.1.8"]["answer_source"] == "推导答案"
+    assert by_id["5.1.8"]["official_answer_pages"] == []
+
+
+def test_source_manifest_includes_official_answer_pages():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
+    official_pages = manifest["official_answer_pages"]
+
+    assert len(official_pages) == 15
+    assert "assets/official_answer_pages/official_answers_p001.png" in official_pages
+    assert "assets/official_answer_pages/official_answers_p015.png" in official_pages
+
+
 def test_source_page_manifest_includes_expanded_lecture_gallery():
     import json
     from src.seed_content import seed_content
