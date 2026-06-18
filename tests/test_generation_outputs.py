@@ -122,7 +122,7 @@ def test_seed_data_attaches_official_answer_pages_for_matched_questions():
     assert "见本题下方官方参考答案截图" in by_id["1.3.6"]["subquestions"][0]["answer"]
     assert by_id["3.2.21"]["answer_source"] == "官方答案"
     assert [page["page"] for page in by_id["3.2.21"]["official_answer_pages"]] == [12]
-    assert by_id["5.1.8"]["answer_source"] == "推导答案"
+    assert by_id["5.1.8"]["answer_source"] == "AI兜底答案"
     assert by_id["5.1.8"]["official_answer_pages"] == []
 
 
@@ -156,6 +156,30 @@ def test_source_page_manifest_includes_expanded_lecture_gallery():
     assert len(gallery_paths) >= 70
     assert gallery_paths <= set(manifest["course_pages"])
     assert all(path.startswith("assets/course_pages/") for path in gallery_paths)
+    chapter_4 = next(source for source in gallery if source["file"] == "第4章  电子电路中的反馈.ppt")
+    assert chapter_4["title"] == "第4章  电子电路中的反馈.ppt"
+    assert len(chapter_4["pages"]) >= 60
+    assert chapter_4["pages"][0]["image_path"] == "assets/course_pages/gallery_ppt_ch4_feedback_p001.png"
+
+
+def test_seed_data_uses_ai_fallback_for_uncovered_homework_answers():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    questions = json.loads(config.QUESTION_BANK_JSON.read_text(encoding="utf-8"))["questions"]
+    by_id = {question["id"]: question for question in questions}
+    fallback_ids = {"5.1.1", "5.1.8", "7.2.5", "7.3.1", "7.5.9", "7.5.13", "7.5.14", "7.6.17a", "7.6.17b"}
+
+    assert all(by_id[question_id]["answer_source"] == "AI兜底答案" for question_id in fallback_ids)
+    assert "待接入官方答案" not in "\n".join(
+        subquestion["answer"]
+        for question_id in fallback_ids
+        for subquestion in by_id[question_id]["subquestions"]
+    )
+    assert "Y = AC + BC'" in by_id["7.2.5"]["subquestions"][0]["answer"]
+    assert "YA = A" in by_id["7.6.17a"]["subquestions"][0]["answer"]
+    assert "Y = B'C' + B'D' + BCD" in by_id["7.6.17b"]["subquestions"][0]["answer"]
 
 
 def _source_key(path):
@@ -197,7 +221,8 @@ def test_lecture_gallery_covers_every_non_excluded_pdf_page():
     }
     expected_total = 0
     for source in manifest["lecture_gallery"]:
-        assert not (gallery_pages[source["file"]] & excluded[source["file"]])
+        if source["file"] in excluded:
+            assert not (gallery_pages[source["file"]] & excluded[source["file"]])
 
     for files in config.SOURCE_FILES.values():
         for path in files:
@@ -211,8 +236,8 @@ def test_lecture_gallery_covers_every_non_excluded_pdf_page():
             assert gallery_pages.get(key, set()) == expected_pages
 
     actual_total = sum(len(source["pages"]) for source in manifest["lecture_gallery"])
-    assert actual_total == expected_total
-    assert actual_total >= 550
+    assert actual_total >= expected_total
+    assert actual_total >= 600
 
 
 def test_lecture_gallery_marks_homework_and_knowledge_source_pages_as_key_pages():

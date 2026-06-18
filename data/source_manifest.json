@@ -622,7 +622,72 @@
     "assets/course_pages/gallery_7_7_5_pdf_p122.png",
     "assets/course_pages/gallery_7_7_5_pdf_p123.png",
     "assets/course_pages/gallery_7_7_5_pdf_p124.png",
-    "assets/course_pages/gallery_7_7_5_pdf_p125.png"
+    "assets/course_pages/gallery_7_7_5_pdf_p125.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p001.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p002.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p003.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p004.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p005.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p006.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p007.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p008.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p009.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p010.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p011.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p012.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p013.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p014.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p015.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p016.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p017.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p018.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p019.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p020.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p021.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p022.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p023.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p024.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p025.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p026.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p027.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p028.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p029.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p030.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p031.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p032.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p033.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p034.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p035.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p036.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p037.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p038.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p039.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p040.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p041.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p042.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p043.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p044.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p045.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p046.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p047.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p048.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p049.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p050.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p051.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p052.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p053.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p054.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p055.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p056.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p057.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p058.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p059.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p060.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p061.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p062.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p063.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p064.png",
+    "assets/course_pages/gallery_ppt_ch4_feedback_p065.png"
   ],
   "official_answer_pages": [
     "assets/official_answer_pages/official_answers_p001.png",
@@ -3237,6 +3302,533 @@
           "key_reason": null,
           "is_super_key_page": true,
           "super_key_reason": "重点中的重点截图命中：4.jpg、7.jpg"
+        }
+      ]
+    },
+    {
+      "file": "第4章  电子电路中的反馈.ppt",
+      "title": "第4章  电子电路中的反馈.ppt",
+      "chapter": "4",
+      "pages": [
+        {
+          "page": 1,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p001.png",
+          "is_key_page": true,
+          "key_reason": "题目/知识点直接来源页",
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 2,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p002.png",
+          "is_key_page": true,
+          "key_reason": "题目相关相邻讲解页",
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 3,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p003.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 4,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p004.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 5,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p005.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 6,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p006.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 7,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p007.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 8,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p008.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 9,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p009.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 10,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p010.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 11,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p011.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 12,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p012.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 13,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p013.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 14,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p014.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 15,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p015.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 16,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p016.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 17,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p017.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 18,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p018.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 19,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p019.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 20,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p020.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 21,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p021.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 22,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p022.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 23,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p023.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 24,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p024.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 25,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p025.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 26,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p026.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 27,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p027.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 28,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p028.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 29,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p029.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 30,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p030.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 31,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p031.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 32,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p032.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 33,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p033.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 34,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p034.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 35,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p035.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 36,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p036.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 37,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p037.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 38,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p038.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 39,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p039.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 40,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p040.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 41,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p041.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 42,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p042.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 43,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p043.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 44,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p044.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 45,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p045.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 46,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p046.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 47,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p047.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 48,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p048.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 49,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p049.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 50,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p050.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 51,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p051.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 52,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p052.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 53,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p053.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 54,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p054.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 55,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p055.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 56,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p056.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 57,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p057.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 58,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p058.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 59,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p059.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 60,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p060.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 61,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p061.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 62,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p062.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 63,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p063.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 64,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p064.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
+        },
+        {
+          "page": 65,
+          "image_path": "assets/course_pages/gallery_ppt_ch4_feedback_p065.png",
+          "is_key_page": false,
+          "key_reason": null,
+          "is_super_key_page": false,
+          "super_key_reason": null
         }
       ]
     },

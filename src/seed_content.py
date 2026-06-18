@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import re
+from pathlib import Path
 
 import fitz
 
@@ -109,11 +110,63 @@ def _pending_question(
     )
 
 
+def _ai_fallback_question(
+    id: str,
+    chapter: str,
+    title: str,
+    prompt: str,
+    image_paths: list[str],
+    knowledge_ids: list[str],
+    source_pages: list[SourcePage],
+    answer: str,
+    route: list[str],
+) -> Question:
+    return Question(
+        id=id,
+        chapter=chapter,
+        title=title,
+        prompt=prompt,
+        image_paths=image_paths,
+        knowledge_ids=knowledge_ids,
+        source_pages=source_pages,
+        subquestions=[SubQuestion(id, "完成本题。", answer, route)],
+        answer_source="AI兜底答案",
+    )
+
+
 def _gallery_image_name(file: str, page: int) -> str:
     stem = re.sub(r"[^A-Za-z0-9]+", "_", file).strip("_").lower()
     if len(stem) > 64:
         stem = stem[-64:]
     return f"assets/course_pages/gallery_{stem}_p{page:03d}.png"
+
+
+def _ppt_gallery_image_name(file: str, page: int) -> str:
+    if file == "第4章  电子电路中的反馈.ppt":
+        return f"assets/course_pages/gallery_ppt_ch4_feedback_p{page:03d}.png"
+    return _gallery_image_name(file, page)
+
+
+def _office_pdf_path(path: Path) -> Path:
+    if path.name == "第4章  电子电路中的反馈.ppt":
+        return config.PROJECT_ROOT / "tmp" / "office_convert" / "ch4_feedback.pdf"
+    return config.PROJECT_ROOT / "tmp" / "office_convert" / f"{path.stem}.pdf"
+
+
+def _office_page_count(path: Path) -> int:
+    output_pdf = _office_pdf_path(path)
+    if not output_pdf.is_file():
+        from .extract_sources import convert_office_to_pdf
+
+        if not convert_office_to_pdf(path, output_pdf):
+            return 0
+    try:
+        doc = fitz.open(str(output_pdf))
+    except Exception:
+        return 0
+    page_count = doc.page_count
+    doc.close()
+    return page_count
 
 
 def _source_file_key(path) -> str:
@@ -269,12 +322,20 @@ def build_lecture_gallery(
     super_key_source_pages = build_super_key_source_page_lookup()
     for files in config.SOURCE_FILES.values():
         for path in files:
-            if path.suffix.lower() != ".pdf":
-                continue
             file_key = _source_file_key(path)
-            doc = fitz.open(str(path))
-            page_count = doc.page_count
-            doc.close()
+            suffix = path.suffix.lower()
+            if suffix == ".pdf":
+                doc = fitz.open(str(path))
+                page_count = doc.page_count
+                doc.close()
+                image_name = _gallery_image_name
+            elif suffix in {".ppt", ".pptx"}:
+                page_count = _office_page_count(path)
+                image_name = _ppt_gallery_image_name
+            else:
+                continue
+            if page_count <= 0:
+                continue
             excluded_pages = lecture_gallery_excluded_pages(file_key)
             pages = [page for page in range(1, page_count + 1) if page not in excluded_pages]
             chapter = path.name.split("章", 1)[0].replace("第", "")
@@ -286,7 +347,7 @@ def build_lecture_gallery(
                     "pages": [
                         {
                             "page": page,
-                            "image_path": _gallery_image_name(file_key, page),
+                            "image_path": image_name(file_key, page),
                             "is_key_page": (file_key, page) in key_source_pages or (file_key, page) in super_key_source_pages,
                             "key_reason": key_source_pages.get((file_key, page)),
                             "is_super_key_page": (file_key, page) in super_key_source_pages,
@@ -664,7 +725,7 @@ def build_questions() -> list[Question]:
                 SubQuestion("5.1.1(1)", "求输出电压和输出电流平均值。", "UO≈13.5V，IO≈0.135A。", ["半波整流平均输出 UO=0.45U。", "UO=0.45×30=13.5V。", "IO=UO/RL=13.5/100=0.135A。"]),
                 SubQuestion("5.1.1(2)", "电源电压波动 +10% 时求最高反向电压。", "URM≈46.7V。", ["半波整流二极管最高反向电压约为 √2U。", "考虑 +10% 波动，Umax=33V。", "URM≈√2×33≈46.7V。"]),
             ],
-            answer_source="推导答案",
+            answer_source="AI兜底答案",
         ),
         Question(
             id="5.1.8",
@@ -679,9 +740,9 @@ def build_questions() -> list[Question]:
                 SubQuestion("5.1.8(2)", "求二次电流有效值。", "I2 ≈ 2.22 A。", ["负载电流 IO = 110 / 55 = 2 A。", "桥式整流中 I2 ≈ 1.11IO。", "I2 ≈ 2.22 A。"]),
                 SubQuestion("5.1.8(3)", "选用二极管。", "二极管平均电流应大于 1 A，反向峰值电压应大于约 173 V，并留裕量。", ["每只二极管平均电流约为 IO / 2 = 1 A。", "URM = √2U2 ≈ 173 V。", "实际选型应留额定裕量。"]),
             ],
-            answer_source="推导答案",
+            answer_source="AI兜底答案",
         ),
-        _pending_question(
+        _ai_fallback_question(
             "7.2.5",
             "7",
             "控制门电路逻辑式与波形",
@@ -689,9 +750,10 @@ def build_questions() -> list[Question]:
             ["assets/homework_images/7 门电路和组合逻辑电路作业_image1.png"],
             ["boolean_simplification"],
             [_source("第7章 门电路和组合逻辑电路/第7章-门电路和组合逻辑电路1.pdf", 16, "assets/course_pages/ch7_p016.png")],
+            "由图可得上支路为 (AC)'，下支路为 (BC')'，末级与非后 Y = AC + BC'。当 C=1 时，Y=A；当 C=0 时，Y=B，所以该电路等效为由 C 控制的二选一数据选择器。",
             ["先写出每一级门输出表达式。", "分别代入 C=1 和 C=0 化简。", "根据 A、B 波形逐段画 Y。"],
         ),
-        _pending_question(
+        _ai_fallback_question(
             "7.3.1",
             "7",
             "用 74LS00 与非门实现逻辑功能",
@@ -699,9 +761,10 @@ def build_questions() -> list[Question]:
             ["assets/homework_images/7 门电路和组合逻辑电路作业_image2.png"],
             ["boolean_simplification"],
             [_source("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路2.pdf", 1, "assets/course_pages/ch7_2_p001.png")],
+            "74LS00 内含四个二输入与非门，可把目标函数先化为与非-与非形式。常用接法是用一个与非门作反相器：X' = (XX)'，再用其余与非门实现乘积项和末级合成；画图时按 1A/1B/1Y、2A/2B/2Y、3A/3B/3Y、4A/4B/4Y 分配引脚。",
             ["确认 74LS00 内含四个二输入与非门。", "把目标逻辑改写成与非-与非形式。", "分配芯片内四个门并画引脚连接。"],
         ),
-        _pending_question(
+        _ai_fallback_question(
             "7.5.9",
             "7",
             "与非门和非门实现逻辑关系",
@@ -709,9 +772,10 @@ def build_questions() -> list[Question]:
             ["assets/homework_images/7 门电路和组合逻辑电路作业_image1.png"],
             ["boolean_simplification"],
             [_source("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf", 11, "assets/course_pages/ch7_p011.png")],
+            "AI兜底做法：先把题面给出的逻辑函数化成最简与或式 F = P1 + P2 + ...，再用双重否定改写为 F = ((P1)'(P2)'...)'。每个 (Pi)' 用与非门得到，末级再用与非门合成；若需要变量反相，则用非门或与非门输入并接得到。",
             ["先把逻辑式化简。", "用双重否定把表达式变成与非形式。", "需要反相时用与非门输入并接实现非门。"],
         ),
-        _pending_question(
+        _ai_fallback_question(
             "7.5.13",
             "7",
             "逻辑代数恒等式推证",
@@ -719,6 +783,7 @@ def build_questions() -> list[Question]:
             ["assets/homework_images/7 门电路和组合逻辑电路作业_image1.png"],
             ["boolean_simplification"],
             [_source("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf", 2, "assets/course_pages/ch7_3_p002.png")],
+            "AI兜底做法：从较复杂一边开始，优先使用 A + A'B = A + B、A(A+B)=A、A+A=A、AA=A、A+A'=1、AA'=0 等恒等式逐步化简，直到得到另一边。每一步都应写出所用规则，不能只写最终等式。",
             ["从复杂一边出发。", "使用吸收律、互补律、分配律逐步化简。", "每一步写明使用的逻辑代数规则。"],
         ),
         Question(
@@ -730,12 +795,12 @@ def build_questions() -> list[Question]:
             knowledge_ids=["boolean_simplification"],
             source_pages=[_source("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf", 11, "assets/course_pages/ch7_p011.png")],
             subquestions=[
-                SubQuestion("7.5.14(1)", "化简第一个逻辑式。", "待接入官方答案或题图识别。", ["把最小项填入卡诺图。", "按最大圈组覆盖所有 1。", "写出最简与或式。"]),
-                SubQuestion("7.5.14(2)", "化简第二个逻辑式。", "待接入官方答案或题图识别。", ["把最小项填入卡诺图。", "按最大圈组覆盖所有 1。", "写出最简与或式。"]),
+                SubQuestion("7.5.14(1)", "化简第一个逻辑式。", "AI兜底做法：把题面列出的最小项或真值表填入卡诺图，按 1、2、4、8 个相邻格优先圈最大圈，可利用边界相邻和无关项，最后写出每个圈对应的最简与项并相加。", ["把最小项填入卡诺图。", "按最大圈组覆盖所有 1。", "写出最简与或式。"]),
+                SubQuestion("7.5.14(2)", "化简第二个逻辑式。", "AI兜底做法：同样先填卡诺图，再检查是否存在只改变一个变量的相邻格。圈组越大，保留下来的变量越少；最终答案应为覆盖所有 1 的最简与或式。", ["把最小项填入卡诺图。", "按最大圈组覆盖所有 1。", "写出最简与或式。"]),
             ],
-            answer_source="待核对",
+            answer_source="AI兜底答案",
         ),
-        _pending_question(
+        _ai_fallback_question(
             "7.6.17a",
             "7",
             "列车优先通行组合逻辑设计",
@@ -743,9 +808,10 @@ def build_questions() -> list[Question]:
             ["assets/homework_images/7 门电路和组合逻辑电路作业_image1.png"],
             ["combinational_logic_design"],
             [_source("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf", 12, "assets/course_pages/ch7_p012.png")],
+            "设 A、B、C 分别表示特快、普快、普慢请求。按优先级输出：YA = A，YB = A'B，YC = A'B'C。这样同一时刻最多只有一个输出为 1，并且高优先级请求会屏蔽低优先级。",
             ["定义 A、B、C 为请求信号。", "最高优先级 YA=A。", "普快需在无特快时输出。", "普慢需在无特快且无普快时输出。"],
         ),
-        _pending_question(
+        _ai_fallback_question(
             "7.6.17b",
             "7",
             "8421BCD 码范围检测逻辑设计",
@@ -753,6 +819,7 @@ def build_questions() -> list[Question]:
             ["assets/homework_images/7 门电路和组合逻辑电路作业_image1.png"],
             ["combinational_logic_design", "boolean_simplification"],
             [_source("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf", 12, "assets/course_pages/ch7_p012.png")],
+            "若 A 为 8 位、B 为 4 位、C 为 2 位、D 为 1 位，则 x<3 对应 0000、0001、0010，x>6 对应 0111、1000、1001；10 到 15 可作无关项。卡诺图化简可得 Y = B'C' + B'D' + BCD。用与非门实现时写成 Y = ((B'C')'(B'D')'(BCD)')'。",
             ["列出 0 到 9 的 BCD 真值表。", "把 0、1、2、7、8、9 标为输出 1。", "10 到 15 可作为无关项。", "化简后转成与非门实现。"],
         ),
     ]
@@ -805,6 +872,7 @@ def render_required_source_pages() -> None:
     for source in build_lecture_gallery(knowledge_points, questions):
         required_pages.extend(_source(source["file"], page["page"], page["image_path"]) for page in source["pages"])
     rendered: set[str] = set()
+    converted_office_pdfs: dict[str, Path] = {}
     for page in required_pages:
         source = known_files.get(page.file.replace("\\", "/"))
         if source is None or page.image_path in rendered:
@@ -814,8 +882,13 @@ def render_required_source_pages() -> None:
             rendered.add(page.image_path)
             continue
         if source.suffix.lower() in {".ppt", ".pptx"}:
-            output_pdf = config.PROJECT_ROOT / "tmp" / "office_convert" / "ch4_feedback.pdf"
-            if convert_office_to_pdf(source, output_pdf):
+            source_key = source.resolve().as_posix()
+            output_pdf = converted_office_pdfs.get(source_key)
+            if output_pdf is None:
+                output_pdf = _office_pdf_path(source)
+                if output_pdf.is_file() or convert_office_to_pdf(source, output_pdf):
+                    converted_office_pdfs[source_key] = output_pdf
+            if output_pdf is not None and output_pdf.is_file():
                 render_pdf_page(output_pdf, page.page, config.PROJECT_ROOT / page.image_path)
                 rendered.add(page.image_path)
 

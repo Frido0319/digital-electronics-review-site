@@ -67,6 +67,8 @@ def test_render_site_uses_display_math_blocks_for_formulas_and_calculations():
     assert '<span class="frac"><span>I<sub>O</sub></span><span>2</span></span> = 1 A' in html
     assert "桥式整流：UO = 0.9U2" not in html
     assert "虚短虚断：u+ = u-" not in html
+    assert "A<sub>C</sub>" not in html
+    assert "A·C" in html
     assert "<p>、</p>" not in html
 
 
@@ -77,8 +79,7 @@ def test_render_site_exposes_answer_status_summary():
 
     assert "答案状态" in html
     assert "官方答案" in html
-    assert "待核对" in html
-    assert "推导答案" in html
+    assert "AI兜底答案" in html
     assert "已接入的参考答案 PDF 覆盖" in html
 
 
@@ -102,11 +103,12 @@ def test_render_site_includes_expanded_lecture_gallery():
     render_site()
     html = config.INDEX_HTML.read_text(encoding="utf-8")
 
-    assert "原讲义 PDF 截图库" in html
+    assert "原讲义/PPT 截图库" in html
     assert 'id="lecture-gallery"' in html
     assert 'class="lecture-page"' in html
     assert html.count('<figure class="lecture-page') >= 550
     assert "第2章-基本放大电路7.pdf" in html
+    assert "第4章  电子电路中的反馈.ppt" in html
     assert "第7章 门电路和组合逻辑电路4.pdf" in html
 
 
@@ -159,9 +161,17 @@ def test_render_site_uses_safe_modal_button_attributes():
     parser.feed(config.INDEX_HTML.read_text(encoding="utf-8"))
 
     assert parser.modal_buttons
-    assert all(button["onclick"] == "openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" for button in parser.modal_buttons)
+    assert all(
+        button["onclick"]
+        in {
+            "openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)",
+            "openImageModal(this.dataset.modalSrc, this.dataset.modalCaption, this.dataset.modalGroup)",
+        }
+        for button in parser.modal_buttons
+    )
     assert all(button.get("data-modal-src", "").startswith("assets/") for button in parser.modal_buttons)
     assert all(button.get("data-modal-caption") for button in parser.modal_buttons)
+    assert all(button.get("data-modal-group") for button in parser.modal_buttons)
 
 
 def test_image_modal_has_previous_and_next_navigation_controls():
@@ -177,6 +187,8 @@ def test_image_modal_has_previous_and_next_navigation_controls():
     assert "showAdjacentImage(1)" in html
     assert 'event.key === "ArrowLeft"' in html
     assert 'event.key === "ArrowRight"' in html
+    assert 'data-modal-group="第4章  电子电路中的反馈.ppt"' in html
+    assert "CSS.escape(group)" in html
 
 
 def test_render_site_writes_shareable_outline():
@@ -187,4 +199,4 @@ def test_render_site_writes_shareable_outline():
     assert "# 数电复习网站目录" in outline
     assert "## 第5章" in outline
     assert "- 5.1.8 单相桥式整流参数计算" in outline
-    assert "官方答案状态" in outline
+    assert "答案状态" in outline

@@ -31,12 +31,33 @@ MATH_EXPR_RE = re.compile(
 PARALLEL_EXPR_RE = re.compile(r"(?<![A-Za-z0-9])([A-Za-z][A-Za-z0-9]*\s*//\s*[A-Za-z][A-Za-z0-9]*(?:\s*//\s*[A-Za-z][A-Za-z0-9]*)*)")
 RELATION_RE = re.compile(rf"\s*({RELATION_PATTERN})\s*")
 TOKEN_RE = re.compile(r"U\([A-Za-z]+\)[A-Za-z0-9]*|[ui][+-]|[A-Za-z]+[A-Za-z0-9]*")
+SUBSCRIPTABLE_PREFIXES = {"U", "I", "R", "r", "u", "i"}
+
+
+def _format_logic_product(token: str) -> str:
+    parts: list[str] = []
+    index = 0
+    while index < len(token):
+        char = token[index]
+        if not char.isalpha() or not char.isupper():
+            parts.append(_esc(char))
+            index += 1
+            continue
+        piece = _esc(char)
+        if index + 1 < len(token) and token[index + 1] == "'":
+            piece += "<sup>&prime;</sup>"
+            index += 1
+        parts.append(piece)
+        index += 1
+    return "\u00b7".join(parts)
 
 
 def _format_token(token: str) -> str:
     sign = ""
     if len(token) == 2 and token[0] in {"u", "i"} and token[-1] in "+-":
         token, sign = token[:-1], token[-1]
+    if token[0] not in SUBSCRIPTABLE_PREFIXES and re.fullmatch(r"[A-Z](?:'?[A-Z])+'?", token):
+        return _format_logic_product(token)
     if token in {"sin", "cos", "tan", "log", "ln"}:
         base, sub = token, ""
     elif token.startswith("U("):
@@ -51,7 +72,7 @@ def _format_token(token: str) -> str:
         base, sub = token, ""
     elif token[0].islower() and token[1:].isalpha():
         base, sub = token[0], token[1:]
-    elif token[0].isupper() and (token[1:].isalpha() or any(char.isdigit() for char in token[1:])):
+    elif token[0] in SUBSCRIPTABLE_PREFIXES and (token[1:].isalpha() or any(char.isdigit() for char in token[1:])):
         base, sub = token[0], token[1:]
     else:
         base, sub = token, ""
@@ -183,7 +204,18 @@ def _modal_button_attrs(image: str, caption: str) -> str:
         'type="button" '
         'onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption)" '
         f'data-modal-src="{_esc(image)}" '
-        f'data-modal-caption="{_esc(caption)}"'
+        f'data-modal-caption="{_esc(caption)}" '
+        'data-modal-group="global"'
+    )
+
+
+def _modal_button_attrs_with_group(image: str, caption: str, group: str) -> str:
+    return (
+        'type="button" '
+        'onclick="openImageModal(this.dataset.modalSrc, this.dataset.modalCaption, this.dataset.modalGroup)" '
+        f'data-modal-src="{_esc(image)}" '
+        f'data-modal-caption="{_esc(caption)}" '
+        f'data-modal-group="{_esc(group)}"'
     )
 
 
@@ -218,7 +250,7 @@ def _source_pages_html(source_pages: list[dict]) -> str:
 def _official_answer_pages_html(question: dict) -> str:
     pages = question.get("official_answer_pages", [])
     if not pages:
-        return '<p class="muted">这份参考答案 PDF 暂未覆盖本题；当前保留已有解析或待核对状态。</p>'
+        return '<p class="muted">这份参考答案 PDF 暂未覆盖本题；当前使用 AI 兜底答案，后续有官方答案时可替换校准。</p>'
     parts = []
     for page in pages:
         image = page["image_path"]
@@ -361,7 +393,7 @@ def _answer_status_html(questions: list[dict]) -> str:
     return f"""
       <section class="scope" id="answer-status">
         <h2>答案状态</h2>
-        <p>当前页面保留了每道题的解析入口和答案来源标记。已接入的参考答案 PDF 覆盖 {official_count} 道题；未覆盖的第 5、7 章题目继续保留推导答案或待核对状态。</p>
+        <p>当前页面保留了每道题的解析入口和答案来源标记。已接入的参考答案 PDF 覆盖 {official_count} 道题；未覆盖的第 5、7 章题目使用 AI 兜底答案，后续有官方答案时再替换校准。</p>
         <ul>{items}</ul>
       </section>
     """
@@ -395,7 +427,7 @@ def _lecture_gallery_html(gallery: list[dict]) -> str:
         pages = "".join(
             f"""
             <figure class="{_lecture_page_classes(page)}">
-              <button {_modal_button_attrs(page["image_path"], source["title"] + " p." + str(page["page"]))}>
+              <button {_modal_button_attrs_with_group(page["image_path"], source["title"] + " p." + str(page["page"]), source["file"])}>
                 <img src="{_esc(page["image_path"])}" alt="{_esc(source["title"])} 第 {_esc(str(page["page"]))} 页截图" loading="lazy" decoding="async"
                   onerror="this.closest('figure').classList.add('image-missing')">
               </button>
@@ -414,8 +446,8 @@ def _lecture_gallery_html(gallery: list[dict]) -> str:
         )
     return f"""
       <section class="scope" id="lecture-gallery">
-        <h2>原讲义 PDF 截图库</h2>
-        <p>这里集中放更多原讲义截图，方便你从整理版回到老师原 PDF 页面核对。每份 PDF 默认折叠，打开后再按页查看截图。</p>
+        <h2>原讲义/PPT 截图库</h2>
+        <p>这里集中放更多原讲义截图，方便你从整理版回到老师原 PDF/PPT 页面核对。每份讲义默认折叠，打开后再按页查看截图。</p>
         {''.join(groups)}
       </section>
     """
@@ -435,7 +467,7 @@ def _write_outline(knowledge: list[dict], questions: list[dict]) -> None:
         "## 使用方式",
         "- 章节知识是主入口，作业题号是查漏补缺入口。",
         "- 每个知识点保留前置知识、来源课件页和相关作业。",
-        "- 官方答案状态：当前区分为“官方答案”“推导答案”“待核对”，后续可接入正式答案文件。",
+        "- 答案状态：当前区分为“官方答案”“AI兜底答案”“待核对”，后续可接入正式答案文件。",
         "",
     ]
     for chapter in ["1", "2", "3", "4", "5", "7"]:
@@ -597,7 +629,7 @@ def render_site() -> None:
         {nav_chapters}
         <h3>作业题号索引</h3>
         <div>{question_links}</div>
-        <a href="#lecture-gallery">原讲义 PDF 截图库</a>
+        <a href="#lecture-gallery">原讲义/PPT 截图库</a>
         <a href="#answer-status">答案状态</a>
         <a href="#methods">公式和方法速查</a>
         <a href="#checklist">易错点与考前清单</a>
@@ -703,31 +735,35 @@ def render_site() -> None:
     window.addEventListener("hashchange", () => updateCurrentLocation(window.location.hash));
     updateCurrentLocation(window.location.hash || "#scope");
     let currentModalIndex = -1;
-    function getModalItems() {{
-      return Array.from(document.querySelectorAll("[data-modal-src][data-modal-caption]")).map(button => ({{
+    let currentModalGroup = "global";
+    function getModalItems(group = currentModalGroup) {{
+      return Array.from(document.querySelectorAll(`[data-modal-src][data-modal-caption][data-modal-group="${{CSS.escape(group)}}"]`)).map(button => ({{
         src: button.dataset.modalSrc,
-        caption: button.dataset.modalCaption
+        caption: button.dataset.modalCaption,
+        group: button.dataset.modalGroup || "global"
       }}));
     }}
     function setModalImage(item, index) {{
       currentModalIndex = index;
+      currentModalGroup = item.group || currentModalGroup || "global";
       document.getElementById("modal-image").src = item.src;
       document.getElementById("modal-image").alt = item.caption;
       document.getElementById("modal-caption").textContent = item.caption;
-      const items = getModalItems();
+      const items = getModalItems(currentModalGroup);
       document.querySelector(".modal-prev").disabled = currentModalIndex <= 0;
       document.querySelector(".modal-next").disabled = currentModalIndex >= items.length - 1;
     }}
-    function openImageModal(src, caption) {{
-      const items = getModalItems();
+    function openImageModal(src, caption, group = "global") {{
+      currentModalGroup = group || "global";
+      const items = getModalItems(currentModalGroup);
       const index = Math.max(0, items.findIndex(item => item.src === src && item.caption === caption));
-      setModalImage({{ src, caption }}, index);
+      setModalImage({{ src, caption, group: currentModalGroup }}, index);
       document.getElementById("image-modal").classList.remove("hidden");
     }}
     function showAdjacentImage(direction) {{
       const modal = document.getElementById("image-modal");
       if (modal.classList.contains("hidden")) return;
-      const items = getModalItems();
+      const items = getModalItems(currentModalGroup);
       const nextIndex = currentModalIndex + direction;
       if (nextIndex < 0 || nextIndex >= items.length) return;
       setModalImage(items[nextIndex], nextIndex);

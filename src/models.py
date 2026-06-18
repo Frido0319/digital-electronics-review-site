@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass, field, is_dataclass
 from typing import Any, Literal
 
 
-AnswerSource = Literal["官方答案", "推导答案", "待核对"]
+AnswerSource = Literal["官方答案", "推导答案", "待核对", "AI兜底答案"]
 
 
 @dataclass(frozen=True)
