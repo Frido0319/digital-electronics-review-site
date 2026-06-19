@@ -623,10 +623,10 @@ def render_site() -> None:
     .official-answer-page button {{ border:2px solid #0f766e; box-shadow:0 0 0 3px rgba(15,118,110,.09); }}
     .lecture-page.is-key-page button {{ border:3px solid #dc2626; box-shadow:0 0 0 3px rgba(220,38,38,.13); }}
     .lecture-page.is-super-key-page button {{ border:4px double #b91c1c; box-shadow:0 0 0 4px rgba(185,28,28,.14), inset 0 0 0 2px rgba(185,28,28,.08); }}
-    .lecture-page.is-exam-essential-page button {{ border:3px solid #d97706; box-shadow:0 0 0 3px rgba(217,119,6,.13); }}
+    .lecture-page.is-exam-essential-page button {{ border:3px solid #2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.13); }}
     .key-page-badge {{ display:inline-flex; align-items:center; border:1px solid #dc2626; border-radius:999px; padding:1px 6px; margin-right:4px; color:#b91c1c; font-weight:700; background:#fff1f2; }}
     .super-key-page-badge {{ display:inline-flex; align-items:center; border:1px solid #b91c1c; border-radius:999px; padding:1px 6px; margin-right:4px; color:#7f1d1d; font-weight:800; background:#fee2e2; }}
-    .exam-essential-page-badge {{ display:inline-flex; align-items:center; border:1px solid #d97706; border-radius:999px; padding:1px 6px; margin-right:4px; color:#9a3412; font-weight:800; background:#ffedd5; }}
+    .exam-essential-page-badge {{ display:inline-flex; align-items:center; border:1px solid #2563eb; border-radius:999px; padding:1px 6px; margin-right:4px; color:#1d4ed8; font-weight:800; background:#eff6ff; }}
     .quick-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; }}
     .quick-card {{ border:1px solid var(--line); border-radius:8px; padding:14px; background:#fbfcfd; }}
     .formula-list {{ list-style:none; padding-left:0; margin:10px 0 0; }}

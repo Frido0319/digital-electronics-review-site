@@ -162,6 +162,7 @@ def test_render_site_marks_exam_essential_gallery_pages_with_special_badge():
     assert 'class="exam-essential-page-badge"' in html
     assert "一定会考" in html
     assert ".lecture-page.is-exam-essential-page button" in html
+    assert "#2563eb" in html
 
 
 def test_render_site_uses_safe_modal_button_attributes():
