@@ -17,6 +17,8 @@ def _asset_exists(relative_path: str) -> bool:
 def validate_site(strict_assets: bool = True) -> dict:
     knowledge = _load(config.KNOWLEDGE_MAP_JSON)["knowledge_points"]
     questions = _load(config.QUESTION_BANK_JSON)["questions"]
+    manifest = _load(config.SOURCE_MANIFEST_JSON)
+    exam_essentials = manifest.get("exam_essentials", [])
 
     missing_assets = []
     for point in knowledge:
@@ -44,6 +46,18 @@ def validate_site(strict_assets: bool = True) -> dict:
             if not _asset_exists(page["image_path"]):
                 missing_assets.append(page["image_path"])
 
+    if not exam_essentials:
+        raise AssertionError("必考专题数据缺失")
+
+    for item in exam_essentials:
+        if not item["source_pages"]:
+            raise AssertionError(f"必考专题缺少来源页: {item['id']}")
+        if not item["answer"]:
+            raise AssertionError(f"必考专题缺少解答: {item['id']}")
+        for page in item["source_pages"]:
+            if not _asset_exists(page["image_path"]):
+                missing_assets.append(page["image_path"])
+
     if "三相桥式整流" in config.INDEX_HTML.read_text(encoding="utf-8"):
         raise AssertionError("不考内容出现在学生页面: 三相桥式整流")
 
@@ -53,5 +67,6 @@ def validate_site(strict_assets: bool = True) -> dict:
     return {
         "knowledge_count": len(knowledge),
         "question_count": len(questions),
+        "exam_essential_count": len(exam_essentials),
         "missing_assets": sorted(set(missing_assets)),
     }

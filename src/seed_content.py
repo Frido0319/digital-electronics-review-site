@@ -147,6 +147,15 @@ def _ppt_gallery_image_name(file: str, page: int) -> str:
     return _gallery_image_name(file, page)
 
 
+def _gallery_source(file: str, page: int) -> SourcePage:
+    image_name = _ppt_gallery_image_name if file.lower().endswith((".ppt", ".pptx")) else _gallery_image_name
+    return _source(file, page, image_name(file, page))
+
+
+def _gallery_sources(file: str, pages: list[int]) -> list[SourcePage]:
+    return [_gallery_source(file, page) for page in pages]
+
+
 def _office_pdf_path(path: Path) -> Path:
     if path.name == "第4章  电子电路中的反馈.ppt":
         return config.PROJECT_ROOT / "tmp" / "office_convert" / "ch4_feedback.pdf"
@@ -237,6 +246,284 @@ SUPER_KEY_SOURCE_PAGE_RULES: dict[str, list[tuple[str, list[int]]]] = {
 }
 
 
+EXAM_ESSENTIAL_REASON = "一定会考"
+
+
+def build_exam_essentials() -> list[dict]:
+    return [
+        {
+            "id": "essential-intrinsic-semiconductor",
+            "chapter": "1",
+            "title": "本征半导体",
+            "prompt": "什么是本征半导体？",
+            "answer": "本征半导体是完全纯净、晶格完整的半导体，例如高纯硅或锗。它靠本征激发产生等量自由电子和空穴，两类载流子都参与导电，但载流子数量很少，所以导电能力较弱。",
+            "prerequisites": ["知道硅、锗是四价元素", "知道自由电子和空穴都能形成电流"],
+            "source_pages": _gallery_sources("第1章 半导体器件讲义/第1章-半导体器件1.pdf", [18, 20, 21, 22, 23, 24]),
+            "note": "重点背定义、载流子来源和温度升高导电能力增强。",
+        },
+        {
+            "id": "essential-impurity-semiconductor",
+            "chapter": "1",
+            "title": "杂质半导体与多子少子",
+            "prompt": "什么是杂质半导体？有哪些类型？多子、少子分别是谁？",
+            "answer": "在本征半导体中掺入微量杂质后形成杂质半导体。掺五价元素形成 N 型半导体，多数载流子是自由电子，少数载流子是空穴；掺三价元素形成 P 型半导体，多数载流子是空穴，少数载流子是自由电子。多子数量主要由掺杂浓度决定，少子数量主要受温度影响。",
+            "prerequisites": ["本征半导体", "自由电子、空穴和载流子的含义"],
+            "source_pages": _gallery_sources("第1章 半导体器件讲义/第1章-半导体器件1.pdf", [25, 26, 27, 28]),
+            "note": "考试常问 N 型/P 型谁是多子少子，要直接答清。",
+        },
+        {
+            "id": "essential-pn-junction",
+            "chapter": "1",
+            "title": "PN 结",
+            "prompt": "PN 结怎么形成？为什么单向导电？",
+            "answer": "P 区和 N 区接触后，多子扩散形成空间电荷区和内电场；内电场阻碍扩散、促进少子漂移，最终达到动态平衡。正向偏置时势垒降低、PN 结变窄、多子扩散增强，电流大，表现为导通；反向偏置时势垒升高、PN 结变宽，只剩很小反向电流，表现为截止。",
+            "prerequisites": ["P 型和 N 型半导体", "扩散运动与漂移运动", "正向/反向偏置极性"],
+            "source_pages": _gallery_sources("第1章 半导体器件讲义/第1章-半导体器件1.pdf", [29, 30, 31, 33, 34]),
+            "note": "重点是正偏导通、反偏截止和伏安特性。",
+        },
+        {
+            "id": "essential-zener",
+            "chapter": "1",
+            "title": "稳压管与特性曲线",
+            "prompt": "稳压管怎么工作？特性曲线怎么看？",
+            "answer": "稳压二极管正常工作在反向击穿区。进入稳定区后，电流变化很大而两端电压变化很小，因此可用于稳压。读特性曲线时要找稳定电压 UZ、稳定电流范围、最大稳定电流 IZM 和动态电阻 rZ；rZ 越小，曲线越陡，稳压性能越好。使用时必须串限流电阻。",
+            "prerequisites": ["PN 结伏安特性", "反向击穿不是普通损坏", "限流电阻作用"],
+            "source_pages": _gallery_sources("第1章 半导体器件讲义/第1章-半导体器件2.pdf", [17, 18, 19]),
+            "note": "稳压管反向工作，普通二极管通常正向使用。",
+        },
+        {
+            "id": "essential-bjt-structure-regions",
+            "chapter": "1",
+            "title": "晶体管构成与放大/截止/饱和",
+            "prompt": "晶体管怎么构成？什么时候放大、截止、饱和？",
+            "answer": "双极型晶体管由两个 PN 结构成，有 NPN 和 PNP 两类，含发射区、基区、集电区，对应 E、B、C 三个电极。放大区：发射结正偏、集电结反偏，IC≈βIB；截止区：IB≈0，IC≈0，近似开关断开；饱和区：发射结和集电结都正偏，UCE 很小，近似开关闭合。模拟放大电路要求工作在放大区，数字电路常让晶体管工作在截止或饱和区。",
+            "prerequisites": ["PN 结偏置", "NPN/PNP 电流方向", "β 电流放大系数"],
+            "source_pages": _gallery_sources("第1章 半导体器件讲义/第1章-半导体器件34-.pdf", [3, 5, 10, 12, 18, 19, 20, 21, 22]),
+            "note": "判断区间优先看两个结的偏置，再结合 IC 与 βIB。",
+        },
+        {
+            "id": "essential-q-point-adjustment",
+            "chapter": "2",
+            "title": "Q 点不合适怎么调整",
+            "prompt": "静态工作点 Q 点偏高或偏低怎么处理？",
+            "answer": "Q 点应放在放大区中部，给输出信号留出上下摆动空间。Q 点过高容易进入饱和区，出现饱和失真；Q 点过低容易进入截止区，出现截止失真。固定偏置电路中可通过调整偏置电阻 RB、集电极电阻 RC 或电源 UCC 改变 IB、IC、UCE；分压式偏置电路中通过 RB1、RB2、RE 设置并稳定 Q 点。温度升高导致 IC 增大时，RE 的直流负反馈可抑制 Q 点漂移。",
+            "prerequisites": ["输出特性曲线", "直流负载线", "截止失真和饱和失真"],
+            "source_pages": _gallery_sources("第2章 基本放大电路/第2章-基本放大电路5.pdf", [23, 24, 25, 26, 27, 28, 29, 30])
+            + _gallery_sources("第2章 基本放大电路/第2章-基本放大电路7.pdf", [5, 6, 7, 8, 9]),
+            "note": "答题时要写清偏高/偏低对应失真方向和调参方向。",
+        },
+        {
+            "id": "essential-static-analysis-q",
+            "chapter": "2",
+            "title": "放大电路静态分析求 Q 点",
+            "prompt": "怎么做静态分析并求 Q 点？",
+            "answer": "静态分析只看直流通路：电容开路、信号源置零，只保留直流电源和偏置电阻。固定偏置常用 IB≈(UCC-UBE)/RB，IC≈βIB，UCE=UCC-ICRC。分压式偏置先求 VB≈UCC·RB2/(RB1+RB2)，再求 IE≈(VB-UBE)/RE，IC≈IE，最后 UCE≈UCC-IC(RC+RE)。Q 点就是 IB、IC、UCE 或 IC、UCE 组成的静态工作位置。",
+            "prerequisites": ["欧姆定律", "KVL", "电容直流开路", "UBE 近似值"],
+            "source_pages": _gallery_sources("第2章 基本放大电路/第2章-基本放大电路5.pdf", [23])
+            + _gallery_sources("第2章 基本放大电路/第2章-基本放大电路7.pdf", [9, 16, 17]),
+            "note": "考试计算题必须先写直流通路，再代公式。",
+        },
+        {
+            "id": "essential-dynamic-small-signal",
+            "chapter": "2",
+            "title": "动态分析与晶体管线性模型",
+            "prompt": "动态分析时晶体管怎么线性化、怎么化简？",
+            "answer": "动态分析只看交流通路：耦合电容和旁路电容按交流短路处理，直流电源作交流地。晶体管在 Q 点附近小信号工作，可把 B-E 间等效为 rbe，把 C-E 间等效为受控电流源 βib。共射基本公式常写为 Au=-β(RC//RL)/rbe，ri≈RB1//RB2//rbe，ro≈RC。若发射极电阻未被旁路，它引入交流负反馈，使电压增益绝对值下降、输入电阻增大。",
+            "prerequisites": ["Q 点已在放大区", "电容交流短路", "电阻串并联"],
+            "source_pages": _gallery_sources("第1章 半导体器件讲义/第1章-半导体器件34-.pdf", [35, 36, 37, 38])
+            + _gallery_sources("第2章 基本放大电路/第2章-基本放大电路6.pdf", [6, 8, 12])
+            + _gallery_sources("第2章 基本放大电路/第2章-基本放大电路7.pdf", [10, 11, 15, 18]),
+            "note": "公式和算式按论文式分步写，不把所有推导挤成一行。",
+        },
+        {
+            "id": "essential-differential-amplifier",
+            "chapter": "2",
+            "title": "差分放大电路",
+            "prompt": "差分电路主要看什么？",
+            "answer": "差分放大电路的核心作用是放大差模信号、抑制共模信号和零点漂移。理想对称时，两管静态工作点相同；温度引起的同向漂移在双端输出中相互抵消。复习时抓住四个词：对称、差模、共模、共模抑制比。若考计算，常围绕静态值、差模放大倍数和 CMRR。",
+            "prerequisites": ["多级直接耦合", "零点漂移", "共模/差模信号分解"],
+            "source_pages": _gallery_sources("第2章 基本放大电路/第2章-基本放大电路10.pdf", [1, 4, 6, 7, 8, 9, 10, 11, 15, 19, 20]),
+            "note": "如果考试只要求了解，能解释抑制零漂和共模即可。",
+        },
+        {
+            "id": "essential-power-amplifier",
+            "chapter": "2",
+            "title": "功率放大与甲乙类",
+            "prompt": "功率放大电路有什么要求？甲类、乙类、甲乙类区别是什么？",
+            "answer": "功率放大电路作为输出级，用来向负载提供足够功率，要求输出功率大、效率高、失真小、器件安全。甲类：整个周期导通，失真小但效率低；乙类：半个周期导通，效率高但有交越失真；甲乙类：导通时间大于半个周期，静态电流很小，兼顾效率并减小交越失真，互补功放常用。克服交越失真通常给两管加适当偏置，使其工作在甲乙类。",
+            "prerequisites": ["晶体管导通角", "交越失真", "互补对称输出级"],
+            "source_pages": _gallery_sources("第2章 基本放大电路/第2章-基本放大电路10.pdf", [26, 27, 28, 31, 32, 37, 38]),
+            "note": "重点背甲/乙/甲乙类的导通时间、效率和失真特征。",
+        },
+        {
+            "id": "essential-fet",
+            "chapter": "1",
+            "title": "场效应管了解",
+            "prompt": "场效应管需要了解什么？",
+            "answer": "场效应管是电压控制器件，输入电阻高，基本不需要信号源提供输入电流，温度稳定性较好。与双极型晶体管相比，BJT 是电流控制器件，FET 是电压控制器件；BJT 有 NPN/PNP，FET 常看 N 沟道/P 沟道；对应电极可粗略记为 B-G、E-S、C-D。",
+            "prerequisites": ["晶体管电流控制概念", "输入电阻含义"],
+            "source_pages": _gallery_sources("第1章 半导体器件讲义/第1章-半导体器件34-.pdf", [40, 55]),
+            "note": "这里只按了解处理，不进入第 2 章 2.6 场效应管放大电路计算。",
+        },
+        {
+            "id": "essential-opamp-ideal",
+            "chapter": "3",
+            "title": "集成运放理想假设、虚短、虚断",
+            "prompt": "理想运放假设有哪些？什么时候用虚短和虚断？",
+            "answer": "理想运放常用假设：开环电压放大倍数 Auo→∞，输入电阻 rid→∞，输出电阻 ro→0，共模抑制比 KCMR→∞，带宽无限，失调和噪声忽略。线性区且有负反馈时可用虚短 u+=u- 和虚断 i+=i-=0；非线性比较器中仍有虚断，但没有虚短，输出只取正/负饱和值。",
+            "prerequisites": ["运放输入端正负号", "线性区和饱和区", "负反馈条件"],
+            "source_pages": _gallery_sources("第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf", [11, 12, 13, 14, 16]),
+            "note": "虚短不是物理短路，虚断不是反馈支路断开。",
+        },
+        {
+            "id": "essential-signal-opamp",
+            "chapter": "3",
+            "title": "信号运放",
+            "prompt": "运放在线性信号运算中怎么答？",
+            "answer": "信号运算类运放通常工作在线性区，靠深度负反馈让输出主要由外接电阻、电容决定。常见类型包括反相比例、同相比例、加法、减法、积分、微分。答题套路是先写虚短虚断，再在关键节点列 KCL，最后整理输出与输入的关系。若题目只要求简单掌握，重点会识别电路类型和写出基础输入输出关系。",
+            "prerequisites": ["虚短虚断", "节点电流法", "反相端虚地"],
+            "source_pages": _gallery_sources("第3章 集成运算放大电路/第3章  集成运算放大电路11.pdf", [17, 18, 19, 21, 22, 24, 28])
+            + _gallery_sources("第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf", [2, 7, 12, 15, 18]),
+            "note": "你说反馈不考运算，所以反馈章不额外展开闭环增益计算。",
+        },
+        {
+            "id": "essential-voltage-comparator",
+            "chapter": "3",
+            "title": "电压比较器与区间比较",
+            "prompt": "电压比较器、区间/窗口比较器怎么判断？",
+            "answer": "电压比较器把模拟输入与参考电压比较，输出跳到正饱和或负饱和，是模拟输入、数字输出的接口。基本比较器看 u+ 和 u- 谁大：u+>u- 时输出正饱和，u+<u- 时输出负饱和。单限比较器只有一个门限；滞回比较器引入正反馈，有上、下两个门限，抗干扰更强；区间/窗口比较器本质是两个门限组合，用来判断输入是否落在某一区间内。",
+            "prerequisites": ["理想运放非线性区", "参考电压", "正/负饱和值"],
+            "source_pages": _gallery_sources("第3章 集成运算放大电路/第3章  集成运算放大电路12.pdf", [20, 21, 22, 23, 24, 26, 27, 32, 33, 35, 36, 40]),
+            "note": "比较器没有虚短；画波形时先找门限再看输入穿越时刻。",
+        },
+        {
+            "id": "essential-feedback-types",
+            "chapter": "4",
+            "title": "负反馈四种类型与特点",
+            "prompt": "负反馈四种类型是什么？各有什么特点？",
+            "answer": "四种基本负反馈是电压串联、电压并联、电流串联、电流并联。电压反馈取样输出电压，能稳定输出电压并降低输出电阻；电流反馈取样输出电流，能稳定输出电流并提高输出电阻。串联混合使输入电阻增大；并联混合使输入电阻减小。组合起来：电压串联提高输入电阻、降低输出电阻；电压并联降低输入电阻、降低输出电阻；电流串联提高输入电阻、提高输出电阻；电流并联降低输入电阻、提高输出电阻。",
+            "prerequisites": ["反馈取样点", "输入混合方式", "输入/输出电阻含义"],
+            "source_pages": _gallery_sources("第4章  电子电路中的反馈.ppt", [9, 10, 11, 12, 13, 14, 15, 16, 17, 31, 32, 33]),
+            "note": "你明确说负反馈不考运算，所以这里只背类型、判别和特点。",
+        },
+        {
+            "id": "essential-instant-feedback",
+            "chapter": "4",
+            "title": "瞬时极性法判断负反馈",
+            "prompt": "怎么用瞬时极性法判断负反馈？",
+            "answer": "瞬时极性法先假设输入端某点瞬时增大，沿基本放大电路推出输出瞬时极性，再沿反馈网络把反馈信号送回输入端。如果反馈信号削弱原输入净作用，就是负反馈；如果增强原输入净作用，就是正反馈。操作时要区分是串联混合还是并联混合：串联看输入电压差是否被削弱，并联看输入电流差是否被削弱。",
+            "prerequisites": ["放大器反相/同相关系", "反馈回路路径", "串联/并联混合"],
+            "source_pages": _gallery_sources("第4章  电子电路中的反馈.ppt", [6, 7, 18, 19, 20, 34, 35, 36, 37, 38, 39, 40, 41]),
+            "note": "考试题通常让你标 + / - 并写出反馈类型。",
+        },
+        {
+            "id": "essential-positive-feedback-oscillator",
+            "chapter": "4",
+            "title": "正反馈与 RC 正弦波振荡",
+            "prompt": "正反馈、RC 正弦波振荡的质量和原理怎么答？",
+            "answer": "正反馈会增强输入净作用，满足条件时可产生振荡。正弦波振荡器由放大电路、正反馈网络、选频网络和稳幅环节组成。自激振荡条件是幅值条件 |AF|=1、相位条件 φA+φF=2nπ；起振时通常要求 |AF|>1，稳定后靠稳幅环节回到 |AF|=1。RC 文氏桥振荡中，RC 串并联网络选出特定频率，常见振荡频率为 f0=1/(2πRC)，输出波形质量取决于选频和稳幅是否合适。",
+            "prerequisites": ["正反馈概念", "选频网络", "幅值条件和相位条件"],
+            "source_pages": _gallery_sources("第4章  电子电路中的反馈.ppt", [42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56]),
+            "note": "你写的 RS 我按讲义中的 RC 正弦波/文氏桥振荡处理。",
+        },
+        {
+            "id": "essential-dc-power-supply-blocks",
+            "chapter": "5",
+            "title": "直流稳压电源几部分",
+            "prompt": "直流稳压电源由几部分组成？每部分做什么？",
+            "answer": "小功率直流稳压电源通常由变压、整流、滤波、稳压四部分组成。变压把交流电压变成合适大小；整流把交流变成脉动直流；滤波利用电容或电感的储能特性减小脉动；稳压在电网、负载或温度变化时保持输出电压基本稳定。",
+            "prerequisites": ["交流有效值", "二极管单向导电", "电容电压不能突变"],
+            "source_pages": _gallery_sources("第5章-直流稳压电源.pdf", [1, 2, 3, 4, 37, 38]),
+            "note": "这是第 5 章总框架，考试很容易问组成和作用。",
+        },
+        {
+            "id": "essential-rectifier-filter",
+            "chapter": "5",
+            "title": "整流与滤波",
+            "prompt": "单相半波、桥式整流和滤波分别看什么？",
+            "answer": "整流靠二极管单向导电。单相半波只利用一个半周，平均输出较小，常用 UO=0.45U2；单相桥式正、负半周都利用，常用 UO=0.9U2。电容滤波与负载并联，充电快、放电慢，使输出更平滑；桥式/全波电容滤波常近似 UO≈1.2U2，半波电容滤波常近似 UO≈1.0U2。复习时重点会看单相半波、单相桥式和电容滤波，三相整流按不考处理。",
+            "prerequisites": ["PN 结单向导电", "有效值与峰值", "电容充放电"],
+            "source_pages": _gallery_sources("第5章-直流稳压电源.pdf", [4, 5, 6, 9, 10, 13, 14, 15, 23, 24, 25, 26, 28, 29, 30, 31, 32, 36]),
+            "note": "半波、桥式两个整流图可以按你说的抄纸上。",
+        },
+        {
+            "id": "essential-stabilizer",
+            "chapter": "5",
+            "title": "稳压电路只用看",
+            "prompt": "稳压电路要看哪些？",
+            "answer": "稳压电路用于保持输出电压基本不随电网、负载和温度变化。稳压管稳压电路结构简单，输出约为 UZ，但输出电流小、不可调，适合小电流固定电压场合；串联型稳压电路由调整元件、比较放大、基准电压和采样环节组成，靠调整管 UCE 自动变化使输出稳定。这里只要求看懂工作原理，不深入复杂计算。",
+            "prerequisites": ["稳压二极管反向击穿稳压", "负反馈调节思想", "调整管串联概念"],
+            "source_pages": _gallery_sources("第5章-直流稳压电源.pdf", [39, 40, 41, 42, 43, 44, 46, 47, 51, 63, 64]),
+            "note": "开关稳压电源仍按原黑板范围不展开。",
+        },
+        {
+            "id": "essential-boolean-laws",
+            "chapter": "7",
+            "title": "逻辑代数运算法则与化简公式",
+            "prompt": "数电逻辑代数要背哪些？",
+            "answer": "逻辑代数变量只取 0 和 1，常用规则包括自等律、0-1 律、重叠律、还原律、互补律、交换律、结合律、分配律、吸收律和反演律。化简时常从复杂一边出发，利用 A+A=A、A·A=A、A+A'=1、A·A'=0、A+A'B=A+B、A(A+B)=A 等公式，目标是减少变量和门电路数量。",
+            "prerequisites": ["与、或、非基本逻辑", "真值表", "二值变量"],
+            "source_pages": _gallery_sources("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf", [1, 2, 3, 11, 14]),
+            "note": "你说这部分较少，可以把核心公式抄到纸上。",
+        },
+        {
+            "id": "essential-gate-symbols-ttl",
+            "chapter": "7",
+            "title": "门电路逻辑符号与 TTL 与非门",
+            "prompt": "门电路逻辑符号和 TTL 与非门要看什么？",
+            "answer": "基本门要会认符号、真值表、逻辑表达式和波形：与门有 0 出 0、全 1 出 1；或门有 1 出 1、全 0 出 0；与非门是与门后取反，有 0 出 1、全 1 出 0；异或是相异为 1。TTL 与非门要知道它是晶体管-晶体管逻辑门，常见指标有输出高/低电平、扇出系数和传输延迟，74LS00 是四个二输入与非门。",
+            "prerequisites": ["高低电平表示 1/0", "基本逻辑关系", "晶体管开关状态"],
+            "source_pages": _gallery_sources("第7章 门电路和组合逻辑电路/第7章-门电路和组合逻辑电路1.pdf", [16, 19, 21, 23, 26, 28, 29])
+            + _gallery_sources("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路2.pdf", [1, 2, 7, 8, 9, 25]),
+            "note": "按你要求以书上/讲义符号为准，不额外发散。",
+        },
+        {
+            "id": "essential-kmap",
+            "chapter": "7",
+            "title": "卡诺图化简",
+            "prompt": "卡诺图怎么化简？",
+            "answer": "卡诺图把最小项按相邻规则排成方格，相邻格只改变一个变量。化简步骤：把输出为 1 的最小项填入图中；按 1、2、4、8 个相邻格圈组，圈尽量大、圈数尽量少，并允许边界相邻；每个圈保留不变变量，消去变化变量；最后把各圈对应的与项相加。无关项可用于扩大圈组，但不能为了使用无关项而漏掉必须覆盖的 1。",
+            "prerequisites": ["最小项", "二进制相邻编码", "与或式"],
+            "source_pages": _gallery_sources("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路3.pdf", [17, 18, 19, 20, 21, 22, 23, 24]),
+            "note": "卡诺图页已经和作业 7.5.14 对应。",
+        },
+        {
+            "id": "essential-combinational-design",
+            "chapter": "7",
+            "title": "组合逻辑电路分析与设计",
+            "prompt": "组合逻辑题怎么做？",
+            "answer": "分析题按逻辑图写输出表达式，再化简、列状态表、说明功能。设计题按文字要求列真值表，再写逻辑表达式、化简或变换形式，最后画逻辑图。用与非门实现时常把与或式变成与非-与非形式。",
+            "prerequisites": ["真值表", "逻辑代数化简", "基本门电路"],
+            "source_pages": _gallery_sources("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路4.pdf", [1, 2, 4, 12, 16]),
+            "note": "实验做过的组合逻辑题要加强。",
+        },
+        {
+            "id": "essential-138-153",
+            "chapter": "7",
+            "title": "74LS138 与 74LS153",
+            "prompt": "138 和 153 重点看哪些？",
+            "answer": "74LS138 是 3 线-8 线译码器，注意三个输入、八个低有效输出和使能端条件；可用译码输出提供最小项，再配合门电路实现逻辑函数，也可扩展成 4 线-16 线译码器。74LS153 是双 4 选 1 数据选择器，注意使能端、选择端 A1/A0、数据端 D0-D3 和输出表达式；实现逻辑函数时通常把一部分变量接到选择端，剩余变量接到数据端。复习重点是看懂功能表、引脚和实验中做过的实现方法。",
+            "prerequisites": ["最小项", "译码器", "数据选择器", "使能端有效电平"],
+            "source_pages": _gallery_sources("第7章 门电路和组合逻辑电路/第7章 门电路和组合逻辑电路5.pdf", [88, 90, 91, 94, 95, 96, 106, 107, 108, 114, 115, 117]),
+            "note": "这是实验加强项，功能表和接线逻辑要能快速看懂。",
+        },
+    ]
+
+
+def build_exam_essential_page_lookup(essentials: list[dict] | None = None) -> dict[tuple[str, int], str]:
+    if essentials is None:
+        essentials = build_exam_essentials()
+    lookup: dict[tuple[str, int], list[str]] = {}
+    for item in essentials:
+        for page in item.get("source_pages", []):
+            key = (page.file.replace("\\", "/"), page.page)
+            lookup.setdefault(key, []).append(item["title"])
+    return {
+        key: f"{EXAM_ESSENTIAL_REASON}：{'、'.join(sorted(set(titles)))}"
+        for key, titles in lookup.items()
+    }
+
+
 def lecture_gallery_excluded_pages(file_key: str) -> set[int]:
     excluded: set[int] = set()
     for start, end in EXCLUDED_LECTURE_GALLERY_RANGES.get(file_key, []):
@@ -316,10 +603,12 @@ def build_key_source_page_lookup(
 def build_lecture_gallery(
     knowledge_points: list[KnowledgePoint] | None = None,
     questions: list[Question] | None = None,
+    exam_essentials: list[dict] | None = None,
 ) -> list[dict]:
     gallery = []
     key_source_pages = build_key_source_page_lookup(knowledge_points, questions)
     super_key_source_pages = build_super_key_source_page_lookup()
+    exam_essential_pages = build_exam_essential_page_lookup(exam_essentials)
     for files in config.SOURCE_FILES.values():
         for path in files:
             file_key = _source_file_key(path)
@@ -348,10 +637,13 @@ def build_lecture_gallery(
                         {
                             "page": page,
                             "image_path": image_name(file_key, page),
+                            "anchor_id": f"lecture-page-{len(gallery)}-{page}",
                             "is_key_page": (file_key, page) in key_source_pages or (file_key, page) in super_key_source_pages,
                             "key_reason": key_source_pages.get((file_key, page)),
                             "is_super_key_page": (file_key, page) in super_key_source_pages,
                             "super_key_reason": super_key_source_pages.get((file_key, page)),
+                            "is_exam_essential_page": (file_key, page) in exam_essential_pages,
+                            "exam_essential_reason": exam_essential_pages.get((file_key, page)),
                         }
                         for page in pages
                     ],
@@ -830,16 +1122,19 @@ def seed_content() -> None:
 
     knowledge_points = build_knowledge_points()
     questions = _apply_official_answer_pages(build_questions())
-    lecture_gallery = build_lecture_gallery(knowledge_points, questions)
+    exam_essentials = build_exam_essentials()
+    lecture_gallery = build_lecture_gallery(knowledge_points, questions, exam_essentials)
     manifest = {
         "course_pages": sorted(
             {page.image_path for point in knowledge_points for page in point.source_pages}
             | {page.image_path for question in questions for page in question.source_pages}
+            | {page.image_path for item in exam_essentials for page in item["source_pages"]}
             | {page["image_path"] for source in lecture_gallery for page in source["pages"]}
         ),
         "official_answer_pages": sorted({page.image_path for question in questions for page in question.official_answer_pages}),
         "homework_images": sorted({path for question in questions for path in question.image_paths}),
         "lecture_gallery": lecture_gallery,
+        "exam_essentials": [to_jsonable(item) for item in exam_essentials],
         "notes": [
             "Curated review records include all currently extracted homework IDs. Official answer PDF pages are attached for matched chapter exercises.",
             "Blackboard exclusions are enforced by content review and validation.",
@@ -867,9 +1162,11 @@ def render_required_source_pages() -> None:
     }
     knowledge_points = build_knowledge_points()
     questions = build_questions()
+    exam_essentials = build_exam_essentials()
     required_pages = [page for point in knowledge_points for page in point.source_pages]
     required_pages.extend(page for question in questions for page in question.source_pages)
-    for source in build_lecture_gallery(knowledge_points, questions):
+    required_pages.extend(page for item in exam_essentials for page in item["source_pages"])
+    for source in build_lecture_gallery(knowledge_points, questions, exam_essentials):
         required_pages.extend(_source(source["file"], page["page"], page["image_path"]) for page in source["pages"])
     rendered: set[str] = set()
     converted_office_pdfs: dict[str, Path] = {}

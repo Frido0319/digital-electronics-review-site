@@ -399,12 +399,59 @@ def _answer_status_html(questions: list[dict]) -> str:
     """
 
 
+def _exam_essentials_html(essentials: list[dict], lecture_lookup: dict[tuple[str, int], dict]) -> str:
+    if not essentials:
+        return ""
+
+    cards = []
+    for item in essentials:
+        source_links = []
+        for page in item.get("source_pages", []):
+            lecture_page = lecture_lookup.get((page["file"], page["page"]))
+            anchor_id = lecture_page.get("anchor_id") if lecture_page else None
+            if anchor_id:
+                source_links.append(
+                    f'<a href="#{_esc(anchor_id)}">{_esc(page["file"])} p.{_esc(str(page["page"]))}</a>'
+                )
+        prerequisites = "".join(f"<li>{_render_mixed_text(item_text)}</li>" for item_text in item.get("prerequisites", []))
+        cards.append(
+            f"""
+            <article class="quick-card exam-essential-card searchable" id="exam-essential-{_esc(item["id"])}" data-search="{_esc(item["title"])} {_esc(item["prompt"])} {_esc(item["answer"])} {_esc(item.get("note", ""))}">
+              <h3>{_esc(item["title"])}</h3>
+              <p class="summary">{_esc(item["prompt"])}</p>
+              <section>
+                <h4>专题解答</h4>
+                {_render_mixed_text(item["answer"])}
+              </section>
+              <section>
+                <h4>前置知识</h4>
+                <ul>{prerequisites or '<li>暂无</li>'}</ul>
+              </section>
+              <section>
+                <h4>源页跳转</h4>
+                <p class="link-row">{' '.join(source_links) if source_links else '<span class="muted">暂无</span>'}</p>
+              </section>
+            </article>
+            """
+        )
+
+    return f"""
+      <section class="scope" id="exam-essentials">
+        <h2>必考专题</h2>
+        <p>专题解答按章节整理，下面的卡片可以直接跳回原讲义页核对。</p>
+        <div class="quick-grid">{''.join(cards)}</div>
+      </section>
+    """
+
+
 def _lecture_page_classes(page: dict) -> str:
     classes = ["lecture-page"]
     if page.get("is_key_page"):
         classes.append("is-key-page")
     if page.get("is_super_key_page"):
         classes.append("is-super-key-page")
+    if page.get("is_exam_essential_page"):
+        classes.append("is-exam-essential-page")
     return " ".join(classes)
 
 
@@ -416,6 +463,10 @@ def _lecture_page_badges(page: dict) -> str:
         )
     if page.get("is_key_page") and page.get("key_reason"):
         badges.append(f'<span class="key-page-badge">{_esc(page["key_reason"])}</span>')
+    if page.get("is_exam_essential_page"):
+        badges.append(
+            f'<span class="exam-essential-page-badge">{_esc(page.get("exam_essential_reason") or "一定会考")}</span>'
+        )
     return (" ".join(badges) + " ") if badges else ""
 
 
@@ -426,7 +477,7 @@ def _lecture_gallery_html(gallery: list[dict]) -> str:
     for source in gallery:
         pages = "".join(
             f"""
-            <figure class="{_lecture_page_classes(page)}">
+            <figure{f' id="{_esc(page["anchor_id"])}"' if page.get("anchor_id") else ""} class="{_lecture_page_classes(page)}">
               <button {_modal_button_attrs_with_group(page["image_path"], source["title"] + " p." + str(page["page"]), source["file"])}>
                 <img src="{_esc(page["image_path"])}" alt="{_esc(source["title"])} 第 {_esc(str(page["page"]))} 页截图" loading="lazy" decoding="async"
                   onerror="this.closest('figure').classList.add('image-missing')">
@@ -489,6 +540,12 @@ def render_site() -> None:
     questions = _load_json(config.QUESTION_BANK_JSON)["questions"]
     exclusions = _load_json(config.EXCLUSIONS_JSON)
     manifest = _load_json(config.SOURCE_MANIFEST_JSON)
+    lecture_lookup = {
+        (source["file"], page["page"]): page
+        for source in manifest.get("lecture_gallery", [])
+        for page in source["pages"]
+    }
+    exam_essentials = manifest.get("exam_essentials", [])
 
     chapter_points = defaultdict(list)
     chapter_questions = defaultdict(list)
@@ -503,6 +560,7 @@ def render_site() -> None:
         f'<li>第 {_esc(item["chapter"])} 章 {_esc(item["section"])}：{_esc(item["reason"])}</li>'
         for item in exclusions["excluded_sections"]
     )
+    exam_essentials_html = _exam_essentials_html(exam_essentials, lecture_lookup)
     chapter_sections = []
     for chapter in ["1", "2", "3", "4", "5", "7"]:
         points_html = "".join(_knowledge_card(point) for point in chapter_points[chapter])
@@ -565,8 +623,10 @@ def render_site() -> None:
     .official-answer-page button {{ border:2px solid #0f766e; box-shadow:0 0 0 3px rgba(15,118,110,.09); }}
     .lecture-page.is-key-page button {{ border:3px solid #dc2626; box-shadow:0 0 0 3px rgba(220,38,38,.13); }}
     .lecture-page.is-super-key-page button {{ border:4px double #b91c1c; box-shadow:0 0 0 4px rgba(185,28,28,.14), inset 0 0 0 2px rgba(185,28,28,.08); }}
+    .lecture-page.is-exam-essential-page button {{ border:3px solid #d97706; box-shadow:0 0 0 3px rgba(217,119,6,.13); }}
     .key-page-badge {{ display:inline-flex; align-items:center; border:1px solid #dc2626; border-radius:999px; padding:1px 6px; margin-right:4px; color:#b91c1c; font-weight:700; background:#fff1f2; }}
     .super-key-page-badge {{ display:inline-flex; align-items:center; border:1px solid #b91c1c; border-radius:999px; padding:1px 6px; margin-right:4px; color:#7f1d1d; font-weight:800; background:#fee2e2; }}
+    .exam-essential-page-badge {{ display:inline-flex; align-items:center; border:1px solid #d97706; border-radius:999px; padding:1px 6px; margin-right:4px; color:#9a3412; font-weight:800; background:#ffedd5; }}
     .quick-grid {{ display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; }}
     .quick-card {{ border:1px solid var(--line); border-radius:8px; padding:14px; background:#fbfcfd; }}
     .formula-list {{ list-style:none; padding-left:0; margin:10px 0 0; }}
@@ -629,6 +689,7 @@ def render_site() -> None:
         {nav_chapters}
         <h3>作业题号索引</h3>
         <div>{question_links}</div>
+        <a href="#exam-essentials">必考专题</a>
         <a href="#lecture-gallery">原讲义/PPT 截图库</a>
         <a href="#answer-status">答案状态</a>
         <a href="#methods">公式和方法速查</a>
@@ -660,6 +721,7 @@ def render_site() -> None:
           <li>最后进入相关作业题，按“解题路线 -> 子题级解析 -> 最终答案”核对。</li>
         </ol>
       </section>
+      {exam_essentials_html}
       {''.join(chapter_sections)}
       {lecture_gallery_html}
       {answer_status_html}

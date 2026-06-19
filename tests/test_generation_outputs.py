@@ -84,6 +84,20 @@ def test_validator_accepts_complete_mvp_assets():
     assert report["missing_assets"] == []
 
 
+def test_validator_reports_exam_essentials_from_manifest():
+    import json
+    from src.render_html import render_site
+    from src.seed_content import seed_content
+    from src.validate_site import validate_site
+
+    seed_content()
+    render_site()
+    manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
+    report = validate_site(strict_assets=True)
+
+    assert report["exam_essential_count"] == len(manifest["exam_essentials"])
+
+
 def test_source_page_manifest_paths_are_unique():
     import json
     from src.seed_content import seed_content
@@ -160,6 +174,24 @@ def test_source_page_manifest_includes_expanded_lecture_gallery():
     assert chapter_4["title"] == "第4章  电子电路中的反馈.ppt"
     assert len(chapter_4["pages"]) >= 60
     assert chapter_4["pages"][0]["image_path"] == "assets/course_pages/gallery_ppt_ch4_feedback_p001.png"
+
+
+def test_source_page_manifest_marks_exam_essential_gallery_pages():
+    import json
+    from src.seed_content import seed_content
+
+    seed_content()
+    manifest = json.loads(config.SOURCE_MANIFEST_JSON.read_text(encoding="utf-8"))
+    gallery_pages = [
+        page
+        for source in manifest["lecture_gallery"]
+        for page in source["pages"]
+        if page.get("is_exam_essential_page")
+    ]
+
+    assert gallery_pages
+    assert any(page.get("exam_essential_reason") for page in gallery_pages)
+    assert any("一定会考" in page.get("exam_essential_reason", "") for page in gallery_pages)
 
 
 def test_seed_data_uses_ai_fallback_for_uncovered_homework_answers():

@@ -40,6 +40,20 @@ def test_render_site_includes_beginner_route_and_current_location():
     assert 'aria-current' in html
 
 
+def test_render_site_includes_exam_essentials_section_and_jump_links():
+    seed_content()
+    render_site()
+    html = config.INDEX_HTML.read_text(encoding="utf-8")
+
+    assert 'href="#exam-essentials"' in html
+    assert 'id="exam-essentials"' in html
+    assert 'id="exam-essential-essential-intrinsic-semiconductor"' in html
+    assert 'href="#lecture-page-' in html
+    assert "必考专题" in html
+    assert "专题解答" in html
+    assert "本征半导体" in html
+
+
 def test_render_site_populates_methods_and_checklist_from_seed_data():
     seed_content()
     render_site()
@@ -106,7 +120,7 @@ def test_render_site_includes_expanded_lecture_gallery():
     assert "原讲义/PPT 截图库" in html
     assert 'id="lecture-gallery"' in html
     assert 'class="lecture-page"' in html
-    assert html.count('<figure class="lecture-page') >= 550
+    assert html.count('class="lecture-page') >= 550
     assert "第2章-基本放大电路7.pdf" in html
     assert "第4章  电子电路中的反馈.ppt" in html
     assert "第7章 门电路和组合逻辑电路4.pdf" in html
@@ -123,7 +137,7 @@ def test_render_site_marks_key_gallery_pages_with_red_border_and_modal():
     assert ".lecture-page.is-key-page button" in html
     assert "#dc2626" in html
     gallery_html = html.split('id="lecture-gallery"', 1)[1].split('id="answer-status"', 1)[0]
-    assert gallery_html.count('<figure class="lecture-page') == gallery_html.count("data-modal-src=")
+    assert gallery_html.count("<figure ") == gallery_html.count("data-modal-src=")
 
 
 def test_render_site_marks_focus_gallery_pages_with_double_red_border():
@@ -137,6 +151,17 @@ def test_render_site_marks_focus_gallery_pages_with_double_red_border():
     assert ".lecture-page.is-super-key-page button" in html
     assert 'class="super-key-page-badge"' in html
     assert "4px double #b91c1c" in html
+
+
+def test_render_site_marks_exam_essential_gallery_pages_with_special_badge():
+    seed_content()
+    render_site()
+    html = config.INDEX_HTML.read_text(encoding="utf-8")
+
+    assert 'class="lecture-page is-exam-essential-page"' in html
+    assert 'class="exam-essential-page-badge"' in html
+    assert "一定会考" in html
+    assert ".lecture-page.is-exam-essential-page button" in html
 
 
 def test_render_site_uses_safe_modal_button_attributes():
